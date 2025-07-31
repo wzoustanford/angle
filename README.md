@@ -4,6 +4,7 @@ OpenRL Reinforcement Learning repository
 
 ## -- AgentTrainer 
 
+```python
 class AgentTrainer 
   def __init():
     self.replay_buffer = ReplayBuffer()
