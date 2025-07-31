@@ -37,13 +37,13 @@ class AgentTrainer
         if t % policy_update_interval == 0: 
             prev_states_tensor, actions_tensor, states_tensor = replay_get_batch(B) 
       
-    	next_actions_sampled = policy_function.forward_tensor(policy_function, states_tensor) 
-      
-    	q = Q(states_tensor, next_actions_sampled)
-    	loss = -1.0 * q
-    	policy_optimizer.zero_grad()
-    	loss.backward()
-    	policy_optimizer.step()
+          	next_actions_sampled = policy_function.forward_tensor(policy_function, states_tensor) 
+            
+          	q = Q(states_tensor, next_actions_sampled)
+          	loss = -1.0 * q
+          	policy_optimizer.zero_grad()
+          	loss.backward()
+          	policy_optimizer.step()
     
         if t % meta_update_interval == 0:
             meta_learner_trainer.update_meta_learning_model(states_tensor, Q)
