@@ -1,19 +1,17 @@
-# Angle
+# Angle.ac (a public benefit corporation) 
 
-OpenRL Reinforcement Learning repository 
+# Angle MatrixRL: Deep RL for Atari and Beyond 
 
-# 🕹️ Angle OpenRL: Deep Reinforcement Learning for Atari and Beyond
-
-Welcome to **Angle OpenRL**, an open-source reinforcement learning framework built for fun, research, and serious performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms.
+Welcome to **Angle MatrixRL**, an open-source reinforcement learning framework built for fun, research, and serious performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms.
 
 Whether you're here to beat Breakout, train a Pac-Man prodigy, or prototype your own AI, you’re in the right place.
 
 ---
 
-## 🚀 Features
+## Features
 
 - 🧠 **State-of-the-art RL algorithms**: DQN, PPO, A2C, Rainbow, and more.
-- 🎮 **Multi-environment support**: Atari (ALE via Gymnasium), OpenAI Retro, and custom games.
+- 🎮 **Multi-environment support**: Atari (ALE via Gymnasium), economic data, custom games.
 - 🛠️ **Modular & extensible** design: Easily plug in new agents, models, and environments.
 - 📈 **Training dashboards** with TensorBoard and Weights & Biases integration.
 - ♻️ **Replay buffer**, frame stacking, action repeat, and other training tricks.
@@ -21,7 +19,7 @@ Whether you're here to beat Breakout, train a Pac-Man prodigy, or prototype your
 
 ---
 
-## 🧰 Quick Start
+## Quick Start
 
 ### 1. Install
 
