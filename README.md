@@ -1,6 +1,6 @@
 # Angle.ac 
 
-# Angle MatrixRL: Deep RL for Online Real-time RL and performance 
+# Angle MatrixRL: Deep RL for Online and performance 
 
 Welcome to **Angle MatrixRL**, an open-source reinforcement learning framework built for research and real-time system performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms. 
 
