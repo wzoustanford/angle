@@ -1,0 +1,8 @@
+# requirements.txt
+torch>=1.9.0
+numpy>=1.19.5
+opencv-python>=4.5.0
+matplotlib>=3.3.4
+tensorboard>=2.7.0
+atari-py==0.2.9
+ale-py>=0.7.5
