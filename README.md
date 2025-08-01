@@ -30,11 +30,19 @@ git clone https://github.com/wzoustanford/angle.git
 cd angle
 pip install -r requirements.txt
 
-# Train an agent
+### 2. Train an agent
 '''bash
 python train.py --env BreakoutNoFrameskip-v4 --algo dqn --config configs/dqn_default.yaml
 
-# Project structure
+Or try PPO on a Retro game:
+'''bash
+python train.py --env SonicTheHedgehog-Genesis --algo ppo --config configs/ppo_retro.yaml
+
+Watch the agent play: 
+'''bash
+python play.py --checkpoint runs/dqn_breakout/best_model.pth --env BreakoutNoFrameskip-v4
+
+## Project structure
 '''graphql 
 angle/
 │
@@ -47,6 +55,15 @@ angle/
 ├── play.py         # Agent evaluation / gameplay rendering
 └── ...
 
+## 🤝 Contributing
+Contributions are welcome! Feel free to open an issue, suggest improvements, or submit a pull request.
+
+To get started:
+'''bash
+git checkout -b my-feature
+# Make awesome changes
+git commit -m "Add amazing feature"
+git push origin my-feature
 
 ## -- AgentTrainer 
 
