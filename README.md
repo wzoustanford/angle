@@ -4,6 +4,8 @@
 
 Welcome to **Angle MatrixRL**, an open-source reinforcement learning framework built for research and real-time system performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms. 
 
+note: we are working on moving code from priavte repo and adding sota algorithms. 
+the ooen source project just started, contributions welcome! 
 ---
 
 ## Features
