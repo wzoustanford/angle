@@ -1,4 +1,4 @@
-# Angle.ac (a public benefit corporation) 
+# Angle.ac  
 
 # Angle MatrixRL: Deep RL for Atari and Beyond 
 
