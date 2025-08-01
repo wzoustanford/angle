@@ -29,13 +29,14 @@ Whether you're here to beat Breakout, train a Pac-Man prodigy, or prototype your
 git clone https://github.com/wzoustanford/angle.git
 cd angle
 pip install -r requirements.txt
+```
 
 ### 2. Train an agent
-'''bash
+```bash
 python train.py --env BreakoutNoFrameskip-v4 --algo dqn --config configs/dqn_default.yaml
 
 Or try PPO on a Retro game:
-'''bash
+```bash
 python train.py --env SonicTheHedgehog-Genesis --algo ppo --config configs/ppo_retro.yaml
 
 Watch the agent play: 
