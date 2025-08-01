@@ -49,13 +49,13 @@ python play.py --checkpoint runs/dqn_breakout/best_model.pth --env BreakoutNoFra
 ```graphql 
 angle/RL/
 │
-├── agents/         # RL algorithms (DQN, PPO, A2C, etc.)
-├── envs/           # Atari, Retro, and custom env wrappers
 ├── models/         # Neural network architectures
-├── utils/          # Replay buffer, logger, scheduler, etc.
-├── configs/        # YAML configs for experiments
-├── train.py        # Entry point for training
+├── DataFeed.py     # Replay buffer, logger, scheduler, etc.
+├── AgentConfig.py  # YAML configs for experiments
+├── train.py        # Entry point for training [wip]
 ├── play.py         # Agent evaluation / gameplay rendering
+├── agents/         # RL algorithms (DQN, PPO, A2C, etc.) [wip] 
+├── envs/           # Atari, Retro, and custom env wrappers [wip]
 └── ...
 ```
 
