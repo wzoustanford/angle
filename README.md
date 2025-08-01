@@ -1,15 +1,15 @@
-# Angle.ac  
+# Angle.ac 
 
-# Angle MatrixRL: Deep RL for Atari and Beyond 
+# Angle MatrixRL: Deep RL for Online Real-time RL and performance 
 
-Welcome to **Angle MatrixRL**, an open-source reinforcement learning framework built for fun, research, and serious performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms. 
+Welcome to **Angle MatrixRL**, an open-source reinforcement learning framework built for research and real-time system performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms. 
 
 ---
 
 ## Features
 
 - **RL algorithms towards State-of-the-art**: DQN, PPO, A2C, Rainbow, NEC, Agent57 and more.
-- **towards online RL**: Components trusted by real-time services 
+- **towards online RL**: Towards industry grade efficiency. Components trusted by real-time production services. 
 - **Multi-environment support**: Atari (ALE via Gymnasium), economic and financial data, custom environments.
 - **Modular & extensible** design: Easily plug in new agents, models, and environments.
 - **Training dashboards** with TensorBoard integration.
@@ -91,7 +91,16 @@ class AgentTrainer
         prev_states_tensor, actions_tensor, states_tensor = self.replay_buffer.get_batch(B) 
         
         next_actions_tensor = policy_function.forward_tensor(policy_function, states_tensor)
-        
+
+        ## -- Meta learning 
+        if meta_learning_condition: 
+            meta_learner_trainer.update_meta_learning_model(states_tensor, Q)
+            # e.g. update clinical task: patient clinical presentation, biological results forecasting/monitoring
+            meta_learner_trainer.update_substrate_model_clinical_forecasting(states_tensor, Q)
+            # e.g. update clinical task: risk detection
+            meta_learner_trainer.update_substrate_model_with_risk_detection(states_tensor, Q)
+
+        ## -- Q learning 
         Q_future = Q_future_function(states_tensor, next_actions_tensor) 
         y = reward + gamma * Q_future 
         loss = torch.nn.mse_loss(y, Q(prev_states_tensor, actions_tensor)) 
@@ -111,9 +120,6 @@ class AgentTrainer
           	loss.backward()
           	policy_optimizer.step()
     
-        if t % meta_update_interval == 0:
-            meta_learner_trainer.update_meta_learning_model(states_tensor, Q)
-
 # abstractions for policy model 
 class PolicyModel(torch.nn.Module):
     def __init__(self):
