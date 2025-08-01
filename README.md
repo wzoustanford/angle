@@ -47,7 +47,7 @@ python play.py --checkpoint runs/dqn_breakout/best_model.pth --env BreakoutNoFra
 
 ## Project structure
 ```graphql 
-angle/
+angle/RL/
 │
 ├── agents/         # RL algorithms (DQN, PPO, A2C, etc.)
 ├── envs/           # Atari, Retro, and custom env wrappers
