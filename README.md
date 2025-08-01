@@ -34,17 +34,20 @@ pip install -r requirements.txt
 ### 2. Train an agent
 ```bash
 python train.py --env BreakoutNoFrameskip-v4 --algo dqn --config configs/dqn_default.yaml
+```
 
 Or try PPO on a Retro game:
 ```bash
 python train.py --env SonicTheHedgehog-Genesis --algo ppo --config configs/ppo_retro.yaml
+```
 
 Watch the agent play: 
-'''bash
+```bash
 python play.py --checkpoint runs/dqn_breakout/best_model.pth --env BreakoutNoFrameskip-v4
+```
 
 ## Project structure
-'''graphql 
+```graphql 
 angle/
 │
 ├── agents/         # RL algorithms (DQN, PPO, A2C, etc.)
@@ -55,16 +58,18 @@ angle/
 ├── train.py        # Entry point for training
 ├── play.py         # Agent evaluation / gameplay rendering
 └── ...
+```
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to open an issue, suggest improvements, or submit a pull request.
 
 To get started:
-'''bash
+```bash
 git checkout -b my-feature
 # Make awesome changes
 git commit -m "Add amazing feature"
 git push origin my-feature
+```
 
 ## -- AgentTrainer 
 
