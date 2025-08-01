@@ -2,20 +2,19 @@
 
 # Angle MatrixRL: Deep RL for Atari and Beyond 
 
-Welcome to **Angle MatrixRL**, an open-source reinforcement learning framework built for fun, research, and serious performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms.
-
-Whether you're here to beat Breakout, train a Pac-Man prodigy, or prototype your own AI, you’re in the right place.
+Welcome to **Angle MatrixRL**, an open-source reinforcement learning framework built for fun, research, and serious performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms. 
 
 ---
 
 ## Features
 
-- 🧠 **State-of-the-art RL algorithms**: DQN, PPO, A2C, Rainbow, and more.
-- 🎮 **Multi-environment support**: Atari (ALE via Gymnasium), economic data, custom games.
-- 🛠️ **Modular & extensible** design: Easily plug in new agents, models, and environments.
-- 📈 **Training dashboards** with TensorBoard and Weights & Biases integration.
-- ♻️ **Replay buffer**, frame stacking, action repeat, and other training tricks.
-- 🧪 **Experiment tracking**: Reproducible configs for clean ablations and comparisons.
+- **RL algorithms towards State-of-the-art**: DQN, PPO, A2C, Rainbow, NEC, Agent57 and more.
+- **towards online RL**: Components trusted by real-time services 
+- **Multi-environment support**: Atari (ALE via Gymnasium), economic and financial data, custom environments.
+- **Modular & extensible** design: Easily plug in new agents, models, and environments.
+- **Training dashboards** with TensorBoard integration.
+- **Replay buffer**, frame stacking, action repeat, priority buffers.
+- **LoggingExperiment tracking**: Reproducible configs for clean ablations and comparisons.
 
 ---
 
