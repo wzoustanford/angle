@@ -31,32 +31,6 @@ def plot_training_results(episode_rewards: List[float], losses: List[float]):
     plt.tight_layout()
     plt.savefig('./results/training_results.png')
     plt.show()
-<<<<<<< HEAD
-=======
-
-def main():
-    """Main training function"""
-    # Create configuration
-    config = AgentConfig()
-    
-    # Create agent
-    agent = DQNAgent(config)
-    
-    # Train agent
-    print("Starting training...")
-    episode_rewards, losses = agent.train(num_episodes=100)
-    
-    # Plot results
-    plot_training_results(episode_rewards, losses)
-    
-    # Test agent
-    print("\nTesting trained agent...")
-    test_rewards = agent.test(num_episodes=5, render=True)
-    print(f"Average test reward: {np.mean(test_rewards):.2f}")
-
-if __name__ == "__main__":
-    main()
->>>>>>> 26f190b (re-organized config and custom written files)
 
 def main():
     """Main training function"""
