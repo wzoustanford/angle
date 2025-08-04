@@ -2,7 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from typing import List
 
-from model import DQNAgent, AgentConfig
+from model import DQNAgent
+from config.AgentConfig import AgentConfig
 
 def plot_training_results(episode_rewards: List[float], losses: List[float]):
     """Plot training results"""

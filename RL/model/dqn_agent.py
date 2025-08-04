@@ -9,7 +9,6 @@ import os
 
 from .dqn_network import DQN
 from .data_buffer import ReplayBuffer, FrameStack
-from .agent_config import AgentConfig
 
 # Register Atari environments
 gym.register_envs(ale_py)
@@ -17,7 +16,7 @@ gym.register_envs(ale_py)
 
 class DQNAgent:
     """DQN Agent with delayed double Q-learning"""
-    def __init__(self, config: AgentConfig):
+    def __init__(self, config):
         self.config = config
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print(f"Using device: {self.device}")
