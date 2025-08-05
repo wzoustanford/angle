@@ -9,6 +9,7 @@ from typing import Dict, List, Optional
 from .dqn_network import DQN
 from .distributed_buffer import DistributedReplayBuffer
 from .parallel_env_manager import ParallelEnvironmentManager
+from .device_utils import get_device_manager
 
 
 class DistributedDQNAgent:
@@ -17,13 +18,13 @@ class DistributedDQNAgent:
     def __init__(self, config, num_workers: int = 4):
         self.config = config
         self.num_workers = num_workers
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        print(f"Using device: {self.device}")
+        self.devmgr = get_device_manager(getattr(config, 'device', None))
+        self.device = self.devmgr.device
         
         # Setup networks
         obs_shape = (config.frame_stack * 3, 210, 160)  # RGB channels * stack size
-        self.q_network = DQN(obs_shape, self._get_n_actions()).to(self.device)
-        self.target_network = DQN(obs_shape, self._get_n_actions()).to(self.device)
+        self.q_network = self.devmgr.to_dev(DQN(obs_shape, self._get_n_actions()))
+        self.target_network = self.devmgr.to_dev(DQN(obs_shape, self._get_n_actions()))
         self.target_network.load_state_dict(self.q_network.state_dict())
         self.target_network.eval()
         
@@ -95,11 +96,11 @@ class DistributedDQNAgent:
         states, actions, rewards, next_states, dones, worker_ids = batch_data
         
         # Convert to tensors
-        states = torch.FloatTensor(states).to(self.device)
-        actions = torch.LongTensor(actions).to(self.device)
-        rewards = torch.FloatTensor(rewards).to(self.device)
-        next_states = torch.FloatTensor(next_states).to(self.device)
-        dones = torch.FloatTensor(dones).to(self.device)
+        states = self.devmgr.to_dev(torch.FloatTensor(states))
+        actions = self.devmgr.to_dev(torch.LongTensor(actions))
+        rewards = self.devmgr.to_dev(torch.FloatTensor(rewards))
+        next_states = self.devmgr.to_dev(torch.FloatTensor(next_states))
+        dones = self.devmgr.to_dev(torch.FloatTensor(dones))
         
         # Current Q values
         current_q_values = self.q_network(states).gather(1, actions.unsqueeze(1))

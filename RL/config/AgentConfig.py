@@ -62,6 +62,9 @@ class AgentConfig:
     use_dueling: bool = True          # Use dueling architecture (V + A streams)
     clip_rewards: bool = False        # Clip rewards to [-1, 1] (sometimes used in R2D2)
     
+    # Device settings
+    device: str = None  # None = auto-select, 'cpu', 'cuda', 'cuda:0', etc.
+    
     # Saving
     save_interval: int = 5000
     checkpoint_dir: str = './results/checkpoints'
