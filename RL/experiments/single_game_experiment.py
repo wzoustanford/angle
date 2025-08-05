@@ -89,7 +89,79 @@ class SingleGameExperiment:
         
         try:
             agent = DQNAgent(config)
-            episode_rewards, losses = agent.train(num_episodes=self.episodes)
+            print(f"Starting {name} training...")
+            
+            # Modified training with progress tracking
+            episode_rewards = []
+            losses = []
+            episode_start_time = time.time()
+            
+            for episode in range(self.episodes):
+                # Reset environment and hidden state
+                obs, _ = agent.env.reset()
+                state = agent.frame_stack.reset(obs)
+                agent.reset_hidden_state()
+                episode_reward = 0
+                episode_losses = []
+                episode_steps = 0
+                
+                done = False
+                while not done:
+                    # Select and perform action
+                    action = agent.select_action(state)
+                    next_obs, reward, terminated, truncated, _ = agent.env.step(action)
+                    done = terminated or truncated
+                    
+                    # Clip rewards if configured
+                    if getattr(agent.config, 'clip_rewards', False):
+                        reward = np.clip(reward, -1.0, 1.0)
+                    
+                    # Stack frames
+                    next_state = agent.frame_stack.append(next_obs)
+                    
+                    # Store transition
+                    if getattr(agent.config, 'use_r2d2', False):
+                        agent.replay_buffer.push_transition(state, action, reward, next_state, done)
+                    else:
+                        agent.replay_buffer.push(state, action, reward, next_state, done)
+                    
+                    # Update state
+                    state = next_state
+                    episode_reward += reward
+                    agent.steps_done += 1
+                    episode_steps += 1
+                    
+                    # Update Q-network
+                    if agent.steps_done % agent.config.policy_update_interval == 0:
+                        loss = agent.update_q_network()
+                        if loss is not None:
+                            episode_losses.append(loss)
+                    
+                    # Update target network
+                    if agent.steps_done % agent.config.target_update_freq == 0:
+                        agent.update_target_network()
+                        print(f"Updated target network at step {agent.steps_done}")
+                
+                # Update exploration parameters
+                agent.epsilon = max(agent.config.epsilon_end, agent.epsilon * agent.config.epsilon_decay)
+                
+                if agent.config.use_prioritized_replay:
+                    progress = min(episode / 100.0, 1.0)
+                    agent.priority_beta = agent.config.priority_beta_start + progress * (
+                        agent.priority_beta_end - agent.config.priority_beta_start)
+                    if hasattr(agent.replay_buffer, 'update_beta'):
+                        agent.replay_buffer.update_beta(agent.priority_beta)
+                
+                # Record statistics
+                episode_rewards.append(episode_reward)
+                if episode_losses:
+                    losses.append(np.mean(episode_losses))
+                
+                # Print episode progress
+                episode_time = time.time() - episode_start_time
+                print(f"  Episode {episode+1}/{self.episodes}: {episode_steps} steps, "
+                      f"reward: {episode_reward:.1f}, time: {episode_time:.1f}s")
+                episode_start_time = time.time()
             
             elapsed = time.time() - start_time
             avg_reward = np.mean(episode_rewards)
