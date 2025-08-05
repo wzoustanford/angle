@@ -45,6 +45,23 @@ class AgentConfig:
     # Small constant added to all priorities to prevent zero values
     priority_epsilon: float = 1e-6    # Very small positive number
     
+    # R2D2: Recurrent Experience Replay in Distributed RL
+    # Set use_r2d2=True to enable LSTM-based sequential learning
+    use_r2d2: bool = False
+    
+    # R2D2 Network Architecture
+    lstm_size: int = 512              # LSTM hidden size
+    num_lstm_layers: int = 1          # Number of LSTM layers (typically 1)
+    
+    # R2D2 Sequence Parameters
+    sequence_length: int = 80         # Length of training sequences (typically 80)
+    burn_in_length: int = 40          # LSTM warm-up steps (typically 40, half of sequence)
+    sequence_overlap: float = 0.5     # Overlap between sequences (0.5 = 50% overlap)
+    
+    # R2D2 Training
+    use_dueling: bool = True          # Use dueling architecture (V + A streams)
+    clip_rewards: bool = False        # Clip rewards to [-1, 1] (sometimes used in R2D2)
+    
     # Saving
     save_interval: int = 5000
     checkpoint_dir: str = './results/checkpoints'

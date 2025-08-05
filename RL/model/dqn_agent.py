@@ -9,13 +9,21 @@ import os
 
 from .dqn_network import DQN
 from .data_buffer import ReplayBuffer, PrioritizedReplayBuffer, FrameStack
+from .r2d2_network import R2D2Network
+from .sequence_buffer import SequenceReplayBuffer, SequenceDataLoader
 
 # Register Atari environments
 gym.register_envs(ale_py)
 
 
 class DQNAgent:
-    """DQN Agent with delayed double Q-learning"""
+    """
+    DQN Agent with support for both standard DQN and R2D2 modes
+    
+    Modes:
+    - Standard DQN: use_r2d2=False (default)
+    - R2D2: use_r2d2=True (LSTM + sequence replay)
+    """
     def __init__(self, config):
         self.config = config
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -28,51 +36,196 @@ class DQNAgent:
         # Frame preprocessing
         self.frame_stack = FrameStack(config.frame_stack)
         
-        # Networks - Double DQN setup
+        # Networks - Support both DQN and R2D2
         obs_shape = (config.frame_stack * 3, 210, 160)  # RGB channels * stack size
-        self.q_network = DQN(obs_shape, self.n_actions).to(self.device)
-        self.target_network = DQN(obs_shape, self.n_actions).to(self.device)
+        
+        if getattr(config, 'use_r2d2', False):
+            # R2D2 Network with LSTM
+            self.q_network = R2D2Network(
+                obs_shape, 
+                self.n_actions,
+                lstm_size=getattr(config, 'lstm_size', 512),
+                num_lstm_layers=getattr(config, 'num_lstm_layers', 1)
+            ).to(self.device)
+            
+            self.target_network = R2D2Network(
+                obs_shape,
+                self.n_actions,
+                lstm_size=getattr(config, 'lstm_size', 512),
+                num_lstm_layers=getattr(config, 'num_lstm_layers', 1)
+            ).to(self.device)
+            
+            print(f"Using R2D2 Network (LSTM size: {getattr(config, 'lstm_size', 512)})")
+        else:
+            # Standard DQN
+            self.q_network = DQN(obs_shape, self.n_actions).to(self.device)
+            self.target_network = DQN(obs_shape, self.n_actions).to(self.device)
+            print("Using Standard DQN Network")
+        
         self.target_network.load_state_dict(self.q_network.state_dict())
         self.target_network.eval()
         
         # Training setup
         self.optimizer = optim.Adam(self.q_network.parameters(), lr=config.learning_rate)
         
-        # Choose replay buffer type
-        if config.use_prioritized_replay:
-            self.replay_buffer = PrioritizedReplayBuffer(
+        # Choose replay buffer type based on mode
+        if getattr(config, 'use_r2d2', False):
+            # R2D2: Use sequence-based replay buffer
+            self.replay_buffer = SequenceReplayBuffer(
                 capacity=config.memory_size,
-                alpha=config.priority_alpha,
-                beta=config.priority_beta_start,
+                sequence_length=getattr(config, 'sequence_length', 80),
+                burn_in_length=getattr(config, 'burn_in_length', 40),
+                alpha=config.priority_alpha if config.use_prioritized_replay else 0.0,
+                beta=config.priority_beta_start if config.use_prioritized_replay else 1.0,
                 epsilon=config.priority_epsilon,
-                priority_type=config.priority_type
+                priority_type=config.priority_type if config.use_prioritized_replay else 'uniform'
             )
+            print(f"Using R2D2 Sequence Buffer (seq_len: {getattr(config, 'sequence_length', 80)})")
+        else:
+            # Standard DQN: Use transition-based replay buffer
+            if config.use_prioritized_replay:
+                self.replay_buffer = PrioritizedReplayBuffer(
+                    capacity=config.memory_size,
+                    alpha=config.priority_alpha,
+                    beta=config.priority_beta_start,
+                    epsilon=config.priority_epsilon,
+                    priority_type=config.priority_type
+                )
+            else:
+                self.replay_buffer = ReplayBuffer(config.memory_size)
+            print(f"Using {'Prioritized' if config.use_prioritized_replay else 'Uniform'} Transition Buffer")
+        
+        if config.use_prioritized_replay:
             self.priority_beta = config.priority_beta_start
             self.priority_beta_end = config.priority_beta_end
-        else:
-            self.replay_buffer = ReplayBuffer(config.memory_size)
         
         self.epsilon = config.epsilon_start
         self.steps_done = 0
+        
+        # R2D2 specific state
+        self.hidden_state = None  # LSTM hidden state for current episode
         
         # Create checkpoint directory
         os.makedirs(config.checkpoint_dir, exist_ok=True)
     
     def select_action(self, state: np.ndarray) -> int:
-        """Epsilon-greedy action selection"""
+        """Epsilon-greedy action selection with R2D2 support"""
         if random.random() < self.epsilon:
             return self.env.action_space.sample()
         else:
             with torch.no_grad():
                 state_tensor = torch.FloatTensor(state).unsqueeze(0).to(self.device)
-                q_values = self.q_network(state_tensor)
+                
+                if getattr(self.config, 'use_r2d2', False):
+                    # R2D2: Use LSTM for action selection
+                    q_values, self.hidden_state = self.q_network.forward_single_step(
+                        state_tensor, self.hidden_state
+                    )
+                else:
+                    # Standard DQN
+                    q_values = self.q_network(state_tensor)
+                
                 return q_values.argmax(1).item()
     
+    def reset_hidden_state(self):
+        """Reset LSTM hidden state at episode start (R2D2 only)"""
+        if getattr(self.config, 'use_r2d2', False):
+            self.hidden_state = None
+    
     def update_q_network(self):
-        """Update Q-network using experience replay and double Q-learning"""
+        """Update Q-network using experience replay (supports both DQN and R2D2)"""
         if len(self.replay_buffer) < self.config.min_replay_size:
-            return
+            return None
         
+        if getattr(self.config, 'use_r2d2', False):
+            return self._update_r2d2()
+        else:
+            return self._update_dqn()
+    
+    def _update_r2d2(self):
+        """R2D2 sequence-based update"""
+        # Sample sequences
+        if self.config.use_prioritized_replay:
+            sequences, weights, idxs = self.replay_buffer.sample(self.config.batch_size)
+            weights = torch.FloatTensor(weights).to(self.device)
+        else:
+            sequences, _, idxs = self.replay_buffer.sample(self.config.batch_size)
+            weights = None
+        
+        # Prepare training data
+        burn_in_data, target_data = SequenceDataLoader.prepare_training_batch(sequences)
+        
+        if target_data is None:
+            return None
+        
+        # Convert to tensors
+        burn_in_states = torch.FloatTensor(burn_in_data['states']).to(self.device)
+        target_states = torch.FloatTensor(target_data['states']).to(self.device)
+        target_actions = torch.LongTensor(target_data['actions']).to(self.device)
+        target_rewards = torch.FloatTensor(target_data['rewards']).to(self.device)
+        target_next_states = torch.FloatTensor(target_data['next_states']).to(self.device)
+        target_dones = torch.FloatTensor(target_data['dones']).to(self.device)
+        
+        batch_size, seq_len = target_states.shape[:2]
+        
+        # Burn-in phase: warm up LSTM with burn-in data
+        with torch.no_grad():
+            if burn_in_data['states'].shape[1] > 0:  # If we have burn-in data
+                _, hidden_state = self.q_network.forward(burn_in_states)
+            else:
+                hidden_state = self.q_network.init_hidden(batch_size, self.device)
+        
+        # Training phase: forward through target sequence
+        current_q_values, _ = self.q_network.forward(target_states, hidden_state)
+        
+        # Get Q-values for actions taken: (batch, seq, 1)
+        current_q_values = current_q_values.gather(-1, target_actions.unsqueeze(-1))
+        
+        # Target Q-values using target network
+        with torch.no_grad():
+            # Burn-in for target network
+            if burn_in_data['states'].shape[1] > 0:
+                _, target_hidden = self.target_network.forward(burn_in_states)
+            else:
+                target_hidden = self.target_network.init_hidden(batch_size, self.device)
+            
+            # Double Q-learning: select actions with online network
+            next_q_online, _ = self.q_network.forward(target_next_states, hidden_state)
+            next_actions = next_q_online.argmax(-1, keepdim=True)
+            
+            # Evaluate actions with target network
+            next_q_target, _ = self.target_network.forward(target_next_states, target_hidden)
+            next_q_values = next_q_target.gather(-1, next_actions)
+            
+            # Calculate targets
+            target_q_values = target_rewards.unsqueeze(-1) + \
+                            self.config.gamma * next_q_values * (1 - target_dones.unsqueeze(-1))
+        
+        # Calculate loss
+        td_errors = target_q_values - current_q_values
+        
+        if weights is not None:
+            # Prioritized replay: weight the loss
+            loss = (weights.unsqueeze(-1).unsqueeze(-1) * (td_errors ** 2)).mean()
+        else:
+            loss = F.mse_loss(current_q_values, target_q_values)
+        
+        # Optimize
+        self.optimizer.zero_grad()
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(self.q_network.parameters(), 10)
+        self.optimizer.step()
+        
+        # Update priorities
+        if self.config.use_prioritized_replay and idxs is not None:
+            # Use mean TD error over sequence for priority
+            priorities = td_errors.detach().cpu().numpy().mean(axis=(1, 2))
+            self.replay_buffer.update_priorities(idxs, priorities)
+        
+        return loss.item()
+    
+    def _update_dqn(self):
+        """Standard DQN update"""
         # Sample batch - handle both buffer types
         if self.config.use_prioritized_replay:
             states, actions, rewards, next_states, dones, weights, idxs = self.replay_buffer.sample(self.config.batch_size)
@@ -134,9 +287,10 @@ class DQNAgent:
         losses = []
         
         for episode in range(num_episodes):
-            # Reset environment
+            # Reset environment and hidden state
             obs, _ = self.env.reset()
             state = self.frame_stack.reset(obs)
+            self.reset_hidden_state()  # Reset LSTM state for R2D2
             episode_reward = 0
             episode_losses = []
             
@@ -147,11 +301,20 @@ class DQNAgent:
                 next_obs, reward, terminated, truncated, _ = self.env.step(action)
                 done = terminated or truncated
                 
+                # Clip rewards if configured (R2D2 option)
+                if getattr(self.config, 'clip_rewards', False):
+                    reward = np.clip(reward, -1.0, 1.0)
+                
                 # Stack frames
                 next_state = self.frame_stack.append(next_obs)
                 
-                # Store transition
-                self.replay_buffer.push(state, action, reward, next_state, done)
+                # Store transition (different for R2D2 vs DQN)
+                if getattr(self.config, 'use_r2d2', False):
+                    # R2D2: Add to sequence buffer
+                    self.replay_buffer.push_transition(state, action, reward, next_state, done)
+                else:
+                    # DQN: Add to transition buffer
+                    self.replay_buffer.push(state, action, reward, next_state, done)
                 
                 # Update state
                 state = next_state
