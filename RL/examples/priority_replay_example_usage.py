@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
 """
-Example usage of prioritized vs uniform replay buffer
+Example usage of prioritized vs uniform replay buffer.
+
+This script demonstrates how to configure and use prioritized experience replay
+vs standard uniform replay for DQN training.
 """
+
+import sys
+import os
+
+# Add parent directory to path for imports when run from examples folder
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
 
 from config.AgentConfig import AgentConfig
 
@@ -102,6 +114,9 @@ def training_example():
     
     print("""
 # To train with uniform replay:
+from model import DQNAgent
+from config import AgentConfig
+
 config = AgentConfig()
 config.use_prioritized_replay = False
 agent = DQNAgent(config)
@@ -119,8 +134,58 @@ episode_rewards, losses = agent.train(num_episodes=100)
 """)
 
 
+def test_priority_configuration():
+    """Test that prioritized replay configurations work"""
+    print("Testing Prioritized Replay Configurations")
+    print("=" * 50)
+    
+    try:
+        from model import DQNAgent
+        
+        # Test uniform replay
+        print("✓ Testing uniform replay configuration...")
+        config = AgentConfig()
+        config.use_prioritized_replay = False
+        config.memory_size = 1000  # Small for testing
+        agent = DQNAgent(config)
+        print(f"  Buffer type: {type(agent.replay_buffer).__name__}")
+        
+        # Test prioritized replay
+        print("✓ Testing prioritized replay configuration...")
+        config = AgentConfig()
+        config.use_prioritized_replay = True
+        config.priority_type = 'td_error'
+        config.memory_size = 1000  # Small for testing
+        agent = DQNAgent(config)
+        print(f"  Buffer type: {type(agent.replay_buffer).__name__}")
+        print(f"  Priority type: {agent.replay_buffer.priority_type}")
+        print(f"  Alpha: {agent.replay_buffer.alpha}")
+        print(f"  Beta: {agent.replay_buffer.beta}")
+        
+        print("\n✅ All configurations work correctly!")
+        return True
+        
+    except Exception as e:
+        print(f"\n❌ Configuration test failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return False
+
+
 def main():
     """Show all configuration examples"""
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Priority Replay Buffer Examples')
+    parser.add_argument('--mode', choices=['examples', 'test'], default='examples',
+                       help='Mode to run: examples or test')
+    
+    args = parser.parse_args()
+    
+    if args.mode == 'test':
+        success = test_priority_configuration()
+        return 0 if success else 1
+    
     print("Prioritized Replay Buffer Configuration Examples")
     print("=" * 60)
     
@@ -152,7 +217,10 @@ def main():
     print("• For most RL tasks: priority_type='td_error', alpha=0.6, beta_start=0.4")
     print("• For sparse rewards: priority_type='reward', alpha=0.8")
     print("• For comparison: priority_type='random' (should perform similar to uniform)")
+    
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    sys.exit(main())

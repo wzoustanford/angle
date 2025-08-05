@@ -60,23 +60,71 @@ python single_threaded_example.py --episodes 100 --no-plot
 python single_threaded_example.py --help
 ```
 
+### 3. Priority Replay Example (`priority_replay_example_usage.py`)
+
+Demonstrates the configuration and usage of prioritized experience replay vs standard uniform replay.
+
+**Features:**
+- Configuration examples for different priority types
+- Comparison between uniform and prioritized sampling
+- Practical training code examples
+- Parameter explanations and recommendations
+
+**Usage:**
+```bash
+# Show configuration examples
+python priority_replay_example_usage.py --mode examples
+
+# Test that prioritized replay works
+python priority_replay_example_usage.py --mode test
+
+# Help
+python priority_replay_example_usage.py --help
+```
+
+**Priority Types Available:**
+- `td_error`: Prioritize experiences with high TD-errors (recommended)
+- `reward`: Prioritize experiences with high absolute rewards
+- `random`: Random priorities (for comparison with uniform sampling)
+
 ## Quick Start
 
 1. **Test the system:**
    ```bash
    python distributed_space_invaders_example.py --mode test
    python single_threaded_example.py --test-only
+   python priority_replay_example_usage.py --mode test
    ```
 
-2. **Compare approaches:**
+2. **Learn about prioritized replay:**
+   ```bash
+   python priority_replay_example_usage.py --mode examples
+   ```
+
+3. **Compare approaches:**
    ```bash
    python distributed_space_invaders_example.py --mode compare --episodes 50
    ```
 
-3. **Run full distributed training:**
+4. **Run full distributed training:**
    ```bash
    python distributed_space_invaders_example.py --mode train --episodes 200 --workers 4
    ```
+
+## Using the Example Launcher
+
+For convenience, you can use the example launcher from the RL folder:
+
+```bash
+# List all available examples
+python run_example.py list
+
+# Run specific examples
+python run_example.py distributed --args '--mode test'
+python run_example.py single --args '--test-only'
+python run_example.py priority --args '--mode test'
+python run_example.py priority --args '--mode examples'
+```
 
 ## Key Benefits of Distributed Approach
 
