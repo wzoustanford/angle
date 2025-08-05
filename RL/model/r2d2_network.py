@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Tuple, Optional
 from .dqn_network import DQN
+from .device_utils import get_device_manager
 
 
 class R2D2Network(nn.Module):

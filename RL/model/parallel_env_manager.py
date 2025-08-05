@@ -7,6 +7,7 @@ import queue
 from typing import List, Dict, Any, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from .distributed_buffer import DistributedReplayBuffer, DistributedFrameStack
+from .device_utils import get_device_manager
 
 # Register Atari environments
 gym.register_envs(ale_py)
@@ -23,6 +24,7 @@ class EnvironmentWorker:
         self.frame_stack = DistributedFrameStack(frame_stack)
         self.replay_buffer = replay_buffer
         self.shared_network = shared_network
+        self.devmgr = get_device_manager()
         
         self.n_actions = self.env.action_space.n
         self.episode_count = 0
@@ -38,9 +40,7 @@ class EnvironmentWorker:
             # Use shared network for action selection
             import torch
             with torch.no_grad():
-                state_tensor = torch.FloatTensor(state).unsqueeze(0)
-                if torch.cuda.is_available():
-                    state_tensor = state_tensor.cuda()
+                state_tensor = self.devmgr.to_dev(torch.FloatTensor(state).unsqueeze(0))
                 q_values = self.shared_network(state_tensor)
                 return q_values.argmax(1).item()
     
