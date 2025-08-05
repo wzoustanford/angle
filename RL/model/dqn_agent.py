@@ -8,7 +8,7 @@ import random
 import os
 
 from .dqn_network import DQN
-from .data_buffer import ReplayBuffer, FrameStack
+from .data_buffer import ReplayBuffer, PrioritizedReplayBuffer, FrameStack
 
 # Register Atari environments
 gym.register_envs(ale_py)
@@ -37,7 +37,21 @@ class DQNAgent:
         
         # Training setup
         self.optimizer = optim.Adam(self.q_network.parameters(), lr=config.learning_rate)
-        self.replay_buffer = ReplayBuffer(config.memory_size)
+        
+        # Choose replay buffer type
+        if config.use_prioritized_replay:
+            self.replay_buffer = PrioritizedReplayBuffer(
+                capacity=config.memory_size,
+                alpha=config.priority_alpha,
+                beta=config.priority_beta_start,
+                epsilon=config.priority_epsilon,
+                priority_type=config.priority_type
+            )
+            self.priority_beta = config.priority_beta_start
+            self.priority_beta_end = config.priority_beta_end
+        else:
+            self.replay_buffer = ReplayBuffer(config.memory_size)
+        
         self.epsilon = config.epsilon_start
         self.steps_done = 0
         
@@ -59,8 +73,14 @@ class DQNAgent:
         if len(self.replay_buffer) < self.config.min_replay_size:
             return
         
-        # Sample batch
-        states, actions, rewards, next_states, dones = self.replay_buffer.sample(self.config.batch_size)
+        # Sample batch - handle both buffer types
+        if self.config.use_prioritized_replay:
+            states, actions, rewards, next_states, dones, weights, idxs = self.replay_buffer.sample(self.config.batch_size)
+            weights = torch.FloatTensor(weights).to(self.device)
+        else:
+            states, actions, rewards, next_states, dones = self.replay_buffer.sample(self.config.batch_size)
+            weights = None
+            idxs = None
         
         # Convert to tensors
         states = torch.FloatTensor(states).to(self.device)
@@ -80,8 +100,15 @@ class DQNAgent:
             next_q_values = self.target_network(next_states).gather(1, next_actions.unsqueeze(1))
             target_q_values = rewards.unsqueeze(1) + self.config.gamma * next_q_values * (1 - dones.unsqueeze(1))
         
+        # Calculate TD errors for priority updates
+        td_errors = target_q_values - current_q_values
+        
         # Compute loss
-        loss = F.mse_loss(current_q_values, target_q_values)
+        if weights is not None:
+            # Weighted loss for prioritized replay
+            loss = (weights.unsqueeze(1) * F.mse_loss(current_q_values, target_q_values, reduction='none')).mean()
+        else:
+            loss = F.mse_loss(current_q_values, target_q_values)
         
         # Optimize
         self.optimizer.zero_grad()
@@ -89,6 +116,11 @@ class DQNAgent:
         # Gradient clipping
         torch.nn.utils.clip_grad_norm_(self.q_network.parameters(), 10)
         self.optimizer.step()
+        
+        # Update priorities for prioritized replay
+        if self.config.use_prioritized_replay and idxs is not None:
+            priorities = td_errors.detach().cpu().numpy().flatten()
+            self.replay_buffer.update_priorities(idxs, priorities)
         
         return loss.item()
     
@@ -144,6 +176,14 @@ class DQNAgent:
             # Update epsilon
             self.epsilon = max(self.config.epsilon_end, 
                              self.epsilon * self.config.epsilon_decay)
+            
+            # Update beta for prioritized replay
+            if self.config.use_prioritized_replay:
+                # Linear annealing of beta
+                progress = min(episode / 100.0, 1.0)  # Anneal over 100 episodes
+                self.priority_beta = self.config.priority_beta_start + progress * (
+                    self.priority_beta_end - self.config.priority_beta_start)
+                self.replay_buffer.update_beta(self.priority_beta)
             
             # Record statistics
             episode_rewards.append(episode_reward)
