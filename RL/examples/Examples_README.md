@@ -87,6 +87,41 @@ python priority_replay_example_usage.py --help
 - `reward`: Prioritize experiences with high absolute rewards
 - `random`: Random priorities (for comparison with uniform sampling)
 
+### 4. R2D2 Example (`r2d2_example.py`)
+
+Demonstrates R2D2 (Recurrent Experience Replay in Distributed RL) with LSTM networks and sequence-based learning.
+
+**Features:**
+- LSTM-enhanced Q-networks for temporal modeling
+- Sequence-based experience replay
+- Comparison between standard DQN and R2D2
+- Multiple configuration modes (fast, demo, full)
+- Burn-in phase for LSTM warm-up
+
+**Usage:**
+```bash
+# Quick R2D2 test
+python r2d2_example.py --mode fast --episodes 5
+
+# Demo configuration
+python r2d2_example.py --mode demo --episodes 10
+
+# Full R2D2 configuration
+python r2d2_example.py --mode full --episodes 20
+
+# Compare DQN vs R2D2
+python r2d2_example.py --mode compare --episodes 5
+
+# Help
+python r2d2_example.py --help
+```
+
+**Configuration Modes:**
+- `fast`: Quick testing (LSTM-256, seq-40, small buffer)
+- `demo`: Demo settings (LSTM-256, seq-40, medium buffer)
+- `full`: Full R2D2 configuration (LSTM-512, seq-80, large buffer)
+- `compare`: Side-by-side comparison of DQN vs R2D2
+
 ## Quick Start
 
 1. **Test the system:**
@@ -94,21 +129,25 @@ python priority_replay_example_usage.py --help
    python distributed_space_invaders_example.py --mode test
    python single_threaded_example.py --test-only
    python priority_replay_example_usage.py --mode test
+   python r2d2_example.py --mode fast --episodes 3
    ```
 
-2. **Learn about prioritized replay:**
+2. **Learn about different techniques:**
    ```bash
    python priority_replay_example_usage.py --mode examples
+   python r2d2_example.py --mode compare --episodes 3
    ```
 
 3. **Compare approaches:**
    ```bash
    python distributed_space_invaders_example.py --mode compare --episodes 50
+   python r2d2_example.py --mode compare --episodes 5
    ```
 
-4. **Run full distributed training:**
+4. **Run full training:**
    ```bash
    python distributed_space_invaders_example.py --mode train --episodes 200 --workers 4
+   python r2d2_example.py --mode full --episodes 50
    ```
 
 ## Using the Example Launcher
@@ -123,7 +162,8 @@ python run_example.py list
 python run_example.py distributed --args '--mode test'
 python run_example.py single --args '--test-only'
 python run_example.py priority --args '--mode test'
-python run_example.py priority --args '--mode examples'
+python run_example.py r2d2 --args '--mode fast --episodes 5'
+python run_example.py r2d2 --args '--mode compare --episodes 3'
 ```
 
 ## Key Benefits of Distributed Approach
