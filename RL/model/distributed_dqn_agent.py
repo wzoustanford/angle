@@ -23,8 +23,9 @@ class DistributedDQNAgent:
         
         # Setup networks
         obs_shape = (config.frame_stack * 3, 210, 160)  # RGB channels * stack size
-        self.q_network = self.devmgr.to_dev(DQN(obs_shape, self._get_n_actions()))
-        self.target_network = self.devmgr.to_dev(DQN(obs_shape, self._get_n_actions()))
+        use_dueling = getattr(config, 'use_dueling', False)
+        self.q_network = self.devmgr.to_dev(DQN(obs_shape, self._get_n_actions(), use_dueling=use_dueling))
+        self.target_network = self.devmgr.to_dev(DQN(obs_shape, self._get_n_actions(), use_dueling=use_dueling))
         self.target_network.load_state_dict(self.q_network.state_dict())
         self.target_network.eval()
         
