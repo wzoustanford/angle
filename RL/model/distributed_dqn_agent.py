@@ -19,13 +19,14 @@ class DistributedDQNAgent:
     def __init__(self, config, num_workers: int = 4):
         self.config = config
         self.num_workers = num_workers
-        use_dueling = getattr(config, 'use_dueling', False)        
-        self.use_dueling = use_dueling
+        use_dueling = getattr(config, 'use_dueling', False)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print(f"Using device: {self.device}")
         
         # Setup networks
         obs_shape = (config.frame_stack * 3, 210, 160)  # RGB channels * stack size
+        use_dueling = getattr(config, 'use_dueling', False)
+        self.use_dueling = use_dueling
         n_actions = self._get_n_actions()
         
         if use_dueling:

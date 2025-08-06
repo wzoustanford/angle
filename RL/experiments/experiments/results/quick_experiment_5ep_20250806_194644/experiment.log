@@ -1,0 +1,108 @@
+19:46:44 - Quick Full Experiment Started
+19:46:44 - Episodes per algorithm per game: 5
+19:46:44 - Games: Alien, IceHockey
+19:46:44 - Output directory: ./experiments/results/quick_experiment_5ep_20250806_194644
+19:46:44 - ============================================================
+19:46:44 - 
+Starting experiments on Alien, IceHockey
+19:46:44 - Algorithms: ['Basic DQN', 'DQN + Dueling', 'DQN + Priority']
+19:46:44 - 
+========================================
+19:46:44 - GAME: Alien
+19:46:44 - ========================================
+19:46:44 - 
+Experiment 1/6
+19:46:44 - 
+  Running Basic DQN on Alien
+19:46:47 -     Episode 1/5: 511 steps, reward=80.0, time=1.7s
+19:47:06 -     Episode 2/5: 622 steps, reward=200.0, time=18.7s
+19:47:30 -     Episode 3/5: 814 steps, reward=250.0, time=23.6s
+19:47:45 -     Episode 4/5: 545 steps, reward=140.0, time=15.8s
+19:48:03 -     Episode 5/5: 590 steps, reward=90.0, time=17.3s
+19:48:03 -   ✓ Basic DQN completed in 78.9s, avg reward: 152.00
+19:48:03 - ✓ Results saved: ./experiments/results/quick_experiment_5ep_20250806_194644/results.json
+19:48:03 - 
+Experiment 2/6
+19:48:03 - 
+  Running DQN + Dueling on Alien
+19:48:07 -     Episode 1/5: 653 steps, reward=130.0, time=3.6s
+19:48:21 -     Episode 2/5: 508 steps, reward=190.0, time=14.1s
+19:48:39 -     Episode 3/5: 650 steps, reward=210.0, time=18.6s
+19:49:00 -     Episode 4/5: 698 steps, reward=190.0, time=20.2s
+19:49:24 -     Episode 5/5: 829 steps, reward=170.0, time=24.1s
+19:49:24 -   ✓ DQN + Dueling completed in 80.9s, avg reward: 178.00
+19:49:24 - ✓ Results saved: ./experiments/results/quick_experiment_5ep_20250806_194644/results.json
+19:49:24 - 
+Experiment 3/6
+19:49:24 - 
+  Running DQN + Priority on Alien
+19:49:30 -     Episode 1/5: 734 steps, reward=180.0, time=5.8s
+19:49:51 -     Episode 2/5: 722 steps, reward=160.0, time=21.1s
+19:50:11 -     Episode 3/5: 698 steps, reward=230.0, time=20.1s
+19:50:33 -     Episode 4/5: 765 steps, reward=130.0, time=22.1s
+19:50:51 -     Episode 5/5: 586 steps, reward=180.0, time=17.5s
+19:50:51 -   ✓ DQN + Priority completed in 87.0s, avg reward: 176.00
+19:50:51 - ✓ Results saved: ./experiments/results/quick_experiment_5ep_20250806_194644/results.json
+19:50:51 - 
+========================================
+19:50:51 - GAME: IceHockey
+19:50:51 - ========================================
+19:50:51 - 
+Experiment 4/6
+19:50:51 - 
+  Running Basic DQN on IceHockey
+19:51:19 -     Episode 1/5: 1500 steps, reward=-4.0, time=27.5s
+19:52:02 -     Episode 2/5: 1500 steps, reward=-5.0, time=43.3s
+19:52:46 -     Episode 3/5: 1500 steps, reward=-4.0, time=43.7s
+19:53:29 -     Episode 4/5: 1500 steps, reward=-6.0, time=43.1s
+19:54:12 -     Episode 5/5: 1500 steps, reward=-4.0, time=43.4s
+19:54:12 -   ✓ Basic DQN completed in 201.5s, avg reward: -4.60
+19:54:12 - ✓ Results saved: ./experiments/results/quick_experiment_5ep_20250806_194644/results.json
+19:54:12 - 
+Experiment 5/6
+19:54:12 - 
+  Running DQN + Dueling on IceHockey
+19:54:40 -     Episode 1/5: 1500 steps, reward=-4.0, time=27.7s
+19:55:24 -     Episode 2/5: 1500 steps, reward=-6.0, time=43.5s
+19:56:08 -     Episode 3/5: 1500 steps, reward=-7.0, time=43.6s
+19:56:52 -     Episode 4/5: 1500 steps, reward=-2.0, time=44.0s
+19:57:35 -     Episode 5/5: 1500 steps, reward=-3.0, time=43.4s
+19:57:35 -   ✓ DQN + Dueling completed in 202.5s, avg reward: -4.40
+19:57:35 - ✓ Results saved: ./experiments/results/quick_experiment_5ep_20250806_194644/results.json
+19:57:35 - 
+Experiment 6/6
+19:57:35 - 
+  Running DQN + Priority on IceHockey
+19:58:04 -     Episode 1/5: 1500 steps, reward=-4.0, time=28.1s
+19:58:47 -     Episode 2/5: 1500 steps, reward=-4.0, time=43.9s
+19:59:31 -     Episode 3/5: 1500 steps, reward=-3.0, time=43.6s
+20:00:15 -     Episode 4/5: 1500 steps, reward=-4.0, time=43.5s
+20:00:58 -     Episode 5/5: 1500 steps, reward=-3.0, time=43.8s
+20:00:58 -   ✓ DQN + Priority completed in 203.3s, avg reward: -3.60
+20:00:58 - ✓ Results saved: ./experiments/results/quick_experiment_5ep_20250806_194644/results.json
+20:00:58 - 
+✓ All experiments completed!
+20:00:58 - 
+Generating plots...
+20:01:01 - ✓ Main plot saved: ./experiments/results/quick_experiment_5ep_20250806_194644/comparison_plot.png
+20:01:01 - ✓ Alien plot saved: ./experiments/results/quick_experiment_5ep_20250806_194644/alien_plot.png
+20:01:02 - ✓ IceHockey plot saved: ./experiments/results/quick_experiment_5ep_20250806_194644/icehockey_plot.png
+20:01:02 - 
+Creating results.md...
+20:01:02 - ✓ Results summary created: ./experiments/results/quick_experiment_5ep_20250806_194644/results.md
+20:01:02 - 
+============================================================
+20:01:02 - EXPERIMENT COMPLETED SUCCESSFULLY!
+20:01:02 - ============================================================
+20:01:02 - Total runtime: 858.0 seconds
+20:01:02 - Results directory: ./experiments/results/quick_experiment_5ep_20250806_194644
+20:01:02 - 
+Alien Results:
+20:01:02 -   Basic DQN           :   152.00 avg reward
+20:01:02 -   DQN + Dueling       :   178.00 avg reward
+20:01:02 -   DQN + Priority      :   176.00 avg reward
+20:01:02 - 
+IceHockey Results:
+20:01:02 -   Basic DQN           :    -4.60 avg reward
+20:01:02 -   DQN + Dueling       :    -4.40 avg reward
+20:01:02 -   DQN + Priority      :    -3.60 avg reward

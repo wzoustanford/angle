@@ -1,0 +1,182 @@
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+/opt/pytorch/lib/python3.12/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/opt/pytorch/lib/python3.12/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Alien and Ice Hockey Experiment
+Episodes per algorithm per game: 20
+Output directory: ./results/experiment_20ep_20250806_193136
+
+Starting experiments on Alien, IceHockey
+Algorithms to test: 4
+============================================================
+
+############################################################
+GAME: Alien
+############################################################
+
+============================================================
+Running Basic DQN on Alien
+============================================================
+🔧 Device: cuda
+   GPU: Tesla T4 (14.6GB)
+Using Standard DQN Network
+Using Uniform Transition Buffer
+Starting Basic DQN training...
+  Episode 1/20: 510 steps, reward: 90.0, time: 1.4s
+  Episode 2/20: 616 steps, reward: 190.0, time: 14.2s
+  Episode 3/20: 550 steps, reward: 210.0, time: 12.9s
+  Episode 4/20: 715 steps, reward: 210.0, time: 16.5s
+  Episode 5/20: 406 steps, reward: 190.0, time: 9.5s
+  Episode 6/20: 722 steps, reward: 260.0, time: 16.8s
+  Episode 7/20: 729 steps, reward: 260.0, time: 17.1s
+  Episode 8/20: 564 steps, reward: 160.0, time: 13.1s
+  Episode 9/20: 551 steps, reward: 210.0, time: 12.8s
+  Episode 10/20: 684 steps, reward: 120.0, time: 16.2s
+  Episode 11/20: 644 steps, reward: 200.0, time: 15.2s
+  Episode 12/20: 732 steps, reward: 180.0, time: 17.0s
+  Episode 13/20: 763 steps, reward: 300.0, time: 18.0s
+  Episode 14/20: 740 steps, reward: 280.0, time: 17.7s
+  Episode 15/20: 647 steps, reward: 230.0, time: 15.5s
+  Episode 16/20: 595 steps, reward: 180.0, time: 14.3s
+  Episode 17/20: 642 steps, reward: 220.0, time: 15.3s
+  Episode 18/20: 643 steps, reward: 260.0, time: 15.3s
+  Episode 19/20: 574 steps, reward: 160.0, time: 13.2s
+  Episode 20/20: 518 steps, reward: 270.0, time: 12.0s
+✓ Basic DQN on Alien completed in 285.7s
+  Average reward: 209.00
+  Final 5 episodes: 218.00
+  Best episode: 300.00
+✓ Results saved to: ./results/experiment_20ep_20250806_193136/results_20250806_193622.json
+
+============================================================
+Running DQN + Dueling on Alien
+============================================================
+Using Standard DQN Network with Dueling
+Using Uniform Transition Buffer
+Starting DQN + Dueling training...
+  Episode 1/20: 628 steps, reward: 130.0, time: 2.4s
+  Episode 2/20: 701 steps, reward: 160.0, time: 9.1s
+  Episode 3/20: 647 steps, reward: 200.0, time: 10.2s
+  Episode 4/20: 462 steps, reward: 150.0, time: 8.1s
+  Episode 5/20: 578 steps, reward: 170.0, time: 10.2s
+  Episode 6/20: 783 steps, reward: 230.0, time: 14.7s
+  Episode 7/20: 824 steps, reward: 160.0, time: 19.2s
+  Episode 8/20: 619 steps, reward: 170.0, time: 14.4s
+  Episode 9/20: 647 steps, reward: 250.0, time: 15.0s
+  Episode 10/20: 592 steps, reward: 180.0, time: 13.7s
+  Episode 11/20: 614 steps, reward: 220.0, time: 14.2s
+  Episode 12/20: 572 steps, reward: 150.0, time: 13.3s
+  Episode 13/20: 683 steps, reward: 210.0, time: 15.9s
+  Episode 14/20: 576 steps, reward: 190.0, time: 13.4s
+  Episode 15/20: 650 steps, reward: 140.0, time: 15.2s
+  Episode 16/20: 634 steps, reward: 120.0, time: 14.6s
+  Episode 17/20: 938 steps, reward: 170.0, time: 21.8s
+  Episode 18/20: 559 steps, reward: 170.0, time: 12.9s
+  Episode 19/20: 618 steps, reward: 120.0, time: 14.4s
+  Episode 20/20: 800 steps, reward: 160.0, time: 18.6s
+✓ DQN + Dueling on Alien completed in 272.0s
+  Average reward: 172.50
+  Final 5 episodes: 148.00
+  Best episode: 250.00
+✓ Results saved to: ./results/experiment_20ep_20250806_193136/results_20250806_194054.json
+
+============================================================
+Running DQN + Priority on Alien
+============================================================
+Using Standard DQN Network
+Using Prioritized Transition Buffer
+Starting DQN + Priority training...
+  Episode 1/20: 604 steps, reward: 140.0, time: 2.0s
+  Episode 2/20: 703 steps, reward: 230.0, time: 9.2s
+  Episode 3/20: 589 steps, reward: 320.0, time: 7.8s
+  Episode 4/20: 599 steps, reward: 180.0, time: 7.9s
+  Episode 5/20: 675 steps, reward: 130.0, time: 8.9s
+  Episode 6/20: 1049 steps, reward: 380.0, time: 15.0s
+  Episode 7/20: 711 steps, reward: 190.0, time: 12.6s
+  Episode 8/20: 897 steps, reward: 310.0, time: 15.9s
+  Episode 9/20: 710 steps, reward: 160.0, time: 12.6s
+  Episode 10/20: 736 steps, reward: 190.0, time: 13.1s
+  Episode 11/20: 825 steps, reward: 260.0, time: 14.7s
+  Episode 12/20: 694 steps, reward: 140.0, time: 12.4s
+  Episode 13/20: 858 steps, reward: 210.0, time: 15.2s
+  Episode 14/20: 607 steps, reward: 210.0, time: 13.2s
+  Episode 15/20: 649 steps, reward: 120.0, time: 14.9s
+  Episode 16/20: 684 steps, reward: 180.0, time: 15.8s
+  Episode 17/20: 598 steps, reward: 150.0, time: 13.9s
+  Episode 18/20: 679 steps, reward: 160.0, time: 15.7s
+  Episode 19/20: 741 steps, reward: 220.0, time: 17.5s
+  Episode 20/20: 584 steps, reward: 160.0, time: 13.4s
+✓ DQN + Priority on Alien completed in 251.7s
+  Average reward: 202.00
+  Final 5 episodes: 174.00
+  Best episode: 380.00
+✓ Results saved to: ./results/experiment_20ep_20250806_193136/results_20250806_194506.json
+
+============================================================
+Running Distributed + Priority on Alien
+============================================================
+Starting distributed training with 4 workers...
+Starting distributed training with 4 workers
+Target episodes: 20
+Started 4 workers for parallel experience collection
+Updated target network at step 0
+Saved checkpoint to ./results/distributed_checkpoints/distributed_checkpoint_episodes_0.pth
+Updated target network at step 0
+Saved checkpoint to ./results/distributed_checkpoints/distributed_checkpoint_episodes_0.pth
+Training completed in 24.84 seconds
+✓ Distributed + Priority on Alien completed in 26.1s
+  Average reward: 222.73
+  Final 5 episodes: 200.00
+  Best episode: 254.00
+✓ Results saved to: ./results/experiment_20ep_20250806_193136/results_20250806_194532.json
+
+############################################################
+GAME: IceHockey
+############################################################
+
+============================================================
+Running Basic DQN on IceHockey
+============================================================
+Using Standard DQN Network
+Using Uniform Transition Buffer
+Starting Basic DQN training...
+  Episode 1/20: 3266 steps, reward: -10.0, time: 36.0s
+  Episode 2/20: 3369 steps, reward: -8.0, time: 62.5s
+  Episode 3/20: 3309 steps, reward: -9.0, time: 96.2s
+  Episode 4/20: 3631 steps, reward: -11.0, time: 105.2s
+  Episode 5/20: 3230 steps, reward: -9.0, time: 93.8s
+  Episode 6/20: 3446 steps, reward: -8.0, time: 100.1s
+  Episode 7/20: 3271 steps, reward: -10.0, time: 95.3s
+  Episode 8/20: 3280 steps, reward: -10.0, time: 95.4s
+  Episode 9/20: 3447 steps, reward: -8.0, time: 101.0s
+  Episode 10/20: 3302 steps, reward: -13.0, time: 95.5s
+  Episode 11/20: 3396 steps, reward: -11.0, time: 89.5s
+  Episode 12/20: 3391 steps, reward: -10.0, time: 79.2s
+  Episode 13/20: 3311 steps, reward: -11.0, time: 77.2s
+  Episode 14/20: 3255 steps, reward: -10.0, time: 76.1s
+  Episode 15/20: 3848 steps, reward: -8.0, time: 91.2s
+  Episode 16/20: 3395 steps, reward: -7.0, time: 79.3s
+  Episode 17/20: 3286 steps, reward: -15.0, time: 76.9s
+  Episode 18/20: 3505 steps, reward: -10.0, time: 81.8s
+  Episode 19/20: 3353 steps, reward: -10.0, time: 79.2s
+  Episode 20/20: 3203 steps, reward: -10.0, time: 74.7s
+✓ Basic DQN on IceHockey completed in 1686.5s
+  Average reward: -9.90
+  Final 5 episodes: -10.40
+  Best episode: -7.00
+✓ Results saved to: ./results/experiment_20ep_20250806_193136/results_20250806_201338.json
+
+============================================================
+Running DQN + Dueling on IceHockey
+============================================================
+Using Standard DQN Network with Dueling
+Using Uniform Transition Buffer
+Starting DQN + Dueling training...
+  Episode 1/20: 3494 steps, reward: -12.0, time: 39.4s
+  Episode 2/20: 3182 steps, reward: -6.0, time: 55.4s
+  Episode 3/20: 3555 steps, reward: -11.0, time: 83.7s
+  Episode 4/20: 3355 steps, reward: -8.0, time: 79.1s
+  Episode 5/20: 3150 steps, reward: -9.0, time: 73.5s
+  Episode 6/20: 3338 steps, reward: -4.0, time: 78.7s
