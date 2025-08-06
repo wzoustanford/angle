@@ -69,55 +69,70 @@ class SequenceReplayBuffer:
         self.episode_rewards.append(reward)
         self.episode_dones.append(done)
         
-        # If episode is done, process the episode into sequences
+        # Generate sequences as we go (every sequence_length//2 steps for overlap)
+        if len(self.episode_buffer) >= self.sequence_length:
+            # Check if we should generate a new sequence
+            steps_since_last = len(self.episode_buffer) - self.sequence_length
+            if steps_since_last % (self.sequence_length // 2) == 0:
+                self._generate_sequence(steps_since_last)
+        
+        # If episode is done, process any remaining sequences and clean up
         if done:
-            self._process_episode()
+            self._process_remaining_sequences()
+            self._reset_episode_buffer()
+    
+    def _generate_sequence(self, start_idx):
+        """Generate a single sequence starting at start_idx"""
+        if start_idx + self.sequence_length > len(self.episode_buffer):
+            return
+            
+        # Extract sequence
+        sequence = self.episode_buffer[start_idx:start_idx + self.sequence_length]
+        
+        # Convert to arrays
+        states = np.array([t['state'] for t in sequence])
+        actions = np.array([t['action'] for t in sequence])
+        rewards = np.array([t['reward'] for t in sequence])
+        next_states = np.array([t['next_state'] for t in sequence])
+        dones = np.array([t['done'] for t in sequence])
+        
+        # Create sequence data
+        sequence_data = {
+            'states': states,
+            'actions': actions,
+            'rewards': rewards,
+            'next_states': next_states,
+            'dones': dones,
+            'sequence_length': self.sequence_length,
+            'burn_in_length': self.burn_in_length
+        }
+        
+        # Calculate initial priority
+        priority = self._calculate_initial_priority(sequence_data)
+        
+        # Add to replay buffer
+        self.tree.add(priority, sequence_data)
+        self.max_priority = max(self.max_priority, priority)
+    
+    def _process_remaining_sequences(self):
+        """Process any remaining sequences at episode end"""
+        if len(self.episode_buffer) < self.sequence_length:
+            return
+            
+        # Generate any remaining sequences that weren't created during the episode
+        last_generated = ((len(self.episode_buffer) - self.sequence_length) // (self.sequence_length // 2)) * (self.sequence_length // 2)
+        
+        # Create final sequences if there are enough remaining steps
+        for start_idx in range(last_generated + self.sequence_length // 2, 
+                             len(self.episode_buffer) - self.sequence_length + 1, 
+                             self.sequence_length // 2):
+            self._generate_sequence(start_idx)
     
     def _process_episode(self):
         """
-        Process completed episode into overlapping sequences and add to replay buffer
+        Legacy method - kept for compatibility but now unused
         """
-        if len(self.episode_buffer) < self.sequence_length:
-            # Episode too short, skip (or pad if needed)
-            self._reset_episode_buffer()
-            return
-        
-        # Create overlapping sequences from the episode
-        num_sequences = len(self.episode_buffer) - self.sequence_length + 1
-        
-        for start_idx in range(0, num_sequences, self.sequence_length // 2):  # 50% overlap
-            if start_idx + self.sequence_length > len(self.episode_buffer):
-                break
-                
-            # Extract sequence
-            sequence = self.episode_buffer[start_idx:start_idx + self.sequence_length]
-            
-            # Convert to arrays
-            states = np.array([t['state'] for t in sequence])
-            actions = np.array([t['action'] for t in sequence])
-            rewards = np.array([t['reward'] for t in sequence])
-            next_states = np.array([t['next_state'] for t in sequence])
-            dones = np.array([t['done'] for t in sequence])
-            
-            # Create sequence data
-            sequence_data = {
-                'states': states,
-                'actions': actions,
-                'rewards': rewards,
-                'next_states': next_states,
-                'dones': dones,
-                'sequence_length': self.sequence_length,
-                'burn_in_length': self.burn_in_length
-            }
-            
-            # Calculate initial priority
-            priority = self._calculate_initial_priority(sequence_data)
-            
-            # Add to replay buffer
-            self.tree.add(priority, sequence_data)
-            self.max_priority = max(self.max_priority, priority)
-        
-        self._reset_episode_buffer()
+        pass
     
     def _reset_episode_buffer(self):
         """Reset episode buffer for next episode"""

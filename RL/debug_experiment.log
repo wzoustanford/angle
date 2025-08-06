@@ -1,0 +1,355 @@
+Single Game Experiment: Alien
+Episodes per algorithm: 2
+Output directory: ./results/single_game/alien_2ep_20250805_055242
+Starting Alien experiment with 3 algorithms
+
+==================================================
+Running Basic DQN
+==================================================
+DEBUG: Starting algorithm Basic DQN
+DEBUG: Creating DQNAgent with config...
+Using device: cuda
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+Using Standard DQN Network
+Using Uniform Transition Buffer
+DEBUG: DQNAgent created successfully
+DEBUG: Agent device: cuda
+DEBUG: Buffer type: ReplayBuffer
+Starting Basic DQN training...
+DEBUG: Starting episode 1/2
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 1 step 1
+DEBUG: Episode 1 step 21
+DEBUG: Episode 1 step 41
+DEBUG: Episode 1 step 61
+DEBUG: Episode 1 step 81
+DEBUG: Episode 1 step 101
+DEBUG: Episode 1 step 121
+DEBUG: Episode 1 step 141
+DEBUG: Episode 1 step 161
+DEBUG: Episode 1 step 181
+DEBUG: Episode 1 step 201
+DEBUG: Episode 1 step 221
+DEBUG: Episode 1 step 241
+DEBUG: Episode 1 step 261
+DEBUG: Episode 1 step 281
+DEBUG: Episode 1 step 301
+DEBUG: Episode 1 step 321
+DEBUG: Episode 1 step 341
+DEBUG: Episode 1 step 361
+DEBUG: Episode 1 step 381
+DEBUG: Episode 1 step 401
+DEBUG: Episode 1 step 421
+DEBUG: Episode 1 step 441
+DEBUG: Episode 1 step 461
+DEBUG: Episode 1 step 481
+Updated target network at step 500
+DEBUG: Episode 1 step 501
+DEBUG: Episode 1 step 521
+DEBUG: Episode 1 step 541
+DEBUG: Episode 1 step 561
+DEBUG: Episode 1 step 581
+DEBUG: Episode 1 step 601
+DEBUG: Episode 1 step 621
+DEBUG: Episode 1 step 641
+DEBUG: Episode 1 step 661
+DEBUG: Episode 1 step 681
+  Episode 1/2: 698 steps, reward: 160.0, time: 18.2s
+DEBUG: Starting episode 2/2
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 2 step 1
+DEBUG: Episode 2 step 21
+DEBUG: Episode 2 step 41
+DEBUG: Episode 2 step 61
+DEBUG: Episode 2 step 81
+DEBUG: Episode 2 step 101
+DEBUG: Episode 2 step 121
+DEBUG: Episode 2 step 141
+DEBUG: Episode 2 step 161
+DEBUG: Episode 2 step 181
+DEBUG: Episode 2 step 201
+DEBUG: Episode 2 step 221
+DEBUG: Episode 2 step 241
+DEBUG: Episode 2 step 261
+DEBUG: Episode 2 step 281
+DEBUG: Episode 2 step 301
+Updated target network at step 1000
+DEBUG: Episode 2 step 321
+DEBUG: Episode 2 step 341
+DEBUG: Episode 2 step 361
+DEBUG: Episode 2 step 381
+DEBUG: Episode 2 step 401
+DEBUG: Episode 2 step 421
+DEBUG: Episode 2 step 441
+DEBUG: Episode 2 step 461
+DEBUG: Episode 2 step 481
+DEBUG: Episode 2 step 501
+DEBUG: Episode 2 step 521
+DEBUG: Episode 2 step 541
+DEBUG: Episode 2 step 561
+DEBUG: Episode 2 step 581
+DEBUG: Episode 2 step 601
+DEBUG: Episode 2 step 621
+DEBUG: Episode 2 step 641
+DEBUG: Episode 2 step 661
+DEBUG: Episode 2 step 681
+DEBUG: Episode 2 step 701
+DEBUG: Episode 2 step 721
+  Episode 2/2: 727 steps, reward: 150.0, time: 21.3s
+✓ Basic DQN completed in 41.1s
+  Episodes: 2
+  Average reward: 155.00
+  Final 10 episodes: 155.00
+  Best episode: 160.00
+
+==================================================
+Running DQN + Priority
+==================================================
+DEBUG: Starting algorithm DQN + Priority
+DEBUG: Creating DQNAgent with config...
+Using device: cuda
+Using Standard DQN Network
+Using Prioritized Transition Buffer
+DEBUG: DQNAgent created successfully
+DEBUG: Agent device: cuda
+DEBUG: Buffer type: PrioritizedReplayBuffer
+Starting DQN + Priority training...
+DEBUG: Starting episode 1/2
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 1 step 1
+DEBUG: Episode 1 step 21
+DEBUG: Episode 1 step 41
+DEBUG: Episode 1 step 61
+DEBUG: Episode 1 step 81
+DEBUG: Episode 1 step 101
+DEBUG: Episode 1 step 121
+DEBUG: Episode 1 step 141
+DEBUG: Episode 1 step 161
+DEBUG: Episode 1 step 181
+DEBUG: Episode 1 step 201
+DEBUG: Episode 1 step 221
+DEBUG: Episode 1 step 241
+DEBUG: Episode 1 step 261
+DEBUG: Episode 1 step 281
+DEBUG: Episode 1 step 301
+DEBUG: Episode 1 step 321
+DEBUG: Episode 1 step 341
+DEBUG: Episode 1 step 361
+DEBUG: Episode 1 step 381
+DEBUG: Episode 1 step 401
+DEBUG: Episode 1 step 421
+DEBUG: Episode 1 step 441
+DEBUG: Episode 1 step 461
+DEBUG: Episode 1 step 481
+Updated target network at step 500
+DEBUG: Episode 1 step 501
+DEBUG: Episode 1 step 521
+DEBUG: Episode 1 step 541
+DEBUG: Episode 1 step 561
+DEBUG: Episode 1 step 581
+DEBUG: Episode 1 step 601
+DEBUG: Episode 1 step 621
+DEBUG: Episode 1 step 641
+DEBUG: Episode 1 step 661
+DEBUG: Episode 1 step 681
+DEBUG: Episode 1 step 701
+DEBUG: Episode 1 step 721
+DEBUG: Episode 1 step 741
+DEBUG: Episode 1 step 761
+DEBUG: Episode 1 step 781
+DEBUG: Episode 1 step 801
+DEBUG: Episode 1 step 821
+  Episode 1/2: 824 steps, reward: 190.0, time: 20.3s
+DEBUG: Starting episode 2/2
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 2 step 1
+DEBUG: Episode 2 step 21
+DEBUG: Episode 2 step 41
+DEBUG: Episode 2 step 61
+DEBUG: Episode 2 step 81
+DEBUG: Episode 2 step 101
+DEBUG: Episode 2 step 121
+DEBUG: Episode 2 step 141
+DEBUG: Episode 2 step 161
+Updated target network at step 1000
+DEBUG: Episode 2 step 181
+DEBUG: Episode 2 step 201
+DEBUG: Episode 2 step 221
+DEBUG: Episode 2 step 241
+DEBUG: Episode 2 step 261
+DEBUG: Episode 2 step 281
+DEBUG: Episode 2 step 301
+DEBUG: Episode 2 step 321
+DEBUG: Episode 2 step 341
+DEBUG: Episode 2 step 361
+DEBUG: Episode 2 step 381
+DEBUG: Episode 2 step 401
+DEBUG: Episode 2 step 421
+DEBUG: Episode 2 step 441
+DEBUG: Episode 2 step 461
+DEBUG: Episode 2 step 481
+DEBUG: Episode 2 step 501
+DEBUG: Episode 2 step 521
+DEBUG: Episode 2 step 541
+DEBUG: Episode 2 step 561
+DEBUG: Episode 2 step 581
+DEBUG: Episode 2 step 601
+DEBUG: Episode 2 step 621
+DEBUG: Episode 2 step 641
+DEBUG: Episode 2 step 661
+  Episode 2/2: 675 steps, reward: 170.0, time: 19.7s
+✓ DQN + Priority completed in 40.3s
+  Episodes: 2
+  Average reward: 180.00
+  Final 10 episodes: 180.00
+  Best episode: 190.00
+
+==================================================
+Running R2D2
+==================================================
+DEBUG: Starting algorithm R2D2
+DEBUG: Creating DQNAgent with config...
+Using device: cuda
+Using R2D2 Network (LSTM size: 256)
+Using R2D2 Sequence Buffer (seq_len: 40)
+DEBUG: DQNAgent created successfully
+DEBUG: Agent device: cuda
+DEBUG: Buffer type: SequenceReplayBuffer
+Starting R2D2 training...
+DEBUG: Starting episode 1/2
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 1 step 1
+DEBUG: Episode 1 step 21
+DEBUG: Episode 1 step 41
+DEBUG: Episode 1 step 61
+DEBUG: Episode 1 step 81
+    Step 100: buffer=4 sequences, no training
+DEBUG: Episode 1 step 101
+DEBUG: Episode 1 step 121
+DEBUG: Episode 1 step 141
+DEBUG: Episode 1 step 161
+DEBUG: Episode 1 step 181
+    Step 200: buffer=9 sequences, no training
+DEBUG: Episode 1 step 201
+DEBUG: Episode 1 step 221
+DEBUG: Episode 1 step 241
+DEBUG: Episode 1 step 261
+DEBUG: Episode 1 step 281
+    Step 300: buffer=14 sequences, no training
+DEBUG: Episode 1 step 301
+DEBUG: Episode 1 step 321
+DEBUG: Episode 1 step 341
+DEBUG: Episode 1 step 361
+DEBUG: Episode 1 step 381
+    Step 400: buffer=19 sequences, no training
+DEBUG: Episode 1 step 401
+DEBUG: Episode 1 step 421
+DEBUG: Episode 1 step 441
+DEBUG: Episode 1 step 461
+DEBUG: Episode 1 step 481
+    Step 500: buffer=24 sequences, no training
+Updated target network at step 500
+DEBUG: Episode 1 step 501
+DEBUG: Episode 1 step 521
+DEBUG: Episode 1 step 541
+DEBUG: Episode 1 step 561
+DEBUG: Episode 1 step 581
+    Step 600: buffer=29 sequences, no training
+DEBUG: Episode 1 step 601
+DEBUG: Episode 1 step 621
+DEBUG: Episode 1 step 641
+DEBUG: Episode 1 step 661
+DEBUG: Episode 1 step 681
+    Step 700: buffer=34 sequences, no training
+DEBUG: Episode 1 step 701
+  Episode 1/2: 708 steps, reward: 120.0, time: 1.4s, buffer: 34 sequences
+DEBUG: Starting episode 2/2
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 2 step 1
+DEBUG: Episode 2 step 21
+DEBUG: Episode 2 step 41
+DEBUG: Episode 2 step 61
+DEBUG: Episode 2 step 81
+    Step 100: buffer=38 sequences, no training
+DEBUG: Episode 2 step 101
+DEBUG: Episode 2 step 121
+DEBUG: Episode 2 step 141
+DEBUG: Episode 2 step 161
+DEBUG: Episode 2 step 181
+    Step 200: buffer=43 sequences, no training
+DEBUG: Episode 2 step 201
+DEBUG: Episode 2 step 221
+DEBUG: Episode 2 step 241
+DEBUG: Episode 2 step 261
+DEBUG: Episode 2 step 281
+Updated target network at step 1000
+    Step 300: buffer=48 sequences, no training
+DEBUG: Episode 2 step 301
+DEBUG: Episode 2 step 321
+DEBUG: Episode 2 step 341
+DEBUG: Episode 2 step 361
+DEBUG: Episode 2 step 381
+    Step 400: buffer=53 sequences, no training
+DEBUG: Episode 2 step 401
+DEBUG: Episode 2 step 421
+DEBUG: Episode 2 step 441
+DEBUG: Episode 2 step 461
+DEBUG: Episode 2 step 481
+    Step 500: buffer=58 sequences, no training
+DEBUG: Episode 2 step 501
+DEBUG: Episode 2 step 521
+DEBUG: Episode 2 step 541
+DEBUG: Episode 2 step 561
+DEBUG: Episode 2 step 581
+    Step 600: buffer=63 sequences, no training
+DEBUG: Episode 2 step 601
+DEBUG: Episode 2 step 621
+DEBUG: Episode 2 step 641
+DEBUG: Episode 2 step 661
+DEBUG: Episode 2 step 681
+    Step 700: buffer=68 sequences, no training
+DEBUG: Episode 2 step 701
+DEBUG: Episode 2 step 721
+  Episode 2/2: 723 steps, reward: 190.0, time: 1.4s, buffer: 69 sequences
+✓ R2D2 completed in 3.1s
+  Episodes: 2
+  Average reward: 155.00
+  Final 10 episodes: 155.00
+  Best episode: 190.00
+
+Creating learning curves...
+/home/ubuntu/code/angle/RL/experiments/single_game_experiment.py:276: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+  ax2.legend()
+✓ Learning curves saved to: ./results/single_game/alien_2ep_20250805_055242/alien_learning_curves.png
+/home/ubuntu/code/angle/RL/experiments/single_game_experiment.py:333: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+
+============================================================
+ALIEN EXPERIMENT SUMMARY
+============================================================
+Rank  Algorithm       Avg Reward   Final 10     Best         Time    
+----------------------------------------------------------------------
+#1    DQN + Priority    180.00       180.00       190.00       40.3s
+#2    Basic DQN         155.00       155.00       160.00       41.1s
+#3    R2D2              155.00       155.00       190.00        3.1s
+
+Learning Progress Analysis:
+------------------------------
+
+============================================================
+SINGLE GAME EXPERIMENT COMPLETED!
+Check ./results/single_game/alien_2ep_20250805_055242 for results
+============================================================

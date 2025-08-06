@@ -1,0 +1,1949 @@
+Single Game Experiment: Alien
+Episodes per algorithm: 20
+Output directory: ./results/single_game/alien_20ep_20250805_055740
+Starting Alien experiment with 3 algorithms
+
+==================================================
+Running Basic DQN
+==================================================
+DEBUG: Starting algorithm Basic DQN
+DEBUG: Creating DQNAgent with config...
+Using device: cuda
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+Using Standard DQN Network
+Using Uniform Transition Buffer
+DEBUG: DQNAgent created successfully
+DEBUG: Agent device: cuda
+DEBUG: Buffer type: ReplayBuffer
+Starting Basic DQN training...
+DEBUG: Starting episode 1/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 1 step 1
+DEBUG: Episode 1 step 21
+DEBUG: Episode 1 step 41
+DEBUG: Episode 1 step 61
+DEBUG: Episode 1 step 81
+DEBUG: Episode 1 step 101
+DEBUG: Episode 1 step 121
+DEBUG: Episode 1 step 141
+DEBUG: Episode 1 step 161
+DEBUG: Episode 1 step 181
+DEBUG: Episode 1 step 201
+DEBUG: Episode 1 step 221
+DEBUG: Episode 1 step 241
+DEBUG: Episode 1 step 261
+DEBUG: Episode 1 step 281
+DEBUG: Episode 1 step 301
+DEBUG: Episode 1 step 321
+DEBUG: Episode 1 step 341
+DEBUG: Episode 1 step 361
+DEBUG: Episode 1 step 381
+DEBUG: Episode 1 step 401
+DEBUG: Episode 1 step 421
+DEBUG: Episode 1 step 441
+DEBUG: Episode 1 step 461
+DEBUG: Episode 1 step 481
+Updated target network at step 500
+DEBUG: Episode 1 step 501
+DEBUG: Episode 1 step 521
+DEBUG: Episode 1 step 541
+DEBUG: Episode 1 step 561
+DEBUG: Episode 1 step 581
+DEBUG: Episode 1 step 601
+  Episode 1/20: 609 steps, reward: 200.0, time: 15.4s
+DEBUG: Starting episode 2/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 2 step 1
+DEBUG: Episode 2 step 21
+DEBUG: Episode 2 step 41
+DEBUG: Episode 2 step 61
+DEBUG: Episode 2 step 81
+DEBUG: Episode 2 step 101
+DEBUG: Episode 2 step 121
+DEBUG: Episode 2 step 141
+DEBUG: Episode 2 step 161
+DEBUG: Episode 2 step 181
+DEBUG: Episode 2 step 201
+DEBUG: Episode 2 step 221
+DEBUG: Episode 2 step 241
+DEBUG: Episode 2 step 261
+DEBUG: Episode 2 step 281
+DEBUG: Episode 2 step 301
+DEBUG: Episode 2 step 321
+DEBUG: Episode 2 step 341
+DEBUG: Episode 2 step 361
+DEBUG: Episode 2 step 381
+Updated target network at step 1000
+DEBUG: Episode 2 step 401
+DEBUG: Episode 2 step 421
+DEBUG: Episode 2 step 441
+DEBUG: Episode 2 step 461
+DEBUG: Episode 2 step 481
+DEBUG: Episode 2 step 501
+DEBUG: Episode 2 step 521
+DEBUG: Episode 2 step 541
+DEBUG: Episode 2 step 561
+DEBUG: Episode 2 step 581
+DEBUG: Episode 2 step 601
+DEBUG: Episode 2 step 621
+DEBUG: Episode 2 step 641
+DEBUG: Episode 2 step 661
+DEBUG: Episode 2 step 681
+DEBUG: Episode 2 step 701
+DEBUG: Episode 2 step 721
+  Episode 2/20: 734 steps, reward: 280.0, time: 21.2s
+DEBUG: Starting episode 3/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 3 step 1
+DEBUG: Episode 3 step 21
+DEBUG: Episode 3 step 41
+DEBUG: Episode 3 step 61
+DEBUG: Episode 3 step 81
+DEBUG: Episode 3 step 101
+DEBUG: Episode 3 step 121
+DEBUG: Episode 3 step 141
+Updated target network at step 1500
+DEBUG: Episode 3 step 161
+DEBUG: Episode 3 step 181
+DEBUG: Episode 3 step 201
+DEBUG: Episode 3 step 221
+DEBUG: Episode 3 step 241
+DEBUG: Episode 3 step 261
+DEBUG: Episode 3 step 281
+DEBUG: Episode 3 step 301
+DEBUG: Episode 3 step 321
+DEBUG: Episode 3 step 341
+DEBUG: Episode 3 step 361
+DEBUG: Episode 3 step 381
+DEBUG: Episode 3 step 401
+DEBUG: Episode 3 step 421
+DEBUG: Episode 3 step 441
+DEBUG: Episode 3 step 461
+DEBUG: Episode 3 step 481
+DEBUG: Episode 3 step 501
+DEBUG: Episode 3 step 521
+DEBUG: Episode 3 step 541
+DEBUG: Episode 3 step 561
+DEBUG: Episode 3 step 581
+DEBUG: Episode 3 step 601
+DEBUG: Episode 3 step 621
+DEBUG: Episode 3 step 641
+Updated target network at step 2000
+DEBUG: Episode 3 step 661
+DEBUG: Episode 3 step 681
+DEBUG: Episode 3 step 701
+  Episode 3/20: 715 steps, reward: 260.0, time: 20.6s
+DEBUG: Starting episode 4/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 4 step 1
+DEBUG: Episode 4 step 21
+DEBUG: Episode 4 step 41
+DEBUG: Episode 4 step 61
+DEBUG: Episode 4 step 81
+DEBUG: Episode 4 step 101
+DEBUG: Episode 4 step 121
+DEBUG: Episode 4 step 141
+DEBUG: Episode 4 step 161
+DEBUG: Episode 4 step 181
+DEBUG: Episode 4 step 201
+DEBUG: Episode 4 step 221
+DEBUG: Episode 4 step 241
+DEBUG: Episode 4 step 261
+DEBUG: Episode 4 step 281
+DEBUG: Episode 4 step 301
+DEBUG: Episode 4 step 321
+DEBUG: Episode 4 step 341
+DEBUG: Episode 4 step 361
+DEBUG: Episode 4 step 381
+DEBUG: Episode 4 step 401
+DEBUG: Episode 4 step 421
+DEBUG: Episode 4 step 441
+Updated target network at step 2500
+DEBUG: Episode 4 step 461
+DEBUG: Episode 4 step 481
+DEBUG: Episode 4 step 501
+DEBUG: Episode 4 step 521
+DEBUG: Episode 4 step 541
+DEBUG: Episode 4 step 561
+DEBUG: Episode 4 step 581
+  Episode 4/20: 596 steps, reward: 190.0, time: 17.2s
+DEBUG: Starting episode 5/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 5 step 1
+DEBUG: Episode 5 step 21
+DEBUG: Episode 5 step 41
+DEBUG: Episode 5 step 61
+DEBUG: Episode 5 step 81
+DEBUG: Episode 5 step 101
+DEBUG: Episode 5 step 121
+DEBUG: Episode 5 step 141
+DEBUG: Episode 5 step 161
+DEBUG: Episode 5 step 181
+DEBUG: Episode 5 step 201
+DEBUG: Episode 5 step 221
+DEBUG: Episode 5 step 241
+DEBUG: Episode 5 step 261
+DEBUG: Episode 5 step 281
+DEBUG: Episode 5 step 301
+DEBUG: Episode 5 step 321
+DEBUG: Episode 5 step 341
+Updated target network at step 3000
+DEBUG: Episode 5 step 361
+DEBUG: Episode 5 step 381
+DEBUG: Episode 5 step 401
+DEBUG: Episode 5 step 421
+DEBUG: Episode 5 step 441
+DEBUG: Episode 5 step 461
+DEBUG: Episode 5 step 481
+DEBUG: Episode 5 step 501
+DEBUG: Episode 5 step 521
+DEBUG: Episode 5 step 541
+DEBUG: Episode 5 step 561
+DEBUG: Episode 5 step 581
+DEBUG: Episode 5 step 601
+DEBUG: Episode 5 step 621
+DEBUG: Episode 5 step 641
+DEBUG: Episode 5 step 661
+DEBUG: Episode 5 step 681
+  Episode 5/20: 684 steps, reward: 240.0, time: 19.7s
+DEBUG: Starting episode 6/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 6 step 1
+DEBUG: Episode 6 step 21
+DEBUG: Episode 6 step 41
+DEBUG: Episode 6 step 61
+DEBUG: Episode 6 step 81
+DEBUG: Episode 6 step 101
+DEBUG: Episode 6 step 121
+DEBUG: Episode 6 step 141
+DEBUG: Episode 6 step 161
+Updated target network at step 3500
+DEBUG: Episode 6 step 181
+DEBUG: Episode 6 step 201
+DEBUG: Episode 6 step 221
+DEBUG: Episode 6 step 241
+DEBUG: Episode 6 step 261
+DEBUG: Episode 6 step 281
+DEBUG: Episode 6 step 301
+DEBUG: Episode 6 step 321
+DEBUG: Episode 6 step 341
+DEBUG: Episode 6 step 361
+DEBUG: Episode 6 step 381
+DEBUG: Episode 6 step 401
+DEBUG: Episode 6 step 421
+DEBUG: Episode 6 step 441
+DEBUG: Episode 6 step 461
+DEBUG: Episode 6 step 481
+DEBUG: Episode 6 step 501
+DEBUG: Episode 6 step 521
+DEBUG: Episode 6 step 541
+DEBUG: Episode 6 step 561
+DEBUG: Episode 6 step 581
+DEBUG: Episode 6 step 601
+  Episode 6/20: 607 steps, reward: 260.0, time: 17.7s
+DEBUG: Starting episode 7/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 7 step 1
+DEBUG: Episode 7 step 21
+DEBUG: Episode 7 step 41
+Updated target network at step 4000
+DEBUG: Episode 7 step 61
+DEBUG: Episode 7 step 81
+DEBUG: Episode 7 step 101
+DEBUG: Episode 7 step 121
+DEBUG: Episode 7 step 141
+DEBUG: Episode 7 step 161
+DEBUG: Episode 7 step 181
+DEBUG: Episode 7 step 201
+DEBUG: Episode 7 step 221
+DEBUG: Episode 7 step 241
+DEBUG: Episode 7 step 261
+DEBUG: Episode 7 step 281
+DEBUG: Episode 7 step 301
+DEBUG: Episode 7 step 321
+DEBUG: Episode 7 step 341
+DEBUG: Episode 7 step 361
+DEBUG: Episode 7 step 381
+DEBUG: Episode 7 step 401
+DEBUG: Episode 7 step 421
+DEBUG: Episode 7 step 441
+DEBUG: Episode 7 step 461
+DEBUG: Episode 7 step 481
+DEBUG: Episode 7 step 501
+DEBUG: Episode 7 step 521
+DEBUG: Episode 7 step 541
+  Episode 7/20: 549 steps, reward: 220.0, time: 15.9s
+DEBUG: Starting episode 8/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 8 step 1
+Updated target network at step 4500
+DEBUG: Episode 8 step 21
+DEBUG: Episode 8 step 41
+DEBUG: Episode 8 step 61
+DEBUG: Episode 8 step 81
+DEBUG: Episode 8 step 101
+DEBUG: Episode 8 step 121
+DEBUG: Episode 8 step 141
+DEBUG: Episode 8 step 161
+DEBUG: Episode 8 step 181
+DEBUG: Episode 8 step 201
+DEBUG: Episode 8 step 221
+DEBUG: Episode 8 step 241
+DEBUG: Episode 8 step 261
+DEBUG: Episode 8 step 281
+DEBUG: Episode 8 step 301
+DEBUG: Episode 8 step 321
+DEBUG: Episode 8 step 341
+DEBUG: Episode 8 step 361
+DEBUG: Episode 8 step 381
+DEBUG: Episode 8 step 401
+DEBUG: Episode 8 step 421
+DEBUG: Episode 8 step 441
+DEBUG: Episode 8 step 461
+DEBUG: Episode 8 step 481
+DEBUG: Episode 8 step 501
+Updated target network at step 5000
+DEBUG: Episode 8 step 521
+DEBUG: Episode 8 step 541
+DEBUG: Episode 8 step 561
+DEBUG: Episode 8 step 581
+DEBUG: Episode 8 step 601
+  Episode 8/20: 619 steps, reward: 310.0, time: 18.1s
+DEBUG: Starting episode 9/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 9 step 1
+DEBUG: Episode 9 step 21
+DEBUG: Episode 9 step 41
+DEBUG: Episode 9 step 61
+DEBUG: Episode 9 step 81
+DEBUG: Episode 9 step 101
+DEBUG: Episode 9 step 121
+DEBUG: Episode 9 step 141
+DEBUG: Episode 9 step 161
+DEBUG: Episode 9 step 181
+DEBUG: Episode 9 step 201
+DEBUG: Episode 9 step 221
+DEBUG: Episode 9 step 241
+DEBUG: Episode 9 step 261
+DEBUG: Episode 9 step 281
+DEBUG: Episode 9 step 301
+DEBUG: Episode 9 step 321
+DEBUG: Episode 9 step 341
+DEBUG: Episode 9 step 361
+DEBUG: Episode 9 step 381
+Updated target network at step 5500
+DEBUG: Episode 9 step 401
+DEBUG: Episode 9 step 421
+DEBUG: Episode 9 step 441
+DEBUG: Episode 9 step 461
+DEBUG: Episode 9 step 481
+DEBUG: Episode 9 step 501
+DEBUG: Episode 9 step 521
+DEBUG: Episode 9 step 541
+DEBUG: Episode 9 step 561
+DEBUG: Episode 9 step 581
+DEBUG: Episode 9 step 601
+DEBUG: Episode 9 step 621
+  Episode 9/20: 632 steps, reward: 260.0, time: 18.5s
+DEBUG: Starting episode 10/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 10 step 1
+DEBUG: Episode 10 step 21
+DEBUG: Episode 10 step 41
+DEBUG: Episode 10 step 61
+DEBUG: Episode 10 step 81
+DEBUG: Episode 10 step 101
+DEBUG: Episode 10 step 121
+DEBUG: Episode 10 step 141
+DEBUG: Episode 10 step 161
+DEBUG: Episode 10 step 181
+DEBUG: Episode 10 step 201
+DEBUG: Episode 10 step 221
+DEBUG: Episode 10 step 241
+Updated target network at step 6000
+DEBUG: Episode 10 step 261
+DEBUG: Episode 10 step 281
+DEBUG: Episode 10 step 301
+DEBUG: Episode 10 step 321
+DEBUG: Episode 10 step 341
+DEBUG: Episode 10 step 361
+DEBUG: Episode 10 step 381
+DEBUG: Episode 10 step 401
+DEBUG: Episode 10 step 421
+DEBUG: Episode 10 step 441
+DEBUG: Episode 10 step 461
+DEBUG: Episode 10 step 481
+DEBUG: Episode 10 step 501
+  Episode 10/20: 513 steps, reward: 280.0, time: 15.0s
+DEBUG: Starting episode 11/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 11 step 1
+DEBUG: Episode 11 step 21
+DEBUG: Episode 11 step 41
+DEBUG: Episode 11 step 61
+DEBUG: Episode 11 step 81
+DEBUG: Episode 11 step 101
+DEBUG: Episode 11 step 121
+DEBUG: Episode 11 step 141
+DEBUG: Episode 11 step 161
+DEBUG: Episode 11 step 181
+DEBUG: Episode 11 step 201
+DEBUG: Episode 11 step 221
+DEBUG: Episode 11 step 241
+Updated target network at step 6500
+DEBUG: Episode 11 step 261
+DEBUG: Episode 11 step 281
+DEBUG: Episode 11 step 301
+DEBUG: Episode 11 step 321
+DEBUG: Episode 11 step 341
+DEBUG: Episode 11 step 361
+DEBUG: Episode 11 step 381
+DEBUG: Episode 11 step 401
+DEBUG: Episode 11 step 421
+DEBUG: Episode 11 step 441
+DEBUG: Episode 11 step 461
+DEBUG: Episode 11 step 481
+DEBUG: Episode 11 step 501
+DEBUG: Episode 11 step 521
+DEBUG: Episode 11 step 541
+DEBUG: Episode 11 step 561
+DEBUG: Episode 11 step 581
+DEBUG: Episode 11 step 601
+DEBUG: Episode 11 step 621
+DEBUG: Episode 11 step 641
+DEBUG: Episode 11 step 661
+DEBUG: Episode 11 step 681
+DEBUG: Episode 11 step 701
+  Episode 11/20: 712 steps, reward: 310.0, time: 21.1s
+DEBUG: Starting episode 12/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 12 step 1
+DEBUG: Episode 12 step 21
+Updated target network at step 7000
+DEBUG: Episode 12 step 41
+DEBUG: Episode 12 step 61
+DEBUG: Episode 12 step 81
+DEBUG: Episode 12 step 101
+DEBUG: Episode 12 step 121
+DEBUG: Episode 12 step 141
+DEBUG: Episode 12 step 161
+DEBUG: Episode 12 step 181
+DEBUG: Episode 12 step 201
+DEBUG: Episode 12 step 221
+DEBUG: Episode 12 step 241
+DEBUG: Episode 12 step 261
+DEBUG: Episode 12 step 281
+DEBUG: Episode 12 step 301
+DEBUG: Episode 12 step 321
+DEBUG: Episode 12 step 341
+DEBUG: Episode 12 step 361
+DEBUG: Episode 12 step 381
+DEBUG: Episode 12 step 401
+DEBUG: Episode 12 step 421
+DEBUG: Episode 12 step 441
+DEBUG: Episode 12 step 461
+DEBUG: Episode 12 step 481
+DEBUG: Episode 12 step 501
+DEBUG: Episode 12 step 521
+Updated target network at step 7500
+DEBUG: Episode 12 step 541
+DEBUG: Episode 12 step 561
+DEBUG: Episode 12 step 581
+  Episode 12/20: 590 steps, reward: 330.0, time: 17.3s
+DEBUG: Starting episode 13/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 13 step 1
+DEBUG: Episode 13 step 21
+DEBUG: Episode 13 step 41
+DEBUG: Episode 13 step 61
+DEBUG: Episode 13 step 81
+DEBUG: Episode 13 step 101
+DEBUG: Episode 13 step 121
+DEBUG: Episode 13 step 141
+DEBUG: Episode 13 step 161
+DEBUG: Episode 13 step 181
+DEBUG: Episode 13 step 201
+DEBUG: Episode 13 step 221
+DEBUG: Episode 13 step 241
+DEBUG: Episode 13 step 261
+DEBUG: Episode 13 step 281
+DEBUG: Episode 13 step 301
+DEBUG: Episode 13 step 321
+DEBUG: Episode 13 step 341
+DEBUG: Episode 13 step 361
+DEBUG: Episode 13 step 381
+DEBUG: Episode 13 step 401
+DEBUG: Episode 13 step 421
+Updated target network at step 8000
+DEBUG: Episode 13 step 441
+DEBUG: Episode 13 step 461
+DEBUG: Episode 13 step 481
+  Episode 13/20: 482 steps, reward: 230.0, time: 14.1s
+DEBUG: Starting episode 14/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 14 step 1
+DEBUG: Episode 14 step 21
+DEBUG: Episode 14 step 41
+DEBUG: Episode 14 step 61
+DEBUG: Episode 14 step 81
+DEBUG: Episode 14 step 101
+DEBUG: Episode 14 step 121
+DEBUG: Episode 14 step 141
+DEBUG: Episode 14 step 161
+DEBUG: Episode 14 step 181
+DEBUG: Episode 14 step 201
+DEBUG: Episode 14 step 221
+DEBUG: Episode 14 step 241
+DEBUG: Episode 14 step 261
+DEBUG: Episode 14 step 281
+DEBUG: Episode 14 step 301
+DEBUG: Episode 14 step 321
+DEBUG: Episode 14 step 341
+DEBUG: Episode 14 step 361
+DEBUG: Episode 14 step 381
+DEBUG: Episode 14 step 401
+DEBUG: Episode 14 step 421
+DEBUG: Episode 14 step 441
+Updated target network at step 8500
+DEBUG: Episode 14 step 461
+DEBUG: Episode 14 step 481
+DEBUG: Episode 14 step 501
+DEBUG: Episode 14 step 521
+DEBUG: Episode 14 step 541
+DEBUG: Episode 14 step 561
+DEBUG: Episode 14 step 581
+DEBUG: Episode 14 step 601
+DEBUG: Episode 14 step 621
+DEBUG: Episode 14 step 641
+DEBUG: Episode 14 step 661
+DEBUG: Episode 14 step 681
+DEBUG: Episode 14 step 701
+DEBUG: Episode 14 step 721
+DEBUG: Episode 14 step 741
+DEBUG: Episode 14 step 761
+DEBUG: Episode 14 step 781
+DEBUG: Episode 14 step 801
+DEBUG: Episode 14 step 821
+DEBUG: Episode 14 step 841
+  Episode 14/20: 847 steps, reward: 490.0, time: 24.9s
+DEBUG: Starting episode 15/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 15 step 1
+DEBUG: Episode 15 step 21
+DEBUG: Episode 15 step 41
+DEBUG: Episode 15 step 61
+DEBUG: Episode 15 step 81
+DEBUG: Episode 15 step 101
+Updated target network at step 9000
+DEBUG: Episode 15 step 121
+DEBUG: Episode 15 step 141
+DEBUG: Episode 15 step 161
+DEBUG: Episode 15 step 181
+DEBUG: Episode 15 step 201
+DEBUG: Episode 15 step 221
+DEBUG: Episode 15 step 241
+DEBUG: Episode 15 step 261
+DEBUG: Episode 15 step 281
+DEBUG: Episode 15 step 301
+DEBUG: Episode 15 step 321
+DEBUG: Episode 15 step 341
+DEBUG: Episode 15 step 361
+DEBUG: Episode 15 step 381
+DEBUG: Episode 15 step 401
+DEBUG: Episode 15 step 421
+DEBUG: Episode 15 step 441
+DEBUG: Episode 15 step 461
+DEBUG: Episode 15 step 481
+DEBUG: Episode 15 step 501
+DEBUG: Episode 15 step 521
+DEBUG: Episode 15 step 541
+DEBUG: Episode 15 step 561
+DEBUG: Episode 15 step 581
+DEBUG: Episode 15 step 601
+Updated target network at step 9500
+  Episode 15/20: 612 steps, reward: 440.0, time: 18.0s
+DEBUG: Starting episode 16/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 16 step 1
+DEBUG: Episode 16 step 21
+DEBUG: Episode 16 step 41
+DEBUG: Episode 16 step 61
+DEBUG: Episode 16 step 81
+DEBUG: Episode 16 step 101
+DEBUG: Episode 16 step 121
+DEBUG: Episode 16 step 141
+DEBUG: Episode 16 step 161
+DEBUG: Episode 16 step 181
+DEBUG: Episode 16 step 201
+DEBUG: Episode 16 step 221
+DEBUG: Episode 16 step 241
+DEBUG: Episode 16 step 261
+DEBUG: Episode 16 step 281
+DEBUG: Episode 16 step 301
+DEBUG: Episode 16 step 321
+DEBUG: Episode 16 step 341
+DEBUG: Episode 16 step 361
+DEBUG: Episode 16 step 381
+DEBUG: Episode 16 step 401
+DEBUG: Episode 16 step 421
+DEBUG: Episode 16 step 441
+DEBUG: Episode 16 step 461
+DEBUG: Episode 16 step 481
+Updated target network at step 10000
+DEBUG: Episode 16 step 501
+DEBUG: Episode 16 step 521
+DEBUG: Episode 16 step 541
+DEBUG: Episode 16 step 561
+DEBUG: Episode 16 step 581
+DEBUG: Episode 16 step 601
+DEBUG: Episode 16 step 621
+DEBUG: Episode 16 step 641
+DEBUG: Episode 16 step 661
+DEBUG: Episode 16 step 681
+DEBUG: Episode 16 step 701
+DEBUG: Episode 16 step 721
+DEBUG: Episode 16 step 741
+DEBUG: Episode 16 step 761
+DEBUG: Episode 16 step 781
+  Episode 16/20: 796 steps, reward: 340.0, time: 23.4s
+DEBUG: Starting episode 17/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 17 step 1
+DEBUG: Episode 17 step 21
+DEBUG: Episode 17 step 41
+DEBUG: Episode 17 step 61
+DEBUG: Episode 17 step 81
+DEBUG: Episode 17 step 101
+DEBUG: Episode 17 step 121
+DEBUG: Episode 17 step 141
+DEBUG: Episode 17 step 161
+DEBUG: Episode 17 step 181
+DEBUG: Episode 17 step 201
+Updated target network at step 10500
+DEBUG: Episode 17 step 221
+DEBUG: Episode 17 step 241
+DEBUG: Episode 17 step 261
+DEBUG: Episode 17 step 281
+DEBUG: Episode 17 step 301
+DEBUG: Episode 17 step 321
+DEBUG: Episode 17 step 341
+DEBUG: Episode 17 step 361
+DEBUG: Episode 17 step 381
+DEBUG: Episode 17 step 401
+DEBUG: Episode 17 step 421
+DEBUG: Episode 17 step 441
+DEBUG: Episode 17 step 461
+DEBUG: Episode 17 step 481
+DEBUG: Episode 17 step 501
+DEBUG: Episode 17 step 521
+DEBUG: Episode 17 step 541
+DEBUG: Episode 17 step 561
+DEBUG: Episode 17 step 581
+DEBUG: Episode 17 step 601
+DEBUG: Episode 17 step 621
+DEBUG: Episode 17 step 641
+DEBUG: Episode 17 step 661
+DEBUG: Episode 17 step 681
+DEBUG: Episode 17 step 701
+Updated target network at step 11000
+DEBUG: Episode 17 step 721
+DEBUG: Episode 17 step 741
+DEBUG: Episode 17 step 761
+DEBUG: Episode 17 step 781
+DEBUG: Episode 17 step 801
+DEBUG: Episode 17 step 821
+  Episode 17/20: 825 steps, reward: 900.0, time: 24.4s
+DEBUG: Starting episode 18/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 18 step 1
+DEBUG: Episode 18 step 21
+DEBUG: Episode 18 step 41
+DEBUG: Episode 18 step 61
+DEBUG: Episode 18 step 81
+DEBUG: Episode 18 step 101
+DEBUG: Episode 18 step 121
+DEBUG: Episode 18 step 141
+DEBUG: Episode 18 step 161
+DEBUG: Episode 18 step 181
+DEBUG: Episode 18 step 201
+DEBUG: Episode 18 step 221
+DEBUG: Episode 18 step 241
+DEBUG: Episode 18 step 261
+DEBUG: Episode 18 step 281
+DEBUG: Episode 18 step 301
+DEBUG: Episode 18 step 321
+DEBUG: Episode 18 step 341
+DEBUG: Episode 18 step 361
+Updated target network at step 11500
+DEBUG: Episode 18 step 381
+DEBUG: Episode 18 step 401
+DEBUG: Episode 18 step 421
+DEBUG: Episode 18 step 441
+DEBUG: Episode 18 step 461
+DEBUG: Episode 18 step 481
+DEBUG: Episode 18 step 501
+DEBUG: Episode 18 step 521
+DEBUG: Episode 18 step 541
+DEBUG: Episode 18 step 561
+DEBUG: Episode 18 step 581
+DEBUG: Episode 18 step 601
+DEBUG: Episode 18 step 621
+DEBUG: Episode 18 step 641
+DEBUG: Episode 18 step 661
+DEBUG: Episode 18 step 681
+DEBUG: Episode 18 step 701
+  Episode 18/20: 702 steps, reward: 550.0, time: 20.8s
+DEBUG: Starting episode 19/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 19 step 1
+DEBUG: Episode 19 step 21
+DEBUG: Episode 19 step 41
+DEBUG: Episode 19 step 61
+DEBUG: Episode 19 step 81
+DEBUG: Episode 19 step 101
+DEBUG: Episode 19 step 121
+DEBUG: Episode 19 step 141
+DEBUG: Episode 19 step 161
+Updated target network at step 12000
+DEBUG: Episode 19 step 181
+DEBUG: Episode 19 step 201
+DEBUG: Episode 19 step 221
+DEBUG: Episode 19 step 241
+DEBUG: Episode 19 step 261
+DEBUG: Episode 19 step 281
+DEBUG: Episode 19 step 301
+DEBUG: Episode 19 step 321
+DEBUG: Episode 19 step 341
+DEBUG: Episode 19 step 361
+DEBUG: Episode 19 step 381
+DEBUG: Episode 19 step 401
+DEBUG: Episode 19 step 421
+DEBUG: Episode 19 step 441
+DEBUG: Episode 19 step 461
+DEBUG: Episode 19 step 481
+DEBUG: Episode 19 step 501
+DEBUG: Episode 19 step 521
+DEBUG: Episode 19 step 541
+DEBUG: Episode 19 step 561
+DEBUG: Episode 19 step 581
+DEBUG: Episode 19 step 601
+DEBUG: Episode 19 step 621
+DEBUG: Episode 19 step 641
+DEBUG: Episode 19 step 661
+Updated target network at step 12500
+DEBUG: Episode 19 step 681
+DEBUG: Episode 19 step 701
+DEBUG: Episode 19 step 721
+DEBUG: Episode 19 step 741
+DEBUG: Episode 19 step 761
+DEBUG: Episode 19 step 781
+DEBUG: Episode 19 step 801
+DEBUG: Episode 19 step 821
+DEBUG: Episode 19 step 841
+DEBUG: Episode 19 step 861
+DEBUG: Episode 19 step 881
+  Episode 19/20: 891 steps, reward: 910.0, time: 26.5s
+DEBUG: Starting episode 20/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 20 step 1
+DEBUG: Episode 20 step 21
+DEBUG: Episode 20 step 41
+DEBUG: Episode 20 step 61
+DEBUG: Episode 20 step 81
+DEBUG: Episode 20 step 101
+DEBUG: Episode 20 step 121
+DEBUG: Episode 20 step 141
+DEBUG: Episode 20 step 161
+DEBUG: Episode 20 step 181
+DEBUG: Episode 20 step 201
+DEBUG: Episode 20 step 221
+DEBUG: Episode 20 step 241
+DEBUG: Episode 20 step 261
+DEBUG: Episode 20 step 281
+Updated target network at step 13000
+DEBUG: Episode 20 step 301
+DEBUG: Episode 20 step 321
+DEBUG: Episode 20 step 341
+DEBUG: Episode 20 step 361
+DEBUG: Episode 20 step 381
+DEBUG: Episode 20 step 401
+DEBUG: Episode 20 step 421
+DEBUG: Episode 20 step 441
+DEBUG: Episode 20 step 461
+DEBUG: Episode 20 step 481
+DEBUG: Episode 20 step 501
+DEBUG: Episode 20 step 521
+DEBUG: Episode 20 step 541
+DEBUG: Episode 20 step 561
+DEBUG: Episode 20 step 581
+DEBUG: Episode 20 step 601
+DEBUG: Episode 20 step 621
+DEBUG: Episode 20 step 641
+  Episode 20/20: 648 steps, reward: 910.0, time: 19.1s
+✓ Basic DQN completed in 390.4s
+  Episodes: 20
+  Average reward: 395.50
+  Final 10 episodes: 541.00
+  Best episode: 910.00
+
+==================================================
+Running DQN + Priority
+==================================================
+DEBUG: Starting algorithm DQN + Priority
+DEBUG: Creating DQNAgent with config...
+Using device: cuda
+Using Standard DQN Network
+Using Prioritized Transition Buffer
+DEBUG: DQNAgent created successfully
+DEBUG: Agent device: cuda
+DEBUG: Buffer type: PrioritizedReplayBuffer
+Starting DQN + Priority training...
+DEBUG: Starting episode 1/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 1 step 1
+DEBUG: Episode 1 step 21
+DEBUG: Episode 1 step 41
+DEBUG: Episode 1 step 61
+DEBUG: Episode 1 step 81
+DEBUG: Episode 1 step 101
+DEBUG: Episode 1 step 121
+DEBUG: Episode 1 step 141
+DEBUG: Episode 1 step 161
+DEBUG: Episode 1 step 181
+DEBUG: Episode 1 step 201
+DEBUG: Episode 1 step 221
+DEBUG: Episode 1 step 241
+DEBUG: Episode 1 step 261
+DEBUG: Episode 1 step 281
+DEBUG: Episode 1 step 301
+DEBUG: Episode 1 step 321
+DEBUG: Episode 1 step 341
+DEBUG: Episode 1 step 361
+DEBUG: Episode 1 step 381
+DEBUG: Episode 1 step 401
+DEBUG: Episode 1 step 421
+DEBUG: Episode 1 step 441
+DEBUG: Episode 1 step 461
+DEBUG: Episode 1 step 481
+Updated target network at step 500
+DEBUG: Episode 1 step 501
+DEBUG: Episode 1 step 521
+DEBUG: Episode 1 step 541
+DEBUG: Episode 1 step 561
+DEBUG: Episode 1 step 581
+DEBUG: Episode 1 step 601
+DEBUG: Episode 1 step 621
+DEBUG: Episode 1 step 641
+  Episode 1/20: 649 steps, reward: 160.0, time: 12.1s
+DEBUG: Starting episode 2/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 2 step 1
+DEBUG: Episode 2 step 21
+DEBUG: Episode 2 step 41
+DEBUG: Episode 2 step 61
+DEBUG: Episode 2 step 81
+DEBUG: Episode 2 step 101
+DEBUG: Episode 2 step 121
+DEBUG: Episode 2 step 141
+DEBUG: Episode 2 step 161
+DEBUG: Episode 2 step 181
+DEBUG: Episode 2 step 201
+DEBUG: Episode 2 step 221
+DEBUG: Episode 2 step 241
+DEBUG: Episode 2 step 261
+DEBUG: Episode 2 step 281
+DEBUG: Episode 2 step 301
+DEBUG: Episode 2 step 321
+DEBUG: Episode 2 step 341
+Updated target network at step 1000
+DEBUG: Episode 2 step 361
+DEBUG: Episode 2 step 381
+DEBUG: Episode 2 step 401
+DEBUG: Episode 2 step 421
+DEBUG: Episode 2 step 441
+DEBUG: Episode 2 step 461
+DEBUG: Episode 2 step 481
+DEBUG: Episode 2 step 501
+DEBUG: Episode 2 step 521
+DEBUG: Episode 2 step 541
+DEBUG: Episode 2 step 561
+DEBUG: Episode 2 step 581
+DEBUG: Episode 2 step 601
+DEBUG: Episode 2 step 621
+DEBUG: Episode 2 step 641
+DEBUG: Episode 2 step 661
+DEBUG: Episode 2 step 681
+DEBUG: Episode 2 step 701
+DEBUG: Episode 2 step 721
+DEBUG: Episode 2 step 741
+DEBUG: Episode 2 step 761
+DEBUG: Episode 2 step 781
+  Episode 2/20: 793 steps, reward: 190.0, time: 17.3s
+DEBUG: Starting episode 3/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 3 step 1
+DEBUG: Episode 3 step 21
+DEBUG: Episode 3 step 41
+Updated target network at step 1500
+DEBUG: Episode 3 step 61
+DEBUG: Episode 3 step 81
+DEBUG: Episode 3 step 101
+DEBUG: Episode 3 step 121
+DEBUG: Episode 3 step 141
+DEBUG: Episode 3 step 161
+DEBUG: Episode 3 step 181
+DEBUG: Episode 3 step 201
+DEBUG: Episode 3 step 221
+DEBUG: Episode 3 step 241
+DEBUG: Episode 3 step 261
+DEBUG: Episode 3 step 281
+DEBUG: Episode 3 step 301
+DEBUG: Episode 3 step 321
+DEBUG: Episode 3 step 341
+DEBUG: Episode 3 step 361
+DEBUG: Episode 3 step 381
+DEBUG: Episode 3 step 401
+DEBUG: Episode 3 step 421
+DEBUG: Episode 3 step 441
+DEBUG: Episode 3 step 461
+DEBUG: Episode 3 step 481
+DEBUG: Episode 3 step 501
+DEBUG: Episode 3 step 521
+DEBUG: Episode 3 step 541
+Updated target network at step 2000
+DEBUG: Episode 3 step 561
+DEBUG: Episode 3 step 581
+  Episode 3/20: 592 steps, reward: 270.0, time: 12.9s
+DEBUG: Starting episode 4/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 4 step 1
+DEBUG: Episode 4 step 21
+DEBUG: Episode 4 step 41
+DEBUG: Episode 4 step 61
+DEBUG: Episode 4 step 81
+DEBUG: Episode 4 step 101
+DEBUG: Episode 4 step 121
+DEBUG: Episode 4 step 141
+DEBUG: Episode 4 step 161
+DEBUG: Episode 4 step 181
+DEBUG: Episode 4 step 201
+DEBUG: Episode 4 step 221
+DEBUG: Episode 4 step 241
+DEBUG: Episode 4 step 261
+DEBUG: Episode 4 step 281
+DEBUG: Episode 4 step 301
+DEBUG: Episode 4 step 321
+DEBUG: Episode 4 step 341
+DEBUG: Episode 4 step 361
+DEBUG: Episode 4 step 381
+DEBUG: Episode 4 step 401
+DEBUG: Episode 4 step 421
+DEBUG: Episode 4 step 441
+DEBUG: Episode 4 step 461
+Updated target network at step 2500
+DEBUG: Episode 4 step 481
+DEBUG: Episode 4 step 501
+DEBUG: Episode 4 step 521
+DEBUG: Episode 4 step 541
+DEBUG: Episode 4 step 561
+DEBUG: Episode 4 step 581
+DEBUG: Episode 4 step 601
+  Episode 4/20: 609 steps, reward: 190.0, time: 13.4s
+DEBUG: Starting episode 5/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 5 step 1
+DEBUG: Episode 5 step 21
+DEBUG: Episode 5 step 41
+DEBUG: Episode 5 step 61
+DEBUG: Episode 5 step 81
+DEBUG: Episode 5 step 101
+DEBUG: Episode 5 step 121
+DEBUG: Episode 5 step 141
+DEBUG: Episode 5 step 161
+DEBUG: Episode 5 step 181
+DEBUG: Episode 5 step 201
+DEBUG: Episode 5 step 221
+DEBUG: Episode 5 step 241
+DEBUG: Episode 5 step 261
+DEBUG: Episode 5 step 281
+DEBUG: Episode 5 step 301
+DEBUG: Episode 5 step 321
+DEBUG: Episode 5 step 341
+Updated target network at step 3000
+DEBUG: Episode 5 step 361
+DEBUG: Episode 5 step 381
+DEBUG: Episode 5 step 401
+DEBUG: Episode 5 step 421
+DEBUG: Episode 5 step 441
+DEBUG: Episode 5 step 461
+DEBUG: Episode 5 step 481
+DEBUG: Episode 5 step 501
+DEBUG: Episode 5 step 521
+DEBUG: Episode 5 step 541
+DEBUG: Episode 5 step 561
+DEBUG: Episode 5 step 581
+DEBUG: Episode 5 step 601
+DEBUG: Episode 5 step 621
+DEBUG: Episode 5 step 641
+  Episode 5/20: 642 steps, reward: 180.0, time: 14.2s
+DEBUG: Starting episode 6/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 6 step 1
+DEBUG: Episode 6 step 21
+DEBUG: Episode 6 step 41
+DEBUG: Episode 6 step 61
+DEBUG: Episode 6 step 81
+DEBUG: Episode 6 step 101
+DEBUG: Episode 6 step 121
+DEBUG: Episode 6 step 141
+DEBUG: Episode 6 step 161
+DEBUG: Episode 6 step 181
+DEBUG: Episode 6 step 201
+Updated target network at step 3500
+DEBUG: Episode 6 step 221
+DEBUG: Episode 6 step 241
+DEBUG: Episode 6 step 261
+DEBUG: Episode 6 step 281
+DEBUG: Episode 6 step 301
+DEBUG: Episode 6 step 321
+DEBUG: Episode 6 step 341
+DEBUG: Episode 6 step 361
+DEBUG: Episode 6 step 381
+DEBUG: Episode 6 step 401
+DEBUG: Episode 6 step 421
+DEBUG: Episode 6 step 441
+DEBUG: Episode 6 step 461
+DEBUG: Episode 6 step 481
+DEBUG: Episode 6 step 501
+DEBUG: Episode 6 step 521
+DEBUG: Episode 6 step 541
+DEBUG: Episode 6 step 561
+DEBUG: Episode 6 step 581
+DEBUG: Episode 6 step 601
+DEBUG: Episode 6 step 621
+DEBUG: Episode 6 step 641
+DEBUG: Episode 6 step 661
+  Episode 6/20: 679 steps, reward: 220.0, time: 15.2s
+DEBUG: Starting episode 7/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 7 step 1
+DEBUG: Episode 7 step 21
+Updated target network at step 4000
+DEBUG: Episode 7 step 41
+DEBUG: Episode 7 step 61
+DEBUG: Episode 7 step 81
+DEBUG: Episode 7 step 101
+DEBUG: Episode 7 step 121
+DEBUG: Episode 7 step 141
+DEBUG: Episode 7 step 161
+DEBUG: Episode 7 step 181
+DEBUG: Episode 7 step 201
+DEBUG: Episode 7 step 221
+DEBUG: Episode 7 step 241
+DEBUG: Episode 7 step 261
+DEBUG: Episode 7 step 281
+DEBUG: Episode 7 step 301
+DEBUG: Episode 7 step 321
+DEBUG: Episode 7 step 341
+DEBUG: Episode 7 step 361
+DEBUG: Episode 7 step 381
+DEBUG: Episode 7 step 401
+DEBUG: Episode 7 step 421
+DEBUG: Episode 7 step 441
+DEBUG: Episode 7 step 461
+  Episode 7/20: 471 steps, reward: 200.0, time: 11.7s
+DEBUG: Starting episode 8/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 8 step 1
+DEBUG: Episode 8 step 21
+DEBUG: Episode 8 step 41
+DEBUG: Episode 8 step 61
+Updated target network at step 4500
+DEBUG: Episode 8 step 81
+DEBUG: Episode 8 step 101
+DEBUG: Episode 8 step 121
+DEBUG: Episode 8 step 141
+DEBUG: Episode 8 step 161
+DEBUG: Episode 8 step 181
+DEBUG: Episode 8 step 201
+DEBUG: Episode 8 step 221
+DEBUG: Episode 8 step 241
+DEBUG: Episode 8 step 261
+DEBUG: Episode 8 step 281
+DEBUG: Episode 8 step 301
+DEBUG: Episode 8 step 321
+DEBUG: Episode 8 step 341
+DEBUG: Episode 8 step 361
+DEBUG: Episode 8 step 381
+DEBUG: Episode 8 step 401
+DEBUG: Episode 8 step 421
+DEBUG: Episode 8 step 441
+DEBUG: Episode 8 step 461
+DEBUG: Episode 8 step 481
+DEBUG: Episode 8 step 501
+DEBUG: Episode 8 step 521
+DEBUG: Episode 8 step 541
+DEBUG: Episode 8 step 561
+Updated target network at step 5000
+DEBUG: Episode 8 step 581
+DEBUG: Episode 8 step 601
+DEBUG: Episode 8 step 621
+DEBUG: Episode 8 step 641
+DEBUG: Episode 8 step 661
+DEBUG: Episode 8 step 681
+  Episode 8/20: 697 steps, reward: 350.0, time: 17.4s
+DEBUG: Starting episode 9/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 9 step 1
+DEBUG: Episode 9 step 21
+DEBUG: Episode 9 step 41
+DEBUG: Episode 9 step 61
+DEBUG: Episode 9 step 81
+DEBUG: Episode 9 step 101
+DEBUG: Episode 9 step 121
+DEBUG: Episode 9 step 141
+DEBUG: Episode 9 step 161
+DEBUG: Episode 9 step 181
+DEBUG: Episode 9 step 201
+DEBUG: Episode 9 step 221
+DEBUG: Episode 9 step 241
+DEBUG: Episode 9 step 261
+DEBUG: Episode 9 step 281
+DEBUG: Episode 9 step 301
+DEBUG: Episode 9 step 321
+DEBUG: Episode 9 step 341
+DEBUG: Episode 9 step 361
+Updated target network at step 5500
+DEBUG: Episode 9 step 381
+DEBUG: Episode 9 step 401
+DEBUG: Episode 9 step 421
+DEBUG: Episode 9 step 441
+DEBUG: Episode 9 step 461
+DEBUG: Episode 9 step 481
+DEBUG: Episode 9 step 501
+DEBUG: Episode 9 step 521
+DEBUG: Episode 9 step 541
+DEBUG: Episode 9 step 561
+DEBUG: Episode 9 step 581
+DEBUG: Episode 9 step 601
+DEBUG: Episode 9 step 621
+DEBUG: Episode 9 step 641
+  Episode 9/20: 645 steps, reward: 240.0, time: 16.0s
+DEBUG: Starting episode 10/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 10 step 1
+DEBUG: Episode 10 step 21
+DEBUG: Episode 10 step 41
+DEBUG: Episode 10 step 61
+DEBUG: Episode 10 step 81
+DEBUG: Episode 10 step 101
+DEBUG: Episode 10 step 121
+DEBUG: Episode 10 step 141
+DEBUG: Episode 10 step 161
+DEBUG: Episode 10 step 181
+DEBUG: Episode 10 step 201
+DEBUG: Episode 10 step 221
+Updated target network at step 6000
+DEBUG: Episode 10 step 241
+DEBUG: Episode 10 step 261
+DEBUG: Episode 10 step 281
+DEBUG: Episode 10 step 301
+DEBUG: Episode 10 step 321
+DEBUG: Episode 10 step 341
+DEBUG: Episode 10 step 361
+DEBUG: Episode 10 step 381
+DEBUG: Episode 10 step 401
+DEBUG: Episode 10 step 421
+DEBUG: Episode 10 step 441
+DEBUG: Episode 10 step 461
+DEBUG: Episode 10 step 481
+  Episode 10/20: 481 steps, reward: 150.0, time: 11.9s
+DEBUG: Starting episode 11/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 11 step 1
+DEBUG: Episode 11 step 21
+DEBUG: Episode 11 step 41
+DEBUG: Episode 11 step 61
+DEBUG: Episode 11 step 81
+DEBUG: Episode 11 step 101
+DEBUG: Episode 11 step 121
+DEBUG: Episode 11 step 141
+DEBUG: Episode 11 step 161
+DEBUG: Episode 11 step 181
+DEBUG: Episode 11 step 201
+DEBUG: Episode 11 step 221
+DEBUG: Episode 11 step 241
+Updated target network at step 6500
+DEBUG: Episode 11 step 261
+DEBUG: Episode 11 step 281
+DEBUG: Episode 11 step 301
+DEBUG: Episode 11 step 321
+DEBUG: Episode 11 step 341
+DEBUG: Episode 11 step 361
+DEBUG: Episode 11 step 381
+DEBUG: Episode 11 step 401
+DEBUG: Episode 11 step 421
+DEBUG: Episode 11 step 441
+DEBUG: Episode 11 step 461
+DEBUG: Episode 11 step 481
+DEBUG: Episode 11 step 501
+DEBUG: Episode 11 step 521
+DEBUG: Episode 11 step 541
+DEBUG: Episode 11 step 561
+DEBUG: Episode 11 step 581
+DEBUG: Episode 11 step 601
+DEBUG: Episode 11 step 621
+DEBUG: Episode 11 step 641
+DEBUG: Episode 11 step 661
+DEBUG: Episode 11 step 681
+DEBUG: Episode 11 step 701
+DEBUG: Episode 11 step 721
+DEBUG: Episode 11 step 741
+Updated target network at step 7000
+DEBUG: Episode 11 step 761
+DEBUG: Episode 11 step 781
+DEBUG: Episode 11 step 801
+DEBUG: Episode 11 step 821
+DEBUG: Episode 11 step 841
+DEBUG: Episode 11 step 861
+DEBUG: Episode 11 step 881
+DEBUG: Episode 11 step 901
+DEBUG: Episode 11 step 921
+  Episode 11/20: 938 steps, reward: 400.0, time: 23.5s
+DEBUG: Starting episode 12/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 12 step 1
+DEBUG: Episode 12 step 21
+DEBUG: Episode 12 step 41
+DEBUG: Episode 12 step 61
+DEBUG: Episode 12 step 81
+DEBUG: Episode 12 step 101
+DEBUG: Episode 12 step 121
+DEBUG: Episode 12 step 141
+DEBUG: Episode 12 step 161
+DEBUG: Episode 12 step 181
+DEBUG: Episode 12 step 201
+DEBUG: Episode 12 step 221
+DEBUG: Episode 12 step 241
+DEBUG: Episode 12 step 261
+DEBUG: Episode 12 step 281
+DEBUG: Episode 12 step 301
+Updated target network at step 7500
+DEBUG: Episode 12 step 321
+DEBUG: Episode 12 step 341
+DEBUG: Episode 12 step 361
+DEBUG: Episode 12 step 381
+DEBUG: Episode 12 step 401
+DEBUG: Episode 12 step 421
+  Episode 12/20: 430 steps, reward: 190.0, time: 10.7s
+DEBUG: Starting episode 13/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 13 step 1
+DEBUG: Episode 13 step 21
+DEBUG: Episode 13 step 41
+DEBUG: Episode 13 step 61
+DEBUG: Episode 13 step 81
+DEBUG: Episode 13 step 101
+DEBUG: Episode 13 step 121
+DEBUG: Episode 13 step 141
+DEBUG: Episode 13 step 161
+DEBUG: Episode 13 step 181
+DEBUG: Episode 13 step 201
+DEBUG: Episode 13 step 221
+DEBUG: Episode 13 step 241
+DEBUG: Episode 13 step 261
+DEBUG: Episode 13 step 281
+DEBUG: Episode 13 step 301
+DEBUG: Episode 13 step 321
+DEBUG: Episode 13 step 341
+DEBUG: Episode 13 step 361
+Updated target network at step 8000
+DEBUG: Episode 13 step 381
+DEBUG: Episode 13 step 401
+DEBUG: Episode 13 step 421
+DEBUG: Episode 13 step 441
+DEBUG: Episode 13 step 461
+DEBUG: Episode 13 step 481
+DEBUG: Episode 13 step 501
+DEBUG: Episode 13 step 521
+  Episode 13/20: 526 steps, reward: 160.0, time: 13.2s
+DEBUG: Starting episode 14/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 14 step 1
+DEBUG: Episode 14 step 21
+DEBUG: Episode 14 step 41
+DEBUG: Episode 14 step 61
+DEBUG: Episode 14 step 81
+DEBUG: Episode 14 step 101
+DEBUG: Episode 14 step 121
+DEBUG: Episode 14 step 141
+DEBUG: Episode 14 step 161
+DEBUG: Episode 14 step 181
+DEBUG: Episode 14 step 201
+DEBUG: Episode 14 step 221
+DEBUG: Episode 14 step 241
+DEBUG: Episode 14 step 261
+DEBUG: Episode 14 step 281
+DEBUG: Episode 14 step 301
+DEBUG: Episode 14 step 321
+DEBUG: Episode 14 step 341
+Updated target network at step 8500
+DEBUG: Episode 14 step 361
+DEBUG: Episode 14 step 381
+DEBUG: Episode 14 step 401
+DEBUG: Episode 14 step 421
+DEBUG: Episode 14 step 441
+DEBUG: Episode 14 step 461
+DEBUG: Episode 14 step 481
+DEBUG: Episode 14 step 501
+DEBUG: Episode 14 step 521
+DEBUG: Episode 14 step 541
+  Episode 14/20: 545 steps, reward: 260.0, time: 13.7s
+DEBUG: Starting episode 15/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 15 step 1
+DEBUG: Episode 15 step 21
+DEBUG: Episode 15 step 41
+DEBUG: Episode 15 step 61
+DEBUG: Episode 15 step 81
+DEBUG: Episode 15 step 101
+DEBUG: Episode 15 step 121
+DEBUG: Episode 15 step 141
+DEBUG: Episode 15 step 161
+DEBUG: Episode 15 step 181
+DEBUG: Episode 15 step 201
+DEBUG: Episode 15 step 221
+DEBUG: Episode 15 step 241
+DEBUG: Episode 15 step 261
+DEBUG: Episode 15 step 281
+DEBUG: Episode 15 step 301
+Updated target network at step 9000
+DEBUG: Episode 15 step 321
+DEBUG: Episode 15 step 341
+DEBUG: Episode 15 step 361
+DEBUG: Episode 15 step 381
+DEBUG: Episode 15 step 401
+DEBUG: Episode 15 step 421
+DEBUG: Episode 15 step 441
+DEBUG: Episode 15 step 461
+DEBUG: Episode 15 step 481
+DEBUG: Episode 15 step 501
+DEBUG: Episode 15 step 521
+DEBUG: Episode 15 step 541
+DEBUG: Episode 15 step 561
+DEBUG: Episode 15 step 581
+DEBUG: Episode 15 step 601
+DEBUG: Episode 15 step 621
+DEBUG: Episode 15 step 641
+  Episode 15/20: 642 steps, reward: 200.0, time: 16.1s
+DEBUG: Starting episode 16/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 16 step 1
+DEBUG: Episode 16 step 21
+DEBUG: Episode 16 step 41
+DEBUG: Episode 16 step 61
+DEBUG: Episode 16 step 81
+DEBUG: Episode 16 step 101
+DEBUG: Episode 16 step 121
+DEBUG: Episode 16 step 141
+DEBUG: Episode 16 step 161
+Updated target network at step 9500
+DEBUG: Episode 16 step 181
+DEBUG: Episode 16 step 201
+DEBUG: Episode 16 step 221
+DEBUG: Episode 16 step 241
+DEBUG: Episode 16 step 261
+DEBUG: Episode 16 step 281
+DEBUG: Episode 16 step 301
+DEBUG: Episode 16 step 321
+DEBUG: Episode 16 step 341
+DEBUG: Episode 16 step 361
+DEBUG: Episode 16 step 381
+DEBUG: Episode 16 step 401
+DEBUG: Episode 16 step 421
+DEBUG: Episode 16 step 441
+DEBUG: Episode 16 step 461
+DEBUG: Episode 16 step 481
+DEBUG: Episode 16 step 501
+  Episode 16/20: 519 steps, reward: 270.0, time: 13.1s
+DEBUG: Starting episode 17/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 17 step 1
+DEBUG: Episode 17 step 21
+DEBUG: Episode 17 step 41
+DEBUG: Episode 17 step 61
+DEBUG: Episode 17 step 81
+DEBUG: Episode 17 step 101
+DEBUG: Episode 17 step 121
+DEBUG: Episode 17 step 141
+Updated target network at step 10000
+DEBUG: Episode 17 step 161
+DEBUG: Episode 17 step 181
+DEBUG: Episode 17 step 201
+DEBUG: Episode 17 step 221
+DEBUG: Episode 17 step 241
+DEBUG: Episode 17 step 261
+DEBUG: Episode 17 step 281
+DEBUG: Episode 17 step 301
+DEBUG: Episode 17 step 321
+DEBUG: Episode 17 step 341
+DEBUG: Episode 17 step 361
+DEBUG: Episode 17 step 381
+DEBUG: Episode 17 step 401
+DEBUG: Episode 17 step 421
+DEBUG: Episode 17 step 441
+DEBUG: Episode 17 step 461
+DEBUG: Episode 17 step 481
+DEBUG: Episode 17 step 501
+DEBUG: Episode 17 step 521
+DEBUG: Episode 17 step 541
+DEBUG: Episode 17 step 561
+DEBUG: Episode 17 step 581
+DEBUG: Episode 17 step 601
+DEBUG: Episode 17 step 621
+DEBUG: Episode 17 step 641
+Updated target network at step 10500
+DEBUG: Episode 17 step 661
+DEBUG: Episode 17 step 681
+DEBUG: Episode 17 step 701
+DEBUG: Episode 17 step 721
+DEBUG: Episode 17 step 741
+  Episode 17/20: 744 steps, reward: 360.0, time: 18.7s
+DEBUG: Starting episode 18/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 18 step 1
+DEBUG: Episode 18 step 21
+DEBUG: Episode 18 step 41
+DEBUG: Episode 18 step 61
+DEBUG: Episode 18 step 81
+DEBUG: Episode 18 step 101
+DEBUG: Episode 18 step 121
+DEBUG: Episode 18 step 141
+DEBUG: Episode 18 step 161
+DEBUG: Episode 18 step 181
+DEBUG: Episode 18 step 201
+DEBUG: Episode 18 step 221
+DEBUG: Episode 18 step 241
+DEBUG: Episode 18 step 261
+DEBUG: Episode 18 step 281
+DEBUG: Episode 18 step 301
+DEBUG: Episode 18 step 321
+DEBUG: Episode 18 step 341
+DEBUG: Episode 18 step 361
+DEBUG: Episode 18 step 381
+Updated target network at step 11000
+DEBUG: Episode 18 step 401
+DEBUG: Episode 18 step 421
+DEBUG: Episode 18 step 441
+DEBUG: Episode 18 step 461
+DEBUG: Episode 18 step 481
+  Episode 18/20: 498 steps, reward: 240.0, time: 12.6s
+DEBUG: Starting episode 19/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 19 step 1
+DEBUG: Episode 19 step 21
+DEBUG: Episode 19 step 41
+DEBUG: Episode 19 step 61
+DEBUG: Episode 19 step 81
+DEBUG: Episode 19 step 101
+DEBUG: Episode 19 step 121
+DEBUG: Episode 19 step 141
+DEBUG: Episode 19 step 161
+DEBUG: Episode 19 step 181
+DEBUG: Episode 19 step 201
+DEBUG: Episode 19 step 221
+DEBUG: Episode 19 step 241
+DEBUG: Episode 19 step 261
+DEBUG: Episode 19 step 281
+DEBUG: Episode 19 step 301
+DEBUG: Episode 19 step 321
+DEBUG: Episode 19 step 341
+DEBUG: Episode 19 step 361
+DEBUG: Episode 19 step 381
+Updated target network at step 11500
+DEBUG: Episode 19 step 401
+DEBUG: Episode 19 step 421
+DEBUG: Episode 19 step 441
+DEBUG: Episode 19 step 461
+DEBUG: Episode 19 step 481
+DEBUG: Episode 19 step 501
+DEBUG: Episode 19 step 521
+DEBUG: Episode 19 step 541
+DEBUG: Episode 19 step 561
+DEBUG: Episode 19 step 581
+DEBUG: Episode 19 step 601
+DEBUG: Episode 19 step 621
+DEBUG: Episode 19 step 641
+DEBUG: Episode 19 step 661
+DEBUG: Episode 19 step 681
+DEBUG: Episode 19 step 701
+DEBUG: Episode 19 step 721
+DEBUG: Episode 19 step 741
+DEBUG: Episode 19 step 761
+  Episode 19/20: 780 steps, reward: 360.0, time: 19.7s
+DEBUG: Starting episode 20/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 20 step 1
+DEBUG: Episode 20 step 21
+DEBUG: Episode 20 step 41
+DEBUG: Episode 20 step 61
+DEBUG: Episode 20 step 81
+DEBUG: Episode 20 step 101
+Updated target network at step 12000
+DEBUG: Episode 20 step 121
+DEBUG: Episode 20 step 141
+DEBUG: Episode 20 step 161
+DEBUG: Episode 20 step 181
+DEBUG: Episode 20 step 201
+DEBUG: Episode 20 step 221
+DEBUG: Episode 20 step 241
+DEBUG: Episode 20 step 261
+DEBUG: Episode 20 step 281
+DEBUG: Episode 20 step 301
+DEBUG: Episode 20 step 321
+DEBUG: Episode 20 step 341
+DEBUG: Episode 20 step 361
+DEBUG: Episode 20 step 381
+DEBUG: Episode 20 step 401
+DEBUG: Episode 20 step 421
+DEBUG: Episode 20 step 441
+DEBUG: Episode 20 step 461
+DEBUG: Episode 20 step 481
+DEBUG: Episode 20 step 501
+DEBUG: Episode 20 step 521
+DEBUG: Episode 20 step 541
+DEBUG: Episode 20 step 561
+DEBUG: Episode 20 step 581
+DEBUG: Episode 20 step 601
+Updated target network at step 12500
+DEBUG: Episode 20 step 621
+  Episode 20/20: 637 steps, reward: 190.0, time: 16.1s
+✓ DQN + Priority completed in 299.9s
+  Episodes: 20
+  Average reward: 239.00
+  Final 10 episodes: 263.00
+  Best episode: 400.00
+
+==================================================
+Running R2D2
+==================================================
+DEBUG: Starting algorithm R2D2
+DEBUG: Creating DQNAgent with config...
+Using device: cuda
+Using R2D2 Network (LSTM size: 256)
+Using R2D2 Sequence Buffer (seq_len: 40)
+DEBUG: DQNAgent created successfully
+DEBUG: Agent device: cuda
+DEBUG: Buffer type: SequenceReplayBuffer
+Starting R2D2 training...
+DEBUG: Starting episode 1/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 1 step 1
+DEBUG: Episode 1 step 21
+DEBUG: Episode 1 step 41
+DEBUG: Episode 1 step 61
+DEBUG: Episode 1 step 81
+    Step 100: buffer=4 sequences, no training
+DEBUG: Episode 1 step 101
+DEBUG: Episode 1 step 121
+DEBUG: Episode 1 step 141
+DEBUG: Episode 1 step 161
+DEBUG: Episode 1 step 181
+    Step 200: buffer=9 sequences, no training
+DEBUG: Episode 1 step 201
+DEBUG: Episode 1 step 221
+DEBUG: Episode 1 step 241
+DEBUG: Episode 1 step 261
+DEBUG: Episode 1 step 281
+    Step 300: buffer=14 sequences, no training
+DEBUG: Episode 1 step 301
+DEBUG: Episode 1 step 321
+DEBUG: Episode 1 step 341
+DEBUG: Episode 1 step 361
+DEBUG: Episode 1 step 381
+    Step 400: buffer=19 sequences, no training
+DEBUG: Episode 1 step 401
+DEBUG: Episode 1 step 421
+DEBUG: Episode 1 step 441
+DEBUG: Episode 1 step 461
+DEBUG: Episode 1 step 481
+    Step 500: buffer=24 sequences, no training
+Updated target network at step 500
+DEBUG: Episode 1 step 501
+DEBUG: Episode 1 step 521
+DEBUG: Episode 1 step 541
+DEBUG: Episode 1 step 561
+DEBUG: Episode 1 step 581
+  Episode 1/20: 587 steps, reward: 160.0, time: 0.9s, buffer: 28 sequences
+DEBUG: Starting episode 2/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 2 step 1
+DEBUG: Episode 2 step 21
+DEBUG: Episode 2 step 41
+DEBUG: Episode 2 step 61
+DEBUG: Episode 2 step 81
+DEBUG: Episode 2 step 101
+DEBUG: Episode 2 step 121
+DEBUG: Episode 2 step 141
+DEBUG: Episode 2 step 161
+DEBUG: Episode 2 step 181
+DEBUG: Episode 2 step 201
+DEBUG: Episode 2 step 221
+DEBUG: Episode 2 step 241
+DEBUG: Episode 2 step 261
+DEBUG: Episode 2 step 281
+DEBUG: Episode 2 step 301
+DEBUG: Episode 2 step 321
+DEBUG: Episode 2 step 341
+DEBUG: Episode 2 step 361
+DEBUG: Episode 2 step 381
+DEBUG: Episode 2 step 401
+Updated target network at step 1000
+DEBUG: Episode 2 step 421
+DEBUG: Episode 2 step 441
+DEBUG: Episode 2 step 461
+DEBUG: Episode 2 step 481
+DEBUG: Episode 2 step 501
+DEBUG: Episode 2 step 521
+DEBUG: Episode 2 step 541
+DEBUG: Episode 2 step 561
+DEBUG: Episode 2 step 581
+DEBUG: Episode 2 step 601
+DEBUG: Episode 2 step 621
+DEBUG: Episode 2 step 641
+DEBUG: Episode 2 step 661
+DEBUG: Episode 2 step 681
+DEBUG: Episode 2 step 701
+DEBUG: Episode 2 step 721
+  Episode 2/20: 727 steps, reward: 300.0, time: 1.2s, buffer: 63 sequences
+DEBUG: Starting episode 3/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 3 step 1
+DEBUG: Episode 3 step 21
+DEBUG: Episode 3 step 41
+DEBUG: Episode 3 step 61
+DEBUG: Episode 3 step 81
+DEBUG: Episode 3 step 101
+DEBUG: Episode 3 step 121
+DEBUG: Episode 3 step 141
+DEBUG: Episode 3 step 161
+DEBUG: Episode 3 step 181
+Updated target network at step 1500
+DEBUG: Episode 3 step 201
+DEBUG: Episode 3 step 221
+DEBUG: Episode 3 step 241
+DEBUG: Episode 3 step 261
+DEBUG: Episode 3 step 281
+DEBUG: Episode 3 step 301
+DEBUG: Episode 3 step 321
+DEBUG: Episode 3 step 341
+DEBUG: Episode 3 step 361
+DEBUG: Episode 3 step 381
+DEBUG: Episode 3 step 401
+DEBUG: Episode 3 step 421
+DEBUG: Episode 3 step 441
+DEBUG: Episode 3 step 461
+DEBUG: Episode 3 step 481
+DEBUG: Episode 3 step 501
+DEBUG: Episode 3 step 521
+DEBUG: Episode 3 step 541
+DEBUG: Episode 3 step 561
+DEBUG: Episode 3 step 581
+DEBUG: Episode 3 step 601
+DEBUG: Episode 3 step 621
+DEBUG: Episode 3 step 641
+DEBUG: Episode 3 step 661
+DEBUG: Episode 3 step 681
+Updated target network at step 2000
+DEBUG: Episode 3 step 701
+DEBUG: Episode 3 step 721
+DEBUG: Episode 3 step 741
+DEBUG: Episode 3 step 761
+DEBUG: Episode 3 step 781
+DEBUG: Episode 3 step 801
+DEBUG: Episode 3 step 821
+DEBUG: Episode 3 step 841
+DEBUG: Episode 3 step 861
+DEBUG: Episode 3 step 881
+DEBUG: Episode 3 step 901
+  Episode 3/20: 912 steps, reward: 310.0, time: 392.4s, buffer: 107 sequences
+DEBUG: Starting episode 4/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 4 step 1
+DEBUG: Episode 4 step 21
+DEBUG: Episode 4 step 41
+DEBUG: Episode 4 step 61
+DEBUG: Episode 4 step 81
+DEBUG: Episode 4 step 101
+DEBUG: Episode 4 step 121
+DEBUG: Episode 4 step 141
+DEBUG: Episode 4 step 161
+DEBUG: Episode 4 step 181
+DEBUG: Episode 4 step 201
+DEBUG: Episode 4 step 221
+DEBUG: Episode 4 step 241
+DEBUG: Episode 4 step 261
+Updated target network at step 2500
+DEBUG: Episode 4 step 281
+DEBUG: Episode 4 step 301
+DEBUG: Episode 4 step 321
+DEBUG: Episode 4 step 341
+DEBUG: Episode 4 step 361
+DEBUG: Episode 4 step 381
+DEBUG: Episode 4 step 401
+DEBUG: Episode 4 step 421
+DEBUG: Episode 4 step 441
+DEBUG: Episode 4 step 461
+DEBUG: Episode 4 step 481
+DEBUG: Episode 4 step 501
+DEBUG: Episode 4 step 521
+DEBUG: Episode 4 step 541
+DEBUG: Episode 4 step 561
+DEBUG: Episode 4 step 581
+DEBUG: Episode 4 step 601
+DEBUG: Episode 4 step 621
+DEBUG: Episode 4 step 641
+DEBUG: Episode 4 step 661
+DEBUG: Episode 4 step 681
+  Episode 4/20: 694 steps, reward: 250.0, time: 1797.7s, buffer: 140 sequences
+DEBUG: Starting episode 5/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 5 step 1
+DEBUG: Episode 5 step 21
+DEBUG: Episode 5 step 41
+DEBUG: Episode 5 step 61
+Updated target network at step 3000
+DEBUG: Episode 5 step 81
+    Step 100: buffer=144 sequences, training
+DEBUG: Episode 5 step 101
+DEBUG: Episode 5 step 121
+DEBUG: Episode 5 step 141
+DEBUG: Episode 5 step 161
+DEBUG: Episode 5 step 181
+    Step 200: buffer=149 sequences, training
+DEBUG: Episode 5 step 201
+DEBUG: Episode 5 step 221
+DEBUG: Episode 5 step 241
+DEBUG: Episode 5 step 261
+DEBUG: Episode 5 step 281
+    Step 300: buffer=154 sequences, training
+DEBUG: Episode 5 step 301
+DEBUG: Episode 5 step 321
+DEBUG: Episode 5 step 341
+DEBUG: Episode 5 step 361
+DEBUG: Episode 5 step 381
+    Step 400: buffer=159 sequences, training
+DEBUG: Episode 5 step 401
+DEBUG: Episode 5 step 421
+DEBUG: Episode 5 step 441
+DEBUG: Episode 5 step 461
+DEBUG: Episode 5 step 481
+    Step 500: buffer=164 sequences, training
+DEBUG: Episode 5 step 501
+DEBUG: Episode 5 step 521
+DEBUG: Episode 5 step 541
+DEBUG: Episode 5 step 561
+Updated target network at step 3500
+DEBUG: Episode 5 step 581
+  Episode 5/20: 598 steps, reward: 170.0, time: 1554.1s, buffer: 168 sequences
+DEBUG: Starting episode 6/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 6 step 1
+DEBUG: Episode 6 step 21
+DEBUG: Episode 6 step 41
+DEBUG: Episode 6 step 61
+DEBUG: Episode 6 step 81
+DEBUG: Episode 6 step 101
+DEBUG: Episode 6 step 121
+DEBUG: Episode 6 step 141
+DEBUG: Episode 6 step 161
+DEBUG: Episode 6 step 181
+DEBUG: Episode 6 step 201
+DEBUG: Episode 6 step 221
+DEBUG: Episode 6 step 241
+DEBUG: Episode 6 step 261
+DEBUG: Episode 6 step 281
+DEBUG: Episode 6 step 301
+DEBUG: Episode 6 step 321
+DEBUG: Episode 6 step 341
+DEBUG: Episode 6 step 361
+DEBUG: Episode 6 step 381
+DEBUG: Episode 6 step 401
+DEBUG: Episode 6 step 421
+DEBUG: Episode 6 step 441
+DEBUG: Episode 6 step 461
+DEBUG: Episode 6 step 481
+Updated target network at step 4000
+DEBUG: Episode 6 step 501
+DEBUG: Episode 6 step 521
+DEBUG: Episode 6 step 541
+DEBUG: Episode 6 step 561
+DEBUG: Episode 6 step 581
+  Episode 6/20: 582 steps, reward: 200.0, time: 1535.0s, buffer: 196 sequences
+DEBUG: Starting episode 7/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 7 step 1
+DEBUG: Episode 7 step 21
+DEBUG: Episode 7 step 41
+DEBUG: Episode 7 step 61
+DEBUG: Episode 7 step 81
+    Step 100: buffer=200 sequences, training
+DEBUG: Episode 7 step 101
+DEBUG: Episode 7 step 121
+DEBUG: Episode 7 step 141
+DEBUG: Episode 7 step 161
+DEBUG: Episode 7 step 181
+    Step 200: buffer=205 sequences, training
+DEBUG: Episode 7 step 201
+DEBUG: Episode 7 step 221
+DEBUG: Episode 7 step 241
+DEBUG: Episode 7 step 261
+DEBUG: Episode 7 step 281
+    Step 300: buffer=210 sequences, training
+DEBUG: Episode 7 step 301
+DEBUG: Episode 7 step 321
+DEBUG: Episode 7 step 341
+DEBUG: Episode 7 step 361
+DEBUG: Episode 7 step 381
+    Step 400: buffer=215 sequences, training
+Updated target network at step 4500
+DEBUG: Episode 7 step 401
+DEBUG: Episode 7 step 421
+DEBUG: Episode 7 step 441
+DEBUG: Episode 7 step 461
+DEBUG: Episode 7 step 481
+    Step 500: buffer=220 sequences, training
+DEBUG: Episode 7 step 501
+DEBUG: Episode 7 step 521
+DEBUG: Episode 7 step 541
+DEBUG: Episode 7 step 561
+DEBUG: Episode 7 step 581
+    Step 600: buffer=225 sequences, training
+DEBUG: Episode 7 step 601
+DEBUG: Episode 7 step 621
+DEBUG: Episode 7 step 641
+DEBUG: Episode 7 step 661
+DEBUG: Episode 7 step 681
+  Episode 7/20: 693 steps, reward: 220.0, time: 1817.8s, buffer: 229 sequences
+DEBUG: Starting episode 8/20
+DEBUG: Environment reset, obs shape: (210, 160, 3)
+DEBUG: Frame stack reset, state shape: (12, 210, 160)
+DEBUG: Hidden state reset
+DEBUG: Episode 8 step 1
+DEBUG: Episode 8 step 21
+DEBUG: Episode 8 step 41
+DEBUG: Episode 8 step 61
+DEBUG: Episode 8 step 81
+DEBUG: Episode 8 step 101
+DEBUG: Episode 8 step 121
+DEBUG: Episode 8 step 141
+DEBUG: Episode 8 step 161
+DEBUG: Episode 8 step 181
+DEBUG: Episode 8 step 201
+Updated target network at step 5000
+DEBUG: Episode 8 step 221
+DEBUG: Episode 8 step 241
+DEBUG: Episode 8 step 261
+DEBUG: Episode 8 step 281
+DEBUG: Episode 8 step 301
+DEBUG: Episode 8 step 321
+DEBUG: Episode 8 step 341
+DEBUG: Episode 8 step 361
+DEBUG: Episode 8 step 381
+DEBUG: Episode 8 step 401
+DEBUG: Episode 8 step 421
