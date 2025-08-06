@@ -58,9 +58,15 @@ class AgentConfig:
     burn_in_length: int = 40          # LSTM warm-up steps (typically 40, half of sequence)
     sequence_overlap: float = 0.5     # Overlap between sequences (0.5 = 50% overlap)
     
+    # Network Architecture (applies to both DQN and R2D2)
+    use_dueling: bool = False         # Use dueling architecture (V + A streams)
+                                     # Works with both standard DQN and R2D2
+    
     # R2D2 Training
-    use_dueling: bool = True          # Use dueling architecture (V + A streams)
     clip_rewards: bool = False        # Clip rewards to [-1, 1] (sometimes used in R2D2)
+    
+    # Device settings
+    device: str = None  # None = auto-select, 'cpu', 'cuda', 'cuda:0', etc.
     
     # Saving
     save_interval: int = 5000

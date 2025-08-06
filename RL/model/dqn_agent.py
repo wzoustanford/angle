@@ -11,6 +11,7 @@ from .dqn_network import DQN
 from .data_buffer import ReplayBuffer, PrioritizedReplayBuffer, FrameStack
 from .r2d2_network import R2D2Network
 from .sequence_buffer import SequenceReplayBuffer, SequenceDataLoader
+from .device_utils import get_device_manager
 
 # Register Atari environments
 gym.register_envs(ale_py)
@@ -26,8 +27,8 @@ class DQNAgent:
     """
     def __init__(self, config):
         self.config = config
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        print(f"Using device: {self.device}")
+        self.devmgr = get_device_manager(getattr(config, 'device', None))
+        self.device = self.devmgr.device
         
         # Environment setup
         self.env = gym.make(config.env_name)
@@ -41,26 +42,28 @@ class DQNAgent:
         
         if getattr(config, 'use_r2d2', False):
             # R2D2 Network with LSTM
-            self.q_network = R2D2Network(
+            self.q_network = self.devmgr.to_dev(R2D2Network(
                 obs_shape, 
                 self.n_actions,
                 lstm_size=getattr(config, 'lstm_size', 512),
                 num_lstm_layers=getattr(config, 'num_lstm_layers', 1)
-            ).to(self.device)
+            ))
             
-            self.target_network = R2D2Network(
+            self.target_network = self.devmgr.to_dev(R2D2Network(
                 obs_shape,
                 self.n_actions,
                 lstm_size=getattr(config, 'lstm_size', 512),
                 num_lstm_layers=getattr(config, 'num_lstm_layers', 1)
-            ).to(self.device)
+            ))
             
             print(f"Using R2D2 Network (LSTM size: {getattr(config, 'lstm_size', 512)})")
         else:
             # Standard DQN
-            self.q_network = DQN(obs_shape, self.n_actions).to(self.device)
-            self.target_network = DQN(obs_shape, self.n_actions).to(self.device)
-            print("Using Standard DQN Network")
+            use_dueling = getattr(config, 'use_dueling', False)
+            self.q_network = self.devmgr.to_dev(DQN(obs_shape, self.n_actions, use_dueling=use_dueling))
+            self.target_network = self.devmgr.to_dev(DQN(obs_shape, self.n_actions, use_dueling=use_dueling))
+            dueling_str = " with Dueling" if use_dueling else ""
+            print(f"Using Standard DQN Network{dueling_str}")
         
         self.target_network.load_state_dict(self.q_network.state_dict())
         self.target_network.eval()
@@ -114,7 +117,7 @@ class DQNAgent:
             return self.env.action_space.sample()
         else:
             with torch.no_grad():
-                state_tensor = torch.FloatTensor(state).unsqueeze(0).to(self.device)
+                state_tensor = self.devmgr.to_dev(torch.FloatTensor(state).unsqueeze(0))
                 
                 if getattr(self.config, 'use_r2d2', False):
                     # R2D2: Use LSTM for action selection
@@ -147,7 +150,7 @@ class DQNAgent:
         # Sample sequences
         if self.config.use_prioritized_replay:
             sequences, weights, idxs = self.replay_buffer.sample(self.config.batch_size)
-            weights = torch.FloatTensor(weights).to(self.device)
+            weights = self.devmgr.to_dev(torch.FloatTensor(weights))
         else:
             sequences, _, idxs = self.replay_buffer.sample(self.config.batch_size)
             weights = None
@@ -159,12 +162,12 @@ class DQNAgent:
             return None
         
         # Convert to tensors
-        burn_in_states = torch.FloatTensor(burn_in_data['states']).to(self.device)
-        target_states = torch.FloatTensor(target_data['states']).to(self.device)
-        target_actions = torch.LongTensor(target_data['actions']).to(self.device)
-        target_rewards = torch.FloatTensor(target_data['rewards']).to(self.device)
-        target_next_states = torch.FloatTensor(target_data['next_states']).to(self.device)
-        target_dones = torch.FloatTensor(target_data['dones']).to(self.device)
+        burn_in_states = self.devmgr.to_dev(torch.FloatTensor(burn_in_data['states']))
+        target_states = self.devmgr.to_dev(torch.FloatTensor(target_data['states']))
+        target_actions = self.devmgr.to_dev(torch.LongTensor(target_data['actions']))
+        target_rewards = self.devmgr.to_dev(torch.FloatTensor(target_data['rewards']))
+        target_next_states = self.devmgr.to_dev(torch.FloatTensor(target_data['next_states']))
+        target_dones = self.devmgr.to_dev(torch.FloatTensor(target_data['dones']))
         
         batch_size, seq_len = target_states.shape[:2]
         
@@ -229,18 +232,18 @@ class DQNAgent:
         # Sample batch - handle both buffer types
         if self.config.use_prioritized_replay:
             states, actions, rewards, next_states, dones, weights, idxs = self.replay_buffer.sample(self.config.batch_size)
-            weights = torch.FloatTensor(weights).to(self.device)
+            weights = self.devmgr.to_dev(torch.FloatTensor(weights))
         else:
             states, actions, rewards, next_states, dones = self.replay_buffer.sample(self.config.batch_size)
             weights = None
             idxs = None
         
         # Convert to tensors
-        states = torch.FloatTensor(states).to(self.device)
-        actions = torch.LongTensor(actions).to(self.device)
-        rewards = torch.FloatTensor(rewards).to(self.device)
-        next_states = torch.FloatTensor(next_states).to(self.device)
-        dones = torch.FloatTensor(dones).to(self.device)
+        states = self.devmgr.to_dev(torch.FloatTensor(states))
+        actions = self.devmgr.to_dev(torch.LongTensor(actions))
+        rewards = self.devmgr.to_dev(torch.FloatTensor(rewards))
+        next_states = self.devmgr.to_dev(torch.FloatTensor(next_states))
+        dones = self.devmgr.to_dev(torch.FloatTensor(dones))
         
         # Current Q values
         current_q_values = self.q_network(states).gather(1, actions.unsqueeze(1))
@@ -403,7 +406,7 @@ class DQNAgent:
             
             while not done:
                 with torch.no_grad():
-                    state_tensor = torch.FloatTensor(state).unsqueeze(0).to(self.device)
+                    state_tensor = self.devmgr.to_dev(torch.FloatTensor(state).unsqueeze(0))
                     q_values = self.q_network(state_tensor)
                     action = q_values.argmax(1).item()
                 
