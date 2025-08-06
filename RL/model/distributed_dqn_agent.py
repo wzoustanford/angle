@@ -7,6 +7,7 @@ import os
 from typing import Dict, List, Optional
 
 from .dqn_network import DQN
+from .dueling_dqn_network import DuelingDQN
 from .distributed_buffer import DistributedReplayBuffer
 from .parallel_env_manager import ParallelEnvironmentManager
 from .device_utils import get_device_manager
@@ -18,14 +19,24 @@ class DistributedDQNAgent:
     def __init__(self, config, num_workers: int = 4):
         self.config = config
         self.num_workers = num_workers
-        self.devmgr = get_device_manager(getattr(config, 'device', None))
-        self.device = self.devmgr.device
+        use_dueling = getattr(config, 'use_dueling', False)        
+        self.use_dueling = use_dueling
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"Using device: {self.device}")
         
         # Setup networks
         obs_shape = (config.frame_stack * 3, 210, 160)  # RGB channels * stack size
-        use_dueling = getattr(config, 'use_dueling', False)
-        self.q_network = self.devmgr.to_dev(DQN(obs_shape, self._get_n_actions(), use_dueling=use_dueling))
-        self.target_network = self.devmgr.to_dev(DQN(obs_shape, self._get_n_actions(), use_dueling=use_dueling))
+        n_actions = self._get_n_actions()
+        
+        if use_dueling:
+            print("Using Dueling DQN Network")
+            self.q_network = DuelingDQN(obs_shape, n_actions).to(self.device)
+            self.target_network = DuelingDQN(obs_shape, n_actions).to(self.device)
+        else:
+            print("Using Standard DQN Network")
+            self.q_network = DQN(obs_shape, n_actions).to(self.device)
+            self.target_network = DQN(obs_shape, n_actions).to(self.device)
+        
         self.target_network.load_state_dict(self.q_network.state_dict())
         self.target_network.eval()
         
@@ -129,7 +140,7 @@ class DistributedDQNAgent:
         # Also update the shared network for workers
         self.env_manager.update_shared_network(self.q_network)
     
-    def train_distributed(self, total_episodes: int, collection_interval: int = 50):
+    def train_distributed(self, total_episodes: int, collection_interval: int = 50, max_time_seconds: float = None):
         """Train using distributed experience collection"""
         print(f"Starting distributed training with {self.num_workers} workers")
         print(f"Target episodes: {total_episodes}")
@@ -144,7 +155,8 @@ class DistributedDQNAgent:
         last_stats_time = time.time()
         
         try:
-            while self.episodes_done < total_episodes:
+            while (self.episodes_done < total_episodes and 
+                   (max_time_seconds is None or time.time() - training_start_time < max_time_seconds)):
                 # Let workers collect experiences
                 time.sleep(1)  # Brief pause
                 
@@ -171,9 +183,16 @@ class DistributedDQNAgent:
                 if self.steps_done % self.config.save_interval == 0:
                     self.save_checkpoint()
                 
-                # Print statistics periodically
-                if time.time() - last_stats_time > 30:  # Every 30 seconds
-                    self._print_training_stats()
+                # Print statistics periodically - make it more frequent for short experiments
+                if time.time() - last_stats_time > 5:  # Every 5 seconds for better tracking
+                    stats = self.env_manager.get_statistics()
+                    print(f"Distributed Training Progress:")
+                    print(f"  Total Episodes: {stats['total_episodes']}")
+                    print(f"  Total Steps: {stats['total_steps']}")
+                    print(f"  Per-Worker Episodes: {[w['total_episodes'] for w in stats['worker_stats']]}")
+                    print(f"  Per-Worker Steps: {[w['total_steps'] for w in stats['worker_stats']]}")
+                    print(f"  Average Reward: {stats['overall_recent_avg']:.2f}")
+                    print(f"  Buffer Size: {len(self.replay_buffer)}")
                     last_stats_time = time.time()
                 
                 # Update episode count from workers
@@ -189,7 +208,18 @@ class DistributedDQNAgent:
             self.env_manager.stop_collection()
             
         total_training_time = time.time() - training_start_time
-        print(f"Training completed in {total_training_time:.2f} seconds")
+        
+        # Print final detailed statistics
+        final_stats = self.env_manager.get_statistics()
+        print(f"\nDistributed Training Completed in {total_training_time:.2f} seconds")
+        print(f"Final Statistics:")
+        print(f"  Total Episodes: {final_stats['total_episodes']}")
+        print(f"  Total Steps: {final_stats['total_steps']}")
+        print(f"  Steps per Episode: {final_stats['total_steps'] / max(1, final_stats['total_episodes']):.1f}")
+        print(f"  Per-Worker Episodes: {[w['total_episodes'] for w in final_stats['worker_stats']]}")
+        print(f"  Per-Worker Steps: {[w['total_steps'] for w in final_stats['worker_stats']]}")
+        print(f"  Average Reward: {final_stats['overall_avg_reward']:.2f}")
+        print(f"  Recent Average Reward: {final_stats['overall_recent_avg']:.2f}")
         
         return self.get_final_statistics()
     
