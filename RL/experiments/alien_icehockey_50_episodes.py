@@ -54,11 +54,19 @@ class FiftyEpisodeExperiment:
         config.env_name = env_name
         config.use_dueling = False
         config.use_prioritized_replay = False
-        config.memory_size = 10000
-        config.batch_size = 32
+        
+        # Game-specific memory optimization
+        if 'IceHockey' in env_name:
+            config.memory_size = 5000    # Reduced for Ice Hockey
+            config.batch_size = 16       # Smaller batches
+            config.min_replay_size = 500
+        else:
+            config.memory_size = 10000   # Normal for Alien
+            config.batch_size = 32
+            config.min_replay_size = 500
+            
         config.learning_rate = 1e-4
         config.target_update_freq = 500
-        config.min_replay_size = 500
         config.save_interval = 50000
         return config
     
@@ -79,24 +87,34 @@ class FiftyEpisodeExperiment:
     def create_distributed_priority_config(self, env_name: str) -> DistributedAgentConfig:
         config = DistributedAgentConfig()
         config.env_name = env_name
-        config.num_workers = 4
         config.use_prioritized_replay = True
         config.priority_type = 'td_error'
         config.priority_alpha = 0.6
         config.priority_beta_start = 0.4
         config.priority_beta_end = 1.0
-        config.memory_size = 20000
-        config.batch_size = 64
+        
+        # Game-specific optimization for distributed training
+        if 'IceHockey' in env_name:
+            config.num_workers = 2       # Fewer workers for Ice Hockey
+            config.memory_size = 8000    # Reduced buffer
+            config.batch_size = 32       # Smaller batches
+            config.min_replay_size = 800
+        else:
+            config.num_workers = 4       # Normal workers for Alien  
+            config.memory_size = 20000   # Normal buffer
+            config.batch_size = 64       # Larger batches
+            config.min_replay_size = 1000
+            
         config.learning_rate = 1e-4
         config.target_update_freq = 500
-        config.min_replay_size = 1000
         config.save_interval = 50000
         return config
     
     def run_single_threaded(self, name: str, config, game_name: str) -> tuple:
         self.log(f"\n  Running {name} on {game_name}")
         start_time = time.time()
-        max_steps = 3000 if game_name == 'IceHockey' else 1500
+        # Reduced episode limits to prevent memory buildup
+        max_steps = 2000 if game_name == 'IceHockey' else 1500
         
         try:
             agent = DQNAgent(config)
