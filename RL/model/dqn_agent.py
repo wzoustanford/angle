@@ -59,9 +59,11 @@ class DQNAgent:
             print(f"Using R2D2 Network (LSTM size: {getattr(config, 'lstm_size', 512)})")
         else:
             # Standard DQN
-            self.q_network = self.devmgr.to_dev(DQN(obs_shape, self.n_actions))
-            self.target_network = self.devmgr.to_dev(DQN(obs_shape, self.n_actions))
-            print("Using Standard DQN Network")
+            use_dueling = getattr(config, 'use_dueling', False)
+            self.q_network = self.devmgr.to_dev(DQN(obs_shape, self.n_actions, use_dueling=use_dueling))
+            self.target_network = self.devmgr.to_dev(DQN(obs_shape, self.n_actions, use_dueling=use_dueling))
+            dueling_str = " with Dueling" if use_dueling else ""
+            print(f"Using Standard DQN Network{dueling_str}")
         
         self.target_network.load_state_dict(self.q_network.state_dict())
         self.target_network.eval()
