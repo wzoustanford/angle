@@ -1,0 +1,27 @@
+02:12:40 - Comprehensive 20-Episode Experiment Started
+02:12:40 - Episodes per algorithm: 20
+02:12:40 - Game: ALE/Alien-v5
+02:12:40 - ============================================================
+02:12:40 - 
+============================================================
+02:12:40 - STARTING COMPREHENSIVE 20-EPISODE EXPERIMENT
+02:12:40 - ============================================================
+02:12:40 - 
+1. Baseline DQN
+02:12:45 -   Episode 1/20: Reward=210.0
+02:13:36 -   Episode 6/20: Reward=150.0
+02:14:46 -   Episode 11/20: Reward=170.0
+02:16:25 -   Episode 16/20: Reward=130.0
+02:17:23 -   ✓ Completed in 282.6s, Avg reward: 203.50
+02:17:23 - 
+2. DQN + Prioritized Replay
+02:17:24 -   Episode 1/20: Reward=210.0
+02:18:00 -   Episode 6/20: Reward=80.0
+02:19:01 -   Episode 11/20: Reward=240.0
+02:20:01 -   Episode 16/20: Reward=240.0
+02:20:56 -   ✓ Completed in 212.7s, Avg reward: 184.00
+02:20:56 - 
+3. R2D2 (LSTM)
+02:20:57 -   Episode 1/20: Reward=280.0
+02:21:02 -   Episode 6/20: Reward=170.0
+02:21:08 -   Episode 11/20: Reward=150.0

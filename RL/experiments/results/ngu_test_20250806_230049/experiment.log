@@ -1,0 +1,35 @@
+23:00:49 - NGU Test Experiment Started
+23:00:49 - Episodes per algorithm: 2
+23:00:49 - Games: ALE/Alien-v5
+23:00:49 - ============================================================
+23:00:49 - 
+============================================================
+23:00:49 - TESTING ON: Alien
+23:00:49 - ============================================================
+23:00:49 - 
+Algorithm: Baseline DQN
+23:00:49 - 
+  Testing Baseline DQN on ALE/Alien-v5
+23:00:52 -     Episode 1/2: Reward=130.0, Steps=638
+23:00:54 -     Episode 2/2: Reward=190.0, Steps=530
+23:00:54 -   ✓ DQN completed in 5.1s
+23:00:54 -     Avg reward: 160.00
+23:00:54 - Results saved: ./experiments/results/ngu_test_20250806_230049/results.json
+23:00:54 - 
+Algorithm: NGU
+23:00:54 - 
+  Testing NGU Agent on ALE/Alien-v5
+23:00:57 -   ✗ NGU failed: Expected more than 1 value per channel when training, got input size torch.Size([1, 256])
+23:00:57 - Results saved: ./experiments/results/ngu_test_20250806_230049/results.json
+23:00:57 - 
+Algorithm: Agent57
+23:00:57 - 
+  Testing Agent57 on ALE/Alien-v5
+23:01:03 -   ✗ Agent57 failed: Expected more than 1 value per channel when training, got input size torch.Size([1, 256])
+23:01:03 - Results saved: ./experiments/results/ngu_test_20250806_230049/results.json
+23:01:03 - Summary created: ./experiments/results/ngu_test_20250806_230049/summary.md
+23:01:03 - 
+============================================================
+23:01:03 - NGU TEST EXPERIMENT COMPLETED!
+23:01:03 - Results directory: ./experiments/results/ngu_test_20250806_230049
+23:01:03 - ============================================================

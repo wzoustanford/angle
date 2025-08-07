@@ -1,0 +1,54 @@
+{
+  "Alien": {
+    "Baseline DQN": {
+      "episode_rewards": [
+        280.0,
+        160.0
+      ],
+      "episode_lengths": [
+        752,
+        601
+      ],
+      "elapsed_time": 6.896322727203369,
+      "algorithm": "DQN",
+      "success": true
+    },
+    "NGU": {
+      "episode_rewards": [
+        0,
+        0
+      ],
+      "intrinsic_rewards": [
+        0,
+        0
+      ],
+      "episode_lengths": [
+        0,
+        0
+      ],
+      "elapsed_time": 2.132434844970703,
+      "error": "'numpy.ndarray' object has no attribute 'unsqueeze'",
+      "algorithm": "NGU",
+      "success": false
+    },
+    "Agent57": {
+      "episode_rewards": [
+        0,
+        0
+      ],
+      "intrinsic_rewards": [
+        0,
+        0
+      ],
+      "episode_lengths": [
+        0,
+        0
+      ],
+      "policy_usage": {},
+      "elapsed_time": 5.9674811363220215,
+      "error": "'numpy.ndarray' object has no attribute 'unsqueeze'",
+      "algorithm": "Agent57",
+      "success": false
+    }
+  }
+}

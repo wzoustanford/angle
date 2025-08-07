@@ -1,0 +1,35 @@
+23:03:39 - NGU Test Experiment Started
+23:03:39 - Episodes per algorithm: 2
+23:03:39 - Games: ALE/Alien-v5
+23:03:39 - ============================================================
+23:03:39 - 
+============================================================
+23:03:39 - TESTING ON: Alien
+23:03:39 - ============================================================
+23:03:39 - 
+Algorithm: Baseline DQN
+23:03:39 - 
+  Testing Baseline DQN on ALE/Alien-v5
+23:03:42 -     Episode 1/2: Reward=310.0, Steps=826
+23:03:47 -     Episode 2/2: Reward=240.0, Steps=640
+23:03:47 -   ✓ DQN completed in 8.2s
+23:03:47 -     Avg reward: 275.00
+23:03:47 - Results saved: ./experiments/results/ngu_test_20250806_230339/results.json
+23:03:47 - 
+Algorithm: NGU
+23:03:47 - 
+  Testing NGU Agent on ALE/Alien-v5
+23:03:49 -   ✗ NGU failed: 'numpy.ndarray' object has no attribute 'cpu'
+23:03:49 - Results saved: ./experiments/results/ngu_test_20250806_230339/results.json
+23:03:49 - 
+Algorithm: Agent57
+23:03:49 - 
+  Testing Agent57 on ALE/Alien-v5
+23:03:55 -   ✗ Agent57 failed: 'numpy.ndarray' object has no attribute 'cpu'
+23:03:55 - Results saved: ./experiments/results/ngu_test_20250806_230339/results.json
+23:03:55 - Summary created: ./experiments/results/ngu_test_20250806_230339/summary.md
+23:03:55 - 
+============================================================
+23:03:55 - NGU TEST EXPERIMENT COMPLETED!
+23:03:55 - Results directory: ./experiments/results/ngu_test_20250806_230339
+23:03:55 - ============================================================

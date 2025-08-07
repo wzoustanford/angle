@@ -1,0 +1,35 @@
+22:50:30 - NGU Test Experiment Started
+22:50:30 - Episodes per algorithm: 2
+22:50:30 - Games: ALE/Alien-v5
+22:50:30 - ============================================================
+22:50:30 - 
+============================================================
+22:50:30 - TESTING ON: Alien
+22:50:30 - ============================================================
+22:50:30 - 
+Algorithm: Baseline DQN
+22:50:30 - 
+  Testing Baseline DQN on ALE/Alien-v5
+22:50:33 -     Episode 1/2: Reward=140.0, Steps=569
+22:50:36 -     Episode 2/2: Reward=180.0, Steps=649
+22:50:36 -   ✓ DQN completed in 5.7s
+22:50:36 -     Avg reward: 160.00
+22:50:36 - Results saved: ./experiments/results/ngu_test_20250806_225030/results.json
+22:50:36 - 
+Algorithm: NGU
+22:50:36 - 
+  Testing NGU Agent on ALE/Alien-v5
+22:50:38 -   ✗ NGU failed: SequenceReplayBuffer.__init__() got an unexpected keyword argument 'use_prioritized_replay'
+22:50:38 - Results saved: ./experiments/results/ngu_test_20250806_225030/results.json
+22:50:38 - 
+Algorithm: Agent57
+22:50:38 - 
+  Testing Agent57 on ALE/Alien-v5
+22:50:40 -   ✗ Agent57 failed: SequenceReplayBuffer.__init__() got an unexpected keyword argument 'use_prioritized_replay'
+22:50:40 - Results saved: ./experiments/results/ngu_test_20250806_225030/results.json
+22:50:40 - Summary created: ./experiments/results/ngu_test_20250806_225030/summary.md
+22:50:40 - 
+============================================================
+22:50:40 - NGU TEST EXPERIMENT COMPLETED!
+22:50:40 - Results directory: ./experiments/results/ngu_test_20250806_225030
+22:50:40 - ============================================================
