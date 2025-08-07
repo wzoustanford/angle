@@ -1,0 +1,464 @@
+{
+  "Alien": {
+    "Baseline DQN": {
+      "episode_rewards": [
+        140.0,
+        240.0,
+        160.0,
+        290.0
+      ],
+      "episode_lengths": [
+        735,
+        995,
+        573,
+        974
+      ],
+      "elapsed_time": 19.87977385520935,
+      "algorithm": "DQN",
+      "success": true
+    },
+    "R2D2": {
+      "episode_rewards": [
+        110.0,
+        160.0,
+        130.0,
+        170.0
+      ],
+      "episode_lengths": [
+        699,
+        650,
+        869,
+        578
+      ],
+      "elapsed_time": 4.6294097900390625,
+      "algorithm": "R2D2",
+      "success": true
+    },
+    "Distributed DQN": {
+      "episode_rewards": [
+        187.5,
+        187.5,
+        187.5,
+        187.5
+      ],
+      "elapsed_time": 9.832619190216064,
+      "total_episodes": 4,
+      "throughput": 0.40680920542312826,
+      "algorithm": "Distributed DQN",
+      "num_workers": 2,
+      "success": true
+    },
+    "NGU": {
+      "episode_rewards": [
+        230.0,
+        270.0,
+        120.0,
+        140.0
+      ],
+      "intrinsic_rewards": [
+        2279.3748891353607,
+        4624.238145187643,
+        5977.44072882086,
+        4294.021416874602
+      ],
+      "episode_lengths": [
+        589,
+        1037,
+        635,
+        568
+      ],
+      "elapsed_time": 21.76808500289917,
+      "final_stats": {
+        "current_episode": 4,
+        "steps_done": 2829,
+        "epsilon": 0.9801495006250001,
+        "replay_buffer_size": 135,
+        "episodes_completed": 4,
+        "recent_total_loss": 0.10000000149011612,
+        "recent_extrinsic_loss": NaN,
+        "recent_intrinsic_loss": NaN,
+        "recent_rnd_loss": 7.287406391697004e-05,
+        "recent_intrinsic_reward": NaN,
+        "step_count": 2829,
+        "current_episode_id": 0,
+        "num_active_memories": 4,
+        "recent_episodic_mean": 31.62277603149414,
+        "recent_episodic_std": 0.0,
+        "recent_lifelong_mean": 0.27999267813075857,
+        "recent_lifelong_std": 0.6187138358619679,
+        "memory_stats": {
+          "episode_0": {
+            "memory_count": 589,
+            "memory_utilization": "29.4%",
+            "total_queries": 588,
+            "cache_hit_rate": "0.0%",
+            "next_index": 589,
+            "is_full": false
+          },
+          "episode_1": {
+            "memory_count": 1037,
+            "memory_utilization": "51.8%",
+            "total_queries": 1036,
+            "cache_hit_rate": "0.0%",
+            "next_index": 1037,
+            "is_full": false
+          },
+          "episode_2": {
+            "memory_count": 635,
+            "memory_utilization": "31.8%",
+            "total_queries": 634,
+            "cache_hit_rate": "0.0%",
+            "next_index": 635,
+            "is_full": false
+          },
+          "episode_3": {
+            "memory_count": 568,
+            "memory_utilization": "28.4%",
+            "total_queries": 567,
+            "cache_hit_rate": "0.0%",
+            "next_index": 568,
+            "is_full": false
+          }
+        },
+        "rnd_stats": {
+          "total_updates": 693,
+          "prediction_error_mean": 7.02983901165713e-05,
+          "prediction_error_std": 3.353706409828295e-05,
+          "recent_error_count": 1000,
+          "recent_error_mean": 6.826065116547397e-05,
+          "recent_error_std": 3.353706409828295e-05
+        }
+      },
+      "algorithm": "NGU",
+      "success": true
+    },
+    "Agent57": {
+      "episode_rewards": [
+        140.0,
+        130.0,
+        150.0,
+        180.0
+      ],
+      "intrinsic_rewards": [
+        626.3180713653564,
+        25.92105710366741,
+        2078.6219986137585,
+        6616.81928448379
+      ],
+      "episode_lengths": [
+        527,
+        546,
+        564,
+        746
+      ],
+      "policy_usage": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1
+      },
+      "elapsed_time": 22.57767391204834,
+      "final_stats": {
+        "current_episode": 4,
+        "steps_done": 2383,
+        "epsilon": 0.9801495006250001,
+        "replay_buffer_size": 114,
+        "episodes_completed": 4,
+        "recent_total_loss": 0.10000000149011612,
+        "recent_extrinsic_loss": NaN,
+        "recent_intrinsic_loss": NaN,
+        "recent_rnd_loss": 0.00011488195596029983,
+        "recent_intrinsic_reward": NaN,
+        "step_count": 2383,
+        "current_episode_id": 0,
+        "num_active_memories": 4,
+        "recent_episodic_mean": 31.62277603149414,
+        "recent_episodic_std": 0.0,
+        "recent_lifelong_mean": 0.24587940214632545,
+        "recent_lifelong_std": 0.5361111574204298,
+        "memory_stats": {
+          "episode_0": {
+            "memory_count": 527,
+            "memory_utilization": "26.4%",
+            "total_queries": 526,
+            "cache_hit_rate": "0.0%",
+            "next_index": 527,
+            "is_full": false
+          },
+          "episode_1": {
+            "memory_count": 546,
+            "memory_utilization": "27.3%",
+            "total_queries": 545,
+            "cache_hit_rate": "0.0%",
+            "next_index": 546,
+            "is_full": false
+          },
+          "episode_2": {
+            "memory_count": 564,
+            "memory_utilization": "28.2%",
+            "total_queries": 563,
+            "cache_hit_rate": "0.0%",
+            "next_index": 564,
+            "is_full": false
+          },
+          "episode_3": {
+            "memory_count": 746,
+            "memory_utilization": "37.3%",
+            "total_queries": 745,
+            "cache_hit_rate": "0.0%",
+            "next_index": 746,
+            "is_full": false
+          }
+        },
+        "rnd_stats": {
+          "total_updates": 581,
+          "prediction_error_mean": 0.00012701075217935628,
+          "prediction_error_std": 5.458832507290468e-05,
+          "recent_error_count": 1000,
+          "recent_error_mean": 0.00012230231927969727,
+          "recent_error_std": 5.458832507290468e-05
+        },
+        "num_policies": 8,
+        "current_policy_id": 3,
+        "agent57_stats": {
+          "step_count": 2383,
+          "current_episode_id": 0,
+          "num_active_memories": 4,
+          "recent_episodic_mean": 31.62277603149414,
+          "recent_episodic_std": 0.0,
+          "recent_lifelong_mean": 0.24587940214632545,
+          "recent_lifelong_std": 0.5361111574204298,
+          "memory_stats": {
+            "episode_0": {
+              "memory_count": 527,
+              "memory_utilization": "26.4%",
+              "total_queries": 526,
+              "cache_hit_rate": "0.0%",
+              "next_index": 527,
+              "is_full": false
+            },
+            "episode_1": {
+              "memory_count": 546,
+              "memory_utilization": "27.3%",
+              "total_queries": 545,
+              "cache_hit_rate": "0.0%",
+              "next_index": 546,
+              "is_full": false
+            },
+            "episode_2": {
+              "memory_count": 564,
+              "memory_utilization": "28.2%",
+              "total_queries": 563,
+              "cache_hit_rate": "0.0%",
+              "next_index": 564,
+              "is_full": false
+            },
+            "episode_3": {
+              "memory_count": 746,
+              "memory_utilization": "37.3%",
+              "total_queries": 745,
+              "cache_hit_rate": "0.0%",
+              "next_index": 746,
+              "is_full": false
+            }
+          },
+          "rnd_stats": {
+            "total_updates": 581,
+            "prediction_error_mean": 0.00012701075217935628,
+            "prediction_error_std": 5.458832507290468e-05,
+            "recent_error_count": 1000,
+            "recent_error_mean": 0.00012230231927969727,
+            "recent_error_std": 5.458832507290468e-05
+          },
+          "num_policies": 8,
+          "current_policy_id": 3,
+          "policy_betas": [
+            0.0,
+            0.04285714285714286,
+            0.08571428571428572,
+            0.12857142857142856,
+            0.17142857142857143,
+            0.2142857142857143,
+            0.2571428571428571,
+            0.3
+          ],
+          "policy_gammas": [
+            0.99,
+            0.991,
+            0.992,
+            0.993,
+            0.994,
+            0.995,
+            0.996,
+            0.997
+          ],
+          "policy_stats": {
+            "0": {
+              "episodes": 0,
+              "steps": 0,
+              "avg_reward": 0.0
+            },
+            "1": {
+              "episodes": 0,
+              "steps": 0,
+              "avg_reward": 0.0
+            },
+            "2": {
+              "episodes": 0,
+              "steps": 0,
+              "avg_reward": 0.0
+            },
+            "3": {
+              "episodes": 0,
+              "steps": 0,
+              "avg_reward": 0.0
+            },
+            "4": {
+              "episodes": 0,
+              "steps": 0,
+              "avg_reward": 0.0
+            },
+            "5": {
+              "episodes": 0,
+              "steps": 0,
+              "avg_reward": 0.0
+            },
+            "6": {
+              "episodes": 0,
+              "steps": 0,
+              "avg_reward": 0.0
+            },
+            "7": {
+              "episodes": 0,
+              "steps": 0,
+              "avg_reward": 0.0
+            }
+          }
+        }
+      },
+      "algorithm": "Agent57",
+      "success": true
+    },
+    "R2D2+Agent57": {
+      "episode_rewards": [
+        220.0,
+        710.0,
+        110.0,
+        200.0
+      ],
+      "intrinsic_rewards": [
+        0.0,
+        856.1268535756972,
+        1378.0759906880558,
+        2425.4452571980655
+      ],
+      "policy_usage": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 1
+      },
+      "elapsed_time": 17.919209480285645,
+      "final_stats": {
+        "current_episode": 4,
+        "steps_done": 2575,
+        "epsilon": 0.9801495006250001,
+        "num_policies": 4,
+        "policy_usage": {
+          "0": 1,
+          "1": 1,
+          "2": 1,
+          "3": 1
+        },
+        "avg_reward": 310.0,
+        "avg_intrinsic": 1164.9120253654546,
+        "step_count": 2575,
+        "current_episode_id": 0,
+        "num_active_memories": 4,
+        "recent_episodic_mean": 31.62277603149414,
+        "recent_episodic_std": 0.0,
+        "recent_lifelong_mean": 0.4267953519788571,
+        "recent_lifelong_std": 0.7221683399622524,
+        "memory_stats": {
+          "episode_0_policy_0": {
+            "memory_count": 555,
+            "memory_utilization": "27.8%",
+            "total_queries": 554,
+            "cache_hit_rate": "0.0%",
+            "next_index": 555,
+            "is_full": false
+          },
+          "episode_1_policy_1": {
+            "memory_count": 865,
+            "memory_utilization": "43.2%",
+            "total_queries": 864,
+            "cache_hit_rate": "0.0%",
+            "next_index": 865,
+            "is_full": false
+          },
+          "episode_2_policy_2": {
+            "memory_count": 563,
+            "memory_utilization": "28.1%",
+            "total_queries": 562,
+            "cache_hit_rate": "0.0%",
+            "next_index": 563,
+            "is_full": false
+          },
+          "episode_3_policy_3": {
+            "memory_count": 592,
+            "memory_utilization": "29.6%",
+            "total_queries": 591,
+            "cache_hit_rate": "0.0%",
+            "next_index": 592,
+            "is_full": false
+          }
+        },
+        "rnd_stats": {
+          "total_updates": 0,
+          "prediction_error_mean": 0.022367537588084848,
+          "prediction_error_std": 0.00034476836111815715,
+          "recent_error_count": 1000,
+          "recent_error_mean": 0.022153992645442485,
+          "recent_error_std": 0.00034476836111815715
+        },
+        "current_policy_id": 3,
+        "policy_betas": [
+          0.0,
+          0.09999999999999999,
+          0.19999999999999998,
+          0.3
+        ],
+        "policy_gammas": [
+          0.99,
+          0.9923333333333333,
+          0.9946666666666667,
+          0.997
+        ],
+        "policy_stats": {
+          "0": {
+            "episodes": 0,
+            "steps": 555,
+            "avg_reward": 0.0
+          },
+          "1": {
+            "episodes": 0,
+            "steps": 865,
+            "avg_reward": 0.0
+          },
+          "2": {
+            "episodes": 0,
+            "steps": 563,
+            "avg_reward": 0.0
+          },
+          "3": {
+            "episodes": 0,
+            "steps": 592,
+            "avg_reward": 0.0
+          }
+        }
+      },
+      "algorithm": "R2D2+Agent57",
+      "success": true
+    }
+  }
+}

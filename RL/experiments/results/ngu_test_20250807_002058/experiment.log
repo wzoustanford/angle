@@ -1,0 +1,85 @@
+00:20:58 - NGU Test Experiment Started
+00:20:58 - Episodes per algorithm: 4
+00:20:58 - Games: ALE/Alien-v5
+00:20:58 - ============================================================
+00:20:58 - 
+============================================================
+00:20:58 - TESTING ON: Alien
+00:20:58 - ============================================================
+00:20:58 - 
+Algorithm: Baseline DQN
+00:20:58 - 
+  Testing Baseline DQN on ALE/Alien-v5
+00:21:02 -     Episode 1/4: Reward=140.0, Steps=735
+00:21:09 -     Episode 2/4: Reward=240.0, Steps=995
+00:21:12 -     Episode 3/4: Reward=160.0, Steps=573
+00:21:18 -     Episode 4/4: Reward=290.0, Steps=974
+00:21:18 -   ✓ DQN completed in 19.9s
+00:21:18 -     Avg reward: 207.50
+00:21:18 - Results saved: ./experiments/results/ngu_test_20250807_002058/results.json
+00:21:18 - 
+Algorithm: R2D2
+00:21:18 - 
+  Testing R2D2 on ALE/Alien-v5
+00:21:19 -     Episode 1/4: Reward=110.0, Steps=699
+00:21:21 -     Episode 2/4: Reward=160.0, Steps=650
+00:21:22 -     Episode 3/4: Reward=130.0, Steps=869
+00:21:23 -     Episode 4/4: Reward=170.0, Steps=578
+00:21:23 -   ✓ R2D2 completed in 4.6s
+00:21:23 -     Avg reward: 142.50
+00:21:23 - Results saved: ./experiments/results/ngu_test_20250807_002058/results.json
+00:21:23 - 
+Algorithm: Distributed DQN
+00:21:23 - 
+  Testing Distributed DQN on ALE/Alien-v5
+00:21:23 -     Training with 2 parallel workers...
+00:21:33 -   ✓ Distributed DQN completed in 9.8s
+00:21:33 -     Total episodes: 4
+00:21:33 -     Avg reward: 187.50
+00:21:33 -     Throughput: 0.4 episodes/sec
+00:21:33 - Results saved: ./experiments/results/ngu_test_20250807_002058/results.json
+00:21:33 - 
+Algorithm: NGU
+00:21:33 - 
+  Testing NGU Agent on ALE/Alien-v5
+00:21:39 -     Episode 1/4: Reward=230.0, Intrinsic=2279.375, Steps=589
+00:21:46 -     Episode 2/4: Reward=270.0, Intrinsic=4624.238, Steps=1037
+00:21:50 -     Episode 3/4: Reward=120.0, Intrinsic=5977.441, Steps=635
+00:21:54 -     Episode 4/4: Reward=140.0, Intrinsic=4294.021, Steps=568
+00:21:54 -   ✓ NGU completed in 21.8s
+00:21:54 -     Avg reward: 190.00
+00:21:54 -     Avg intrinsic: 4293.769
+00:21:54 -     Avg steps: 707.2
+00:21:54 - Results saved: ./experiments/results/ngu_test_20250807_002058/results.json
+00:21:54 - 
+Algorithm: Agent57
+00:21:54 - 
+  Testing Agent57 on ALE/Alien-v5
+00:22:04 -     Episode 1/4: Policy=0, Reward=140.0, Intrinsic=626.318
+00:22:08 -     Episode 2/4: Policy=1, Reward=130.0, Intrinsic=25.921
+00:22:11 -     Episode 3/4: Policy=2, Reward=150.0, Intrinsic=2078.622
+00:22:17 -     Episode 4/4: Policy=3, Reward=180.0, Intrinsic=6616.819
+00:22:17 -   ✓ Agent57 completed in 22.6s
+00:22:17 -     Avg reward: 150.00
+00:22:17 -     Avg intrinsic: 2336.920
+00:22:17 -     Policies used: [0, 1, 2, 3]
+00:22:17 - Results saved: ./experiments/results/ngu_test_20250807_002058/results.json
+00:22:17 - 
+Algorithm: R2D2+Agent57
+00:22:17 - 
+  Testing R2D2+Agent57 Hybrid on ALE/Alien-v5
+00:22:24 -     Episode 1/4: Policy=0, Reward=220.0, Intrinsic=0.000
+00:22:28 -     Episode 2/4: Policy=1, Reward=710.0, Intrinsic=856.127
+00:22:32 -     Episode 3/4: Policy=2, Reward=110.0, Intrinsic=1378.076
+00:22:35 -     Episode 4/4: Policy=3, Reward=200.0, Intrinsic=2425.445
+00:22:35 -   ✓ R2D2+Agent57 completed in 17.9s
+00:22:35 -     Avg reward: 310.00
+00:22:35 -     Avg intrinsic: 1164.912
+00:22:35 -     Policies used: [0, 1, 2, 3]
+00:22:35 - Results saved: ./experiments/results/ngu_test_20250807_002058/results.json
+00:22:35 - Summary created: ./experiments/results/ngu_test_20250807_002058/summary.md
+00:22:35 - 
+============================================================
+00:22:35 - NGU TEST EXPERIMENT COMPLETED!
+00:22:35 - Results directory: ./experiments/results/ngu_test_20250807_002058
+00:22:35 - ============================================================

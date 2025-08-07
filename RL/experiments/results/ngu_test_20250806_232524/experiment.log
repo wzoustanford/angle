@@ -1,0 +1,48 @@
+23:25:24 - NGU Test Experiment Started
+23:25:24 - Episodes per algorithm: 6
+23:25:24 - Games: ALE/Alien-v5
+23:25:24 - ============================================================
+23:25:24 - 
+============================================================
+23:25:24 - TESTING ON: Alien
+23:25:24 - ============================================================
+23:25:24 - 
+Algorithm: Baseline DQN
+23:25:24 - 
+  Testing Baseline DQN on ALE/Alien-v5
+23:25:30 -     Episode 1/6: Reward=150.0, Steps=626
+23:25:38 -     Episode 3/6: Reward=170.0, Steps=678
+23:25:46 -     Episode 5/6: Reward=210.0, Steps=670
+23:25:50 -   ✓ DQN completed in 25.9s
+23:25:50 -     Avg reward: 198.33
+23:25:50 - Results saved: ./experiments/results/ngu_test_20250806_232524/results.json
+23:25:50 - 
+Algorithm: NGU
+23:25:50 - 
+  Testing NGU Agent on ALE/Alien-v5
+23:25:57 -     Episode 1/6: Reward=200.0, Intrinsic=1440.568, Steps=706
+23:26:06 -     Episode 3/6: Reward=100.0, Intrinsic=3734.444, Steps=583
+23:26:15 -     Episode 5/6: Reward=120.0, Intrinsic=6388.510, Steps=616
+23:26:20 -   ✓ NGU completed in 29.8s
+23:26:20 -     Avg reward: 161.67
+23:26:20 -     Avg intrinsic: 4313.150
+23:26:20 -     Avg steps: 674.8
+23:26:20 - Results saved: ./experiments/results/ngu_test_20250806_232524/results.json
+23:26:20 - 
+Algorithm: Agent57
+23:26:20 - 
+  Testing Agent57 on ALE/Alien-v5
+23:26:30 -     Episode 1/6: Policy=0, Reward=170.0, Intrinsic=1484.415
+23:26:39 -     Episode 3/6: Policy=2, Reward=160.0, Intrinsic=7847.121
+23:26:47 -     Episode 5/6: Policy=4, Reward=280.0, Intrinsic=6376.233
+23:26:51 -   ✓ Agent57 completed in 30.8s
+23:26:51 -     Avg reward: 170.00
+23:26:51 -     Avg intrinsic: 4287.768
+23:26:51 -     Policies used: [0, 1, 2, 3, 4, 5]
+23:26:51 - Results saved: ./experiments/results/ngu_test_20250806_232524/results.json
+23:26:51 - Summary created: ./experiments/results/ngu_test_20250806_232524/summary.md
+23:26:51 - 
+============================================================
+23:26:51 - NGU TEST EXPERIMENT COMPLETED!
+23:26:51 - Results directory: ./experiments/results/ngu_test_20250806_232524
+23:26:51 - ============================================================

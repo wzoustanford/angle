@@ -1,0 +1,15 @@
+23:12:39 - NGU Test Experiment Started
+23:12:39 - Episodes per algorithm: 6
+23:12:39 - Games: ALE/Alien-v5
+23:12:39 - ============================================================
+23:12:39 - 
+============================================================
+23:12:39 - TESTING ON: Alien
+23:12:39 - ============================================================
+23:12:39 - 
+Algorithm: Baseline DQN
+23:12:39 - 
+  Testing Baseline DQN on ALE/Alien-v5
+23:12:41 -     Episode 1/6: Reward=190.0, Steps=595
+23:12:51 -     Episode 3/6: Reward=190.0, Steps=641
+23:13:01 -     Episode 5/6: Reward=180.0, Steps=562

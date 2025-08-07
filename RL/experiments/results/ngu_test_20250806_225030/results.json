@@ -1,0 +1,54 @@
+{
+  "Alien": {
+    "Baseline DQN": {
+      "episode_rewards": [
+        140.0,
+        180.0
+      ],
+      "episode_lengths": [
+        569,
+        649
+      ],
+      "elapsed_time": 5.743629455566406,
+      "algorithm": "DQN",
+      "success": true
+    },
+    "NGU": {
+      "episode_rewards": [
+        0,
+        0
+      ],
+      "intrinsic_rewards": [
+        0,
+        0
+      ],
+      "episode_lengths": [
+        0,
+        0
+      ],
+      "elapsed_time": 2.072279930114746,
+      "error": "SequenceReplayBuffer.__init__() got an unexpected keyword argument 'use_prioritized_replay'",
+      "algorithm": "NGU",
+      "success": false
+    },
+    "Agent57": {
+      "episode_rewards": [
+        0,
+        0
+      ],
+      "intrinsic_rewards": [
+        0,
+        0
+      ],
+      "episode_lengths": [
+        0,
+        0
+      ],
+      "policy_usage": {},
+      "elapsed_time": 2.0657742023468018,
+      "error": "SequenceReplayBuffer.__init__() got an unexpected keyword argument 'use_prioritized_replay'",
+      "algorithm": "Agent57",
+      "success": false
+    }
+  }
+}
