@@ -10,9 +10,9 @@ the open source project just started, stay tuned.
 
 ## Features
 
-- **RL algorithms towards State-of-the-art**: DQN, PPO, A2C, Rainbow, NEC, Agent57 and more.
-- **towards online RL**: Towards industry grade efficiency. Components trusted by real-time production services. 
-- **Multi-environment support**: Atari (ALE via Gymnasium), economic and financial data, custom environments.
+- **RL algorithms towards State-of-the-art**: MuZero, EfficientZero, PPO, Agent57, R2D2, Rainbow, NEC,A2C,DQN and more.
+- **towards real-world RL**: Towards industry grade efficiency. Components trusted by real-time production services. 
+- **Multi-environment support**: Economic and financial data, Health data, Atari (ALE via Gymnasium), custom environments.
 - **Modular & extensible** design: Easily plug in new agents, models, and environments.
 - **Training dashboards** with TensorBoard integration.
 - **Replay buffer**, frame stacking, action repeat, priority buffers.
