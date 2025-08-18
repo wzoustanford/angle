@@ -65,7 +65,7 @@ Contributions are welcome! Feel free to open an issue, suggest improvements, or 
 To get started:
 ```bash
 git checkout -b my-feature
-# Make awesome changes
+# Make changes
 git commit -m "Add amazing feature"
 git push origin my-feature
 ```
