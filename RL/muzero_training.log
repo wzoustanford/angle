@@ -1,0 +1,154 @@
+Initializing MuZero agent for Breakout...
+🔧 Device: cuda
+   GPU: Tesla T4 (14.6GB)
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+
+Starting MuZero training on Breakout
+Configuration:
+  Environment: ALE/Breakout-v5
+  MCTS simulations: 10
+  Batch size: 128
+  Learning rate: 0.001
+  Device: cuda
+  Checkpoint directory: ./results/muzero_checkpoints
+  Training mode: Episode-based (10 episodes)
+  Train steps per episode: 20
+--------------------------------------------------
+  Starting self-play game 1, max_moves=1000
+    Step 100/1000, reward so far: 0.0
+  Self-play game completed: 127 steps, reward=0.0
+Episode 1/10: Reward = 0.0, Length = 127, Buffer size = 127
+  Skipping training - buffer not ready (size: 127)
+  Starting self-play game 2, max_moves=1000
+    Step 100/1000, reward so far: 1.0
+    Step 200/1000, reward so far: 2.0
+  Self-play game completed: 256 steps, reward=3.0
+Episode 2/10: Reward = 3.0, Length = 256, Buffer size = 383
+  Starting 20 training steps...
+    Training step 5/20, loss = 10.7710
+    Training step 10/20, loss = 10.1591
+    Training step 15/20, loss = 9.7532
+    Training step 20/20, loss = 9.1900
+  Training complete: Avg loss = 10.2328
+  Starting self-play game 3, max_moves=1000
+    Step 100/1000, reward so far: 0.0
+  Self-play game completed: 132 steps, reward=0.0
+Episode 3/10: Reward = 0.0, Length = 132, Buffer size = 515
+  Starting 20 training steps...
+    Training step 5/20, loss = 7.6096
+    Training step 10/20, loss = 6.9620
+    Training step 15/20, loss = 5.7899
+    Training step 20/20, loss = 4.5711
+  Training complete: Avg loss = 6.6219
+  Starting self-play game 4, max_moves=1000
+    Step 100/1000, reward so far: 1.0
+    Step 200/1000, reward so far: 2.0
+  Self-play game completed: 227 steps, reward=2.0
+Episode 4/10: Reward = 2.0, Length = 227, Buffer size = 742
+  Starting 20 training steps...
+    Training step 5/20, loss = 3.2729
+    Training step 10/20, loss = 3.0190
+    Training step 15/20, loss = 2.6488
+    Training step 20/20, loss = 2.6333
+  Training complete: Avg loss = 2.9787
+  Starting self-play game 5, max_moves=1000
+    Step 100/1000, reward so far: 0.0
+    Step 200/1000, reward so far: 0.0
+  Self-play game completed: 259 steps, reward=0.0
+Episode 5/10: Reward = 0.0, Length = 259, Buffer size = 1001
+  Starting 20 training steps...
+    Training step 5/20, loss = 1.9408
+    Training step 10/20, loss = 1.9591
+    Training step 15/20, loss = 1.7748
+    Training step 20/20, loss = 1.5556
+  Training complete: Avg loss = 1.8014
+  Starting self-play game 6, max_moves=1000
+    Step 100/1000, reward so far: 0.0
+    Step 200/1000, reward so far: 0.0
+  Self-play game completed: 262 steps, reward=0.0
+Episode 6/10: Reward = 0.0, Length = 262, Buffer size = 1263
+  Starting 20 training steps...
+    Training step 5/20, loss = 1.5747
+    Training step 10/20, loss = 1.3956
+    Training step 15/20, loss = 1.4139
+    Training step 20/20, loss = 1.5003
+  Training complete: Avg loss = 1.4319
+  Starting self-play game 7, max_moves=1000
+    Step 100/1000, reward so far: 1.0
+    Step 200/1000, reward so far: 2.0
+  Self-play game completed: 234 steps, reward=2.0
+Episode 7/10: Reward = 2.0, Length = 234, Buffer size = 1497
+  Starting 20 training steps...
+    Training step 5/20, loss = 1.2887
+    Training step 10/20, loss = 1.3463
+    Training step 15/20, loss = 1.1818
+    Training step 20/20, loss = 1.1918
+  Training complete: Avg loss = 1.3139
+  Starting self-play game 8, max_moves=1000
+    Step 100/1000, reward so far: 0.0
+    Step 200/1000, reward so far: 2.0
+  Self-play game completed: 236 steps, reward=2.0
+Episode 8/10: Reward = 2.0, Length = 236, Buffer size = 1733
+  Starting 20 training steps...
+    Training step 5/20, loss = 1.1315
+    Training step 10/20, loss = 1.1647
+    Training step 15/20, loss = 1.1404
+    Training step 20/20, loss = 1.0139
+  Training complete: Avg loss = 1.1237
+  Starting self-play game 9, max_moves=1000
+    Step 100/1000, reward so far: 1.0
+    Step 200/1000, reward so far: 3.0
+    Step 300/1000, reward so far: 3.0
+  Self-play game completed: 341 steps, reward=3.0
+Episode 9/10: Reward = 3.0, Length = 341, Buffer size = 2074
+  Starting 20 training steps...
+    Training step 5/20, loss = 0.9899
+    Training step 10/20, loss = 1.0737
+    Training step 15/20, loss = 0.9485
+    Training step 20/20, loss = 0.9524
+  Training complete: Avg loss = 1.0223
+  Starting self-play game 10, max_moves=1000
+    Step 100/1000, reward so far: 0.0
+  Self-play game completed: 159 steps, reward=0.0
+Episode 10/10: Reward = 0.0, Length = 159, Buffer size = 2233
+  Starting 20 training steps...
+    Training step 5/20, loss = 0.9742
+    Training step 10/20, loss = 0.9784
+    Training step 15/20, loss = 0.9621
+    Training step 20/20, loss = 1.0211
+  Training complete: Avg loss = 1.0181
+
+--- Evaluation at episode 10 ---
+  Mean reward: 0.0 ± 0.0
+  Max reward: 0.0
+  Recent training rewards (last 10 episodes): 1.2 ± 1.2
+--------------------------------------------------
+
+============================================================
+Training Complete - 10 Episodes
+============================================================
+Final Statistics:
+  Total games played: 10
+  Total training steps: 180
+  Mean episode reward: 1.2 ± 1.2
+  Best episode reward: 3.0
+  Worst episode reward: 0.0
+
+Learning Progress:
+  Episodes 1-2: 1.5 ± 1.5
+  Episodes 3-4: 1.0 ± 1.0
+  Episodes 5-6: 0.0 ± 0.0
+  Episodes 7-8: 2.0 ± 0.0
+  Episodes 9-10: 1.5 ± 1.5
+
+Final evaluation...
+
+Final Results:
+  Mean reward: 0.0 ± 0.0
+  Max reward: 0.0
+  Games played: 10
+  Training steps: 180
+Checkpoint saved to ./results/muzero_checkpoints/muzero_final_Breakout_20250815_034713.pth
+
+Final checkpoint saved to: ./results/muzero_checkpoints/muzero_final_Breakout_20250815_034713.pth
