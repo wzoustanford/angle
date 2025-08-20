@@ -1,0 +1,196 @@
+Initializing MuZero agent for Breakout...
+🔧 Device: cuda
+   GPU: Tesla T4 (14.6GB)
+A.L.E: Arcade Learning Environment (version 0.11.2+ecc1138)
+[Powered by Stella]
+
+Starting MuZero training on Breakout
+Configuration:
+  Environment: ALE/Breakout-v5
+  MCTS simulations: 1
+  Batch size: 128
+  Learning rate: 0.001
+  Device: cuda
+  Checkpoint directory: ./results/muzero_checkpoints
+  Training mode: Episode-based (10 episodes)
+  Train steps per episode: 30
+--------------------------------------------------
+  Starting self-play game 1, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 0.0
+  Self-play game completed: 172 steps, reward=1.0
+    Action distribution: NOOP=38, FIRE=46, RIGHT=53, LEFT=35
+Episode 1/10: Reward = 1.0, Length = 172, Buffer size = 172
+  Starting 30 training steps...
+    Training step 5/30, loss = 12.6814
+    Training step 10/30, loss = 12.1925
+    Training step 15/30, loss = 11.6789
+    Training step 20/30, loss = 11.0590
+    Training step 25/30, loss = 10.3592
+    Training step 30/30, loss = 9.4925
+  Training complete: Avg loss = 11.5051
+  Starting self-play game 2, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 1.0
+  Self-play game completed: 158 steps, reward=1.0
+    Action distribution: NOOP=62, FIRE=47, RIGHT=23, LEFT=26
+Episode 2/10: Reward = 1.0, Length = 158, Buffer size = 330
+  Starting 30 training steps...
+    Training step 5/30, loss = 7.7581
+    Training step 10/30, loss = 6.6606
+    Training step 15/30, loss = 5.3408
+    Training step 20/30, loss = 4.7248
+    Training step 25/30, loss = 4.4275
+    Training step 30/30, loss = 3.9719
+  Training complete: Avg loss = 5.7949
+  Starting self-play game 3, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 0.0
+  Self-play game completed: 186 steps, reward=1.0
+    Action distribution: NOOP=70, FIRE=55, RIGHT=31, LEFT=30
+Episode 3/10: Reward = 1.0, Length = 186, Buffer size = 516
+  Starting 30 training steps...
+    Training step 5/30, loss = 3.3306
+    Training step 10/30, loss = 2.9645
+    Training step 15/30, loss = 2.6118
+    Training step 20/30, loss = 2.3211
+    Training step 25/30, loss = 2.0801
+    Training step 30/30, loss = 1.8991
+  Training complete: Avg loss = 2.6595
+  Starting self-play game 4, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 1.0
+    Step 200/1000, reward so far: 2.0
+  Self-play game completed: 218 steps, reward=2.0
+    Action distribution: NOOP=96, FIRE=56, RIGHT=31, LEFT=35
+Episode 4/10: Reward = 2.0, Length = 218, Buffer size = 734
+  Starting 30 training steps...
+    Training step 5/30, loss = 1.9039
+    Training step 10/30, loss = 1.6774
+    Training step 15/30, loss = 1.7030
+    Training step 20/30, loss = 1.6321
+    Training step 25/30, loss = 1.6631
+    Training step 30/30, loss = 1.5920
+  Training complete: Avg loss = 1.6718
+  Starting self-play game 5, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 1.0
+    Step 200/1000, reward so far: 3.0
+  Self-play game completed: 255 steps, reward=3.0
+    Action distribution: NOOP=99, FIRE=65, RIGHT=53, LEFT=38
+Episode 5/10: Reward = 3.0, Length = 255, Buffer size = 989
+  Starting 30 training steps...
+    Training step 5/30, loss = 1.6635
+    Training step 10/30, loss = 1.7735
+    Training step 15/30, loss = 1.5606
+    Training step 20/30, loss = 1.6478
+    Training step 25/30, loss = 1.7289
+    Training step 30/30, loss = 1.6245
+  Training complete: Avg loss = 1.6819
+  Starting self-play game 6, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 1.0
+    Step 200/1000, reward so far: 2.0
+  Self-play game completed: 229 steps, reward=2.0
+    Action distribution: NOOP=109, FIRE=46, RIGHT=31, LEFT=43
+Episode 6/10: Reward = 2.0, Length = 229, Buffer size = 1218
+  Starting 30 training steps...
+    Training step 5/30, loss = 1.6506
+    Training step 10/30, loss = 1.5566
+    Training step 15/30, loss = 1.6591
+    Training step 20/30, loss = 1.7248
+    Training step 25/30, loss = 1.7377
+    Training step 30/30, loss = 1.6087
+  Training complete: Avg loss = 1.6499
+  Starting self-play game 7, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 2.0
+    Step 200/1000, reward so far: 2.0
+  Self-play game completed: 237 steps, reward=3.0
+    Action distribution: NOOP=100, FIRE=54, RIGHT=42, LEFT=41
+Episode 7/10: Reward = 3.0, Length = 237, Buffer size = 1455
+  Starting 30 training steps...
+    Training step 5/30, loss = 1.6273
+    Training step 10/30, loss = 1.5043
+    Training step 15/30, loss = 1.6368
+    Training step 20/30, loss = 1.7922
+    Training step 25/30, loss = 1.6435
+    Training step 30/30, loss = 1.5455
+  Training complete: Avg loss = 1.5836
+  Starting self-play game 8, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 0.0
+  Self-play game completed: 128 steps, reward=0.0
+    Action distribution: NOOP=65, FIRE=29, RIGHT=16, LEFT=18
+Episode 8/10: Reward = 0.0, Length = 128, Buffer size = 1583
+  Starting 30 training steps...
+    Training step 5/30, loss = 1.6091
+    Training step 10/30, loss = 1.5583
+    Training step 15/30, loss = 1.3878
+    Training step 20/30, loss = 1.6208
+    Training step 25/30, loss = 1.4539
+    Training step 30/30, loss = 1.4518
+  Training complete: Avg loss = 1.5204
+  Starting self-play game 9, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 0.0
+  Self-play game completed: 154 steps, reward=1.0
+    Action distribution: NOOP=88, FIRE=29, RIGHT=12, LEFT=25
+Episode 9/10: Reward = 1.0, Length = 154, Buffer size = 1737
+  Starting 30 training steps...
+    Training step 5/30, loss = 1.4132
+    Training step 10/30, loss = 1.6001
+    Training step 15/30, loss = 1.5845
+    Training step 20/30, loss = 1.4362
+    Training step 25/30, loss = 1.5520
+    Training step 30/30, loss = 1.4243
+  Training complete: Avg loss = 1.4972
+  Starting self-play game 10, max_moves=1000
+    Taking initial FIRE action to start Breakout
+    Step 100/1000, reward so far: 1.0
+    Step 200/1000, reward so far: 2.0
+  Self-play game completed: 228 steps, reward=2.0
+    Action distribution: NOOP=100, FIRE=30, RIGHT=51, LEFT=47
+Episode 10/10: Reward = 2.0, Length = 228, Buffer size = 1965
+  Starting 30 training steps...
+    Training step 5/30, loss = 1.4002
+    Training step 10/30, loss = 1.3952
+    Training step 15/30, loss = 1.4580
+    Training step 20/30, loss = 1.4016
+    Training step 25/30, loss = 1.4227
+    Training step 30/30, loss = 1.4516
+  Training complete: Avg loss = 1.4440
+
+--- Evaluation at episode 10 ---
+  Mean reward: 0.0 ± 0.0
+  Max reward: 0.0
+  Recent training rewards (last 10 episodes): 1.6 ± 0.9
+--------------------------------------------------
+
+============================================================
+Training Complete - 10 Episodes
+============================================================
+Final Statistics:
+  Total games played: 10
+  Total training steps: 300
+  Mean episode reward: 1.6 ± 0.9
+  Best episode reward: 3.0
+  Worst episode reward: 0.0
+
+Learning Progress:
+  Episodes 1-2: 1.0 ± 0.0
+  Episodes 3-4: 1.5 ± 0.5
+  Episodes 5-6: 2.5 ± 0.5
+  Episodes 7-8: 1.5 ± 1.5
+  Episodes 9-10: 1.5 ± 0.5
+
+Final evaluation...
+
+Final Results:
+  Mean reward: 0.0 ± 0.0
+  Max reward: 0.0
+  Games played: 10
+  Training steps: 300
+Checkpoint saved to ./results/muzero_checkpoints/muzero_final_Breakout_20250815_193921.pth
+
+Final checkpoint saved to: ./results/muzero_checkpoints/muzero_final_Breakout_20250815_193921.pth
