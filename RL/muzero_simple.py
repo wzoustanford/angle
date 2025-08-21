@@ -195,6 +195,8 @@ class SimpleMuZero:
                  num_unroll_steps: int = 5,
                  lr: float = 1e-3,
                  c_puct: float = 1.25,
+                 dirichlet_alpha: float = 0.3,
+                 exploration_fraction: float = 0.25,
                  device: str = 'cuda' if torch.cuda.is_available() else 'cpu'):
         
         # Environment parameters
@@ -209,6 +211,8 @@ class SimpleMuZero:
         self.td_steps = td_steps
         self.num_unroll_steps = num_unroll_steps
         self.c_puct = c_puct
+        self.dirichlet_alpha = dirichlet_alpha
+        self.exploration_fraction = exploration_fraction
         self.device = device
         
         # Initialize networks
@@ -225,10 +229,14 @@ class SimpleMuZero:
         # Training statistics
         self.training_step = 0
         
-    def run_mcts(self, observation: np.ndarray) -> np.ndarray:
+    def run_mcts(self, observation: np.ndarray, add_exploration_noise: bool = True) -> Tuple[np.ndarray, float]:
         """
         Run MCTS simulations from the given observation.
-        Returns action probabilities based on visit counts.
+        Returns action probabilities based on visit counts and root value.
+        
+        Args:
+            observation: Current observation
+            add_exploration_noise: Whether to add Dirichlet noise at root (for self-play)
         """
         # Convert observation to tensor
         if not isinstance(observation, np.ndarray):
@@ -245,11 +253,24 @@ class SimpleMuZero:
         # Expand root with initial policy
         policy = F.softmax(policy_logits, dim=-1).squeeze().cpu().numpy()
         priors = {a: policy[a] for a in range(self.action_space_size)}
+        
+        # Add Dirichlet exploration noise at root (only during self-play)
+        if add_exploration_noise:
+            # Sample Dirichlet noise using configured alpha
+            noise = np.random.dirichlet([self.dirichlet_alpha] * self.action_space_size)
+            
+            # Mix noise with priors: P(s,a) = (1-ε)p + ε*η
+            for a in range(self.action_space_size):
+                priors[a] = (1 - self.exploration_fraction) * priors[a] + self.exploration_fraction * noise[a]
+        
         root.expand(priors, hidden_state)
         
         # Run simulations
         for _ in range(self.num_simulations):
             self._simulate(root)
+        
+        # Compute root value (average value from all simulations)
+        root_value = root.value()
         
         # Return action probabilities based on visit counts
         visits = np.array([
@@ -259,9 +280,9 @@ class SimpleMuZero:
         
         # Temperature could be added here for exploration
         if visits.sum() == 0:
-            return np.ones(self.action_space_size) / self.action_space_size
+            return np.ones(self.action_space_size) / self.action_space_size, 0.0
         
-        return visits / visits.sum()
+        return visits / visits.sum(), root_value
     
     def _simulate(self, root: MuZeroNode):
         """
@@ -305,13 +326,22 @@ class SimpleMuZero:
             search_path.append(child)
             current_depth += 1
         
-        # If we've expanded a leaf, use its predicted value for backup
-        if current_depth < self.max_moves:
+        # Backup the value through the search path
+        # Note: bootstrap_value is only set if we expanded a new node
+        if current_depth < self.max_moves and 'bootstrap_value' in locals():
             # We expanded a new leaf, use its value prediction
             self._backup(search_path, bootstrap_value)
         else:
-            # Reached maximum depth, use 0 value
-            self._backup(search_path, 0.0)
+            # Reached max depth with fully expanded tree
+            # Must evaluate the final node's value (not 0!)
+            # The value network estimates all future rewards from this position
+            final_node = search_path[-1]
+            with torch.no_grad():
+                # Use prediction network to get value estimate
+                hidden_state = final_node.hidden_state
+                value = self.network.prediction_value(hidden_state)
+                bootstrap_value = value.item()
+            self._backup(search_path, bootstrap_value)
     
     def _select_action(self, node: MuZeroNode) -> Tuple[int, MuZeroNode]:
         """
@@ -341,23 +371,51 @@ class SimpleMuZero:
             # Include reward and discount for next step
             value = node.reward + self.discount * value
     
+    def get_temperature(self) -> float:
+        """
+        Get temperature for action selection based on training steps.
+        For Atari games, temperature is annealed:
+        - Training steps < 500K: τ = 1.0
+        - Training steps 500K-750K: τ = 0.5
+        - Training steps > 750K: τ = 0.25
+        """
+        if self.training_step < 500000:
+            return 1.0
+        elif self.training_step < 750000:
+            return 0.5
+        else:
+            return 0.25
+    
     def self_play_game(self, env) -> Trajectory:
         """
         Play a game using MCTS for action selection.
         Returns trajectory of experiences for training.
         """
         trajectory = []
+        root_values = []  # Store MCTS root values for value target computation
         observation = env.reset()
         # Handle gymnasium's reset returning (observation, info)
         if isinstance(observation, tuple):
             observation = observation[0]
         
+        # Get current temperature based on training steps
+        temperature = self.get_temperature()
+        
         for _ in range(self.max_moves):
-            # Run MCTS to get action probabilities
-            search_policy = self.run_mcts(observation)
+            # Run MCTS to get action probabilities AND root value (with Dirichlet noise)
+            search_policy, root_value = self.run_mcts(observation, add_exploration_noise=True)
+            root_values.append(root_value)
             
-            # Sample action (could use temperature here)
-            action = np.random.choice(self.action_space_size, p=search_policy)
+            # Apply temperature to action selection
+            if temperature == 0:
+                # Greedy selection (though we never reach τ=0 in Atari)
+                action = np.argmax(search_policy)
+            else:
+                # Apply temperature: pi^(1/τ) and renormalize
+                if temperature != 1.0:
+                    search_policy = np.power(search_policy, 1/temperature)
+                    search_policy = search_policy / search_policy.sum()
+                action = np.random.choice(self.action_space_size, p=search_policy)
             
             # Execute action in environment (gymnasium format)
             next_observation, reward, terminated, truncated, info = env.step(action)
@@ -369,13 +427,16 @@ class SimpleMuZero:
                 action=action,
                 reward=reward,
                 search_policy=search_policy,
-                value_target=0.0  # Will be filled during training
+                value_target=0.0  # Will be computed with root values
             ))
             
             observation = next_observation
             
             if done:
                 break
+        
+        # Compute proper value targets using MCTS root values
+        trajectory = self._compute_value_targets_with_mcts(trajectory, root_values)
         
         return trajectory
     
@@ -411,7 +472,8 @@ class SimpleMuZero:
                 trajectory[game_pos].search_policy
             ).unsqueeze(0).to(self.device)
             
-            target_value = self._compute_target_value(trajectory, game_pos)
+            # Use pre-computed value target from MCTS
+            target_value = trajectory[game_pos].value_target
             target_value_tensor = torch.FloatTensor([target_value]).to(self.device)
             
             # Policy loss (KL divergence)
@@ -442,7 +504,8 @@ class SimpleMuZero:
                     trajectory[game_pos + k].search_policy
                 ).unsqueeze(0).to(self.device)
                 
-                target_value = self._compute_target_value(trajectory, game_pos + k)
+                # Use pre-computed value target from MCTS
+                target_value = trajectory[game_pos + k].value_target
                 target_value_tensor = torch.FloatTensor([target_value]).to(self.device)
                 
                 # Accumulate losses
@@ -468,6 +531,45 @@ class SimpleMuZero:
             'reward_loss': reward_loss.item() / self.batch_size,
             'training_step': self.training_step
         }
+    
+    def _compute_value_targets_with_mcts(self, trajectory: Trajectory, root_values: List[float]) -> Trajectory:
+        """
+        Compute n-step value targets using MCTS root values.
+        This is the correct MuZero way - using search values for bootstrapping.
+        """
+        updated_trajectory = []
+        
+        for i, exp in enumerate(trajectory):
+            # Compute n-step return with bootstrap from MCTS root value
+            value_target = 0.0
+            
+            # Sum n-step rewards
+            for k in range(self.td_steps):
+                if i + k < len(trajectory):
+                    value_target += (self.discount ** k) * trajectory[i + k].reward
+            
+            # Bootstrap from MCTS root value at position i+n
+            bootstrap_index = i + self.td_steps
+            if bootstrap_index < len(root_values):
+                # Use the MCTS root value as bootstrap (THIS IS THE KEY FIX!)
+                value_target += (self.discount ** self.td_steps) * root_values[bootstrap_index]
+            else:
+                # If we're near the end, use remaining rewards
+                for k in range(self.td_steps, len(trajectory) - i):
+                    if i + k < len(trajectory):
+                        value_target += (self.discount ** k) * trajectory[i + k].reward
+            
+            # Create updated experience with proper value target
+            updated_exp = Experience(
+                observation=exp.observation,
+                action=exp.action,
+                reward=exp.reward,
+                search_policy=exp.search_policy,
+                value_target=value_target  # NOW using MCTS values!
+            )
+            updated_trajectory.append(updated_exp)
+        
+        return updated_trajectory
     
     def _compute_target_value(self, trajectory: Trajectory, index: int) -> float:
         """
