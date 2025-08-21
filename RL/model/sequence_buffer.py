@@ -57,6 +57,12 @@ class SequenceReplayBuffer:
             next_state: Next stacked frames
             done: Episode termination flag
         """
+        # Detach states to prevent memory leak from computation graph
+        if hasattr(state, 'detach'):
+            state = state.detach()
+        if hasattr(next_state, 'detach'):
+            next_state = next_state.detach()
+        
         transition = {
             'state': state,
             'action': action,

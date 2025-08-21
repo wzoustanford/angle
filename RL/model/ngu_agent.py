@@ -152,8 +152,11 @@ class NGUAgent:
                 episode_id=f"episode_{self.current_episode}"
             )
             
-            # Update hidden state
-            self.hidden_state = result['hidden_state']
+            # Update hidden state (detached to prevent graph growth)
+            if result['hidden_state'] is not None:
+                self.hidden_state = tuple(h.detach() for h in result['hidden_state'])
+            else:
+                self.hidden_state = result['hidden_state']
             
             # Get Q-values (use combined extrinsic + intrinsic)
             q_values = result['q_values_combined']
@@ -257,7 +260,7 @@ class NGUAgent:
             if self.steps_done % self.config.policy_update_interval == 0:
                 loss = self.update_q_network()
                 if loss is not None:
-                    episode_losses.append(loss)
+                    episode_losses.append(loss.item() if hasattr(loss, 'item') else loss)
             
             # Update target network
             if self.steps_done % self.config.target_update_freq == 0:
