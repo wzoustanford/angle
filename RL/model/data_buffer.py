@@ -13,6 +13,11 @@ class ReplayBuffer:
         self.buffer = deque(maxlen=capacity)
     
     def push(self, state, action, reward, next_state, done):
+        # Detach tensors to prevent memory leak from computation graph
+        if hasattr(state, 'detach'):
+            state = state.detach()
+        if hasattr(next_state, 'detach'):
+            next_state = next_state.detach()
         self.buffer.append((state, action, reward, next_state, done))
     
     def sample(self, batch_size: int):
@@ -41,6 +46,11 @@ class PrioritizedReplayBuffer:
         
     def push(self, state, action, reward, next_state, done):
         """Add experience to buffer with max priority"""
+        # Detach tensors to prevent memory leak from computation graph
+        if hasattr(state, 'detach'):
+            state = state.detach()
+        if hasattr(next_state, 'detach'):
+            next_state = next_state.detach()
         experience = (state, action, reward, next_state, done)
         priority = self.max_priority
         self.tree.add(priority, experience)

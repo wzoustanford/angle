@@ -121,9 +121,14 @@ class DQNAgent:
                 
                 if getattr(self.config, 'use_r2d2', False):
                     # R2D2: Use LSTM for action selection
-                    q_values, self.hidden_state = self.q_network.forward_single_step(
+                    q_values, new_hidden = self.q_network.forward_single_step(
                         state_tensor, self.hidden_state
                     )
+                    # Detach hidden state to prevent graph accumulation
+                    if new_hidden is not None:
+                        self.hidden_state = tuple(h.detach() for h in new_hidden)
+                    else:
+                        self.hidden_state = new_hidden
                 else:
                     # Standard DQN
                     q_values = self.q_network(state_tensor)
@@ -328,7 +333,7 @@ class DQNAgent:
                 if self.steps_done % self.config.policy_update_interval == 0:
                     loss = self.update_q_network()
                     if loss is not None:
-                        episode_losses.append(loss)
+                        episode_losses.append(loss.item() if hasattr(loss, 'item') else loss)
                 
                 # Update target network at specified intervals (delayed update)
                 if self.steps_done % self.config.target_update_freq == 0:

@@ -170,7 +170,7 @@ class DistributedDQNAgent:
                     if len(self.replay_buffer) >= self.config.min_replay_size:
                         loss = self.update_q_network()
                         if loss is not None:
-                            self.training_stats['losses'].append(loss)
+                            self.training_stats['losses'].append(loss.item() if hasattr(loss, 'item') else loss)
                         self.steps_done += 1
                 
                 training_time = time.time() - training_time_start

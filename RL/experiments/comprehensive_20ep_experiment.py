@@ -17,7 +17,11 @@ import sys
 import os
 import time
 import json
+import gc
+import torch
 import numpy as np
+import psutil
+import traceback
 from datetime import datetime
 from typing import Dict, Any
 
@@ -49,13 +53,110 @@ class Comprehensive20EpExperiment:
         self.log(f"Comprehensive 20-Episode Experiment Started")
         self.log(f"Episodes per algorithm: {episodes}")
         self.log(f"Game: {self.game}")
+        self.log(f"Output directory: {self.output_dir}")
+        
+        # Estimate runtime
+        estimated_time = self.estimate_runtime()
+        self.log(f"Estimated runtime: {estimated_time:.1f} minutes")
         self.log("=" * 60)
+        
+        # System info
+        self.log_system_info()
+    
+    def estimate_runtime(self) -> float:
+        """Estimate total runtime in minutes"""
+        # Based on 4-episode benchmarks
+        time_per_episode = {
+            'baseline': 5.0,
+            'prioritized': 5.2,
+            'r2d2': 1.2,
+            'distributed': 2.5,
+            'ngu': 5.5,
+            'r2d2_agent57': 4.5,
+            'distributed_matched': 2.5
+        }
+        
+        total_seconds = sum(t * self.episodes for t in time_per_episode.values())
+        cleanup_overhead = 7 * 3  # 7 algorithms × 3 seconds cleanup
+        total_seconds += cleanup_overhead
+        
+        return total_seconds / 60.0
+    
+    def log_system_info(self):
+        """Log system information"""
+        try:
+            process = psutil.Process()
+            mem_info = psutil.virtual_memory()
+            
+            self.log(f"System Memory: {mem_info.total/1024/1024/1024:.1f}GB total, "
+                    f"{mem_info.available/1024/1024/1024:.1f}GB available")
+            self.log(f"Process Memory: {process.memory_info().rss/1024/1024:.1f}MB")
+            
+            if torch.cuda.is_available():
+                self.log(f"GPU: {torch.cuda.get_device_name(0)}")
+                self.log(f"GPU Memory: {torch.cuda.get_device_properties(0).total_memory/1024/1024/1024:.1f}GB")
+        except Exception as e:
+            self.log(f"Could not get system info: {e}")
     
     def log(self, message: str):
         """Log message to console and file"""
-        print(message)
+        timestamp = datetime.now().strftime('%H:%M:%S')
+        full_message = f"[{timestamp}] {message}"
+        print(full_message, flush=True)  # Force flush for real-time output
         with open(self.log_file, 'a') as f:
-            f.write(f"{datetime.now().strftime('%H:%M:%S')} - {message}\n")
+            f.write(f"{full_message}\n")
+            f.flush()  # Ensure written to disk immediately
+    
+    def cleanup_agent(self, agent):
+        """Clean up agent and free memory"""
+        try:
+            # Close environment if it exists
+            if hasattr(agent, 'env'):
+                agent.env.close()
+                del agent.env
+            
+            # Delete common attributes
+            attrs_to_delete = [
+                'replay_buffer', 'q_network', 'target_network', 
+                'optimizer', 'frame_stack', 'network', 'predictor_network',
+                'target_network', 'intrinsic_reward_module', 'meta_controller',
+                'policy_lstms', 'episodic_memory'
+            ]
+            
+            for attr in attrs_to_delete:
+                if hasattr(agent, attr):
+                    delattr(agent, attr)
+            
+            # Delete the agent itself
+            del agent
+        except Exception as e:
+            self.log(f"  Warning during cleanup: {e}")
+    
+    def cleanup_memory(self):
+        """Force memory cleanup between algorithms"""
+        import psutil
+        
+        # Get memory before cleanup
+        process = psutil.Process()
+        mem_before = process.memory_info().rss / 1024 / 1024  # MB
+        
+        # Force Python garbage collection (multiple passes)
+        for _ in range(3):
+            gc.collect()
+        
+        # Clear GPU cache if using CUDA
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()  # Wait for GPU operations to complete
+        
+        # Small delay to let system reclaim memory
+        time.sleep(3)
+        
+        # Get memory after cleanup
+        mem_after = process.memory_info().rss / 1024 / 1024  # MB
+        freed = mem_before - mem_after
+        
+        self.log(f"  Memory cleaned: {mem_before:.1f}MB → {mem_after:.1f}MB (freed {freed:.1f}MB)")
     
     def run_baseline_dqn(self) -> Dict[str, Any]:
         """Run baseline DQN"""
@@ -66,7 +167,7 @@ class Comprehensive20EpExperiment:
         config.env_name = self.game
         config.use_dueling = False
         config.use_prioritized_replay = False
-        config.memory_size = 20000
+        config.memory_size = 10000  # Reduced for memory
         config.min_replay_size = 2000
         config.batch_size = 32
         config.max_episode_steps = 3000
@@ -110,6 +211,10 @@ class Comprehensive20EpExperiment:
         
         elapsed = time.time() - start_time
         self.log(f"  ✓ Completed in {elapsed:.1f}s, Avg reward: {np.mean(episode_rewards):.2f}")
+        
+        # Clean up memory
+        self.cleanup_agent(agent)
+        self.cleanup_memory()
         
         return {
             'algorithm': 'Baseline DQN',
@@ -127,7 +232,7 @@ class Comprehensive20EpExperiment:
         config.env_name = self.game
         config.use_dueling = False
         config.use_prioritized_replay = True
-        config.memory_size = 20000
+        config.memory_size = 10000  # Reduced for memory
         config.min_replay_size = 2000
         config.batch_size = 32
         config.max_episode_steps = 3000
@@ -171,6 +276,10 @@ class Comprehensive20EpExperiment:
         
         elapsed = time.time() - start_time
         self.log(f"  ✓ Completed in {elapsed:.1f}s, Avg reward: {np.mean(episode_rewards):.2f}")
+        
+        # Clean up memory
+        self.cleanup_agent(agent)
+        self.cleanup_memory()
         
         return {
             'algorithm': 'DQN + Prioritized',
@@ -191,7 +300,7 @@ class Comprehensive20EpExperiment:
         config.sequence_length = 80
         config.burn_in_length = 40
         config.lstm_size = 512
-        config.memory_size = 20000
+        config.memory_size = 10000  # Reduced for memory
         config.max_episode_steps = 3000
         
         agent = DQNAgent(config)
@@ -239,6 +348,10 @@ class Comprehensive20EpExperiment:
         elapsed = time.time() - start_time
         self.log(f"  ✓ Completed in {elapsed:.1f}s, Avg reward: {np.mean(episode_rewards):.2f}")
         
+        # Clean up memory
+        self.cleanup_agent(agent)
+        self.cleanup_memory()
+        
         return {
             'algorithm': 'R2D2',
             'episode_rewards': episode_rewards,
@@ -255,7 +368,7 @@ class Comprehensive20EpExperiment:
         config.env_name = self.game
         config.num_workers = num_workers
         config.use_prioritized_replay = True
-        config.memory_size = 20000
+        config.memory_size = 10000  # Reduced for memory
         config.batch_size = 32
         
         agent = DistributedDQNAgent(config, num_workers=num_workers)
@@ -271,6 +384,10 @@ class Comprehensive20EpExperiment:
         self.log(f"    Total episodes: {total_episodes}")
         self.log(f"    Avg reward: {avg_reward:.2f}")
         self.log(f"    Throughput: {total_episodes/elapsed:.1f} episodes/sec")
+        
+        # Clean up memory
+        self.cleanup_agent(agent)
+        self.cleanup_memory()
         
         return {
             'algorithm': 'Distributed DQN',
@@ -291,7 +408,7 @@ class Comprehensive20EpExperiment:
         config.env_name = self.game
         config.num_workers = 4
         config.use_prioritized_replay = True
-        config.memory_size = 20000
+        config.memory_size = 10000  # Reduced for memory
         config.batch_size = 32
         
         agent = DistributedDQNAgent(config, num_workers=4)
@@ -326,6 +443,10 @@ class Comprehensive20EpExperiment:
         self.log(f"    Avg reward: {avg_reward:.2f}")
         self.log(f"    Throughput: {total_episodes/elapsed:.1f} episodes/sec")
         
+        # Clean up memory
+        self.cleanup_agent(agent)
+        self.cleanup_memory()
+        
         return {
             'algorithm': 'Distributed DQN (Time-matched)',
             'episode_rewards': all_rewards,
@@ -342,8 +463,8 @@ class Comprehensive20EpExperiment:
         start_time = time.time()
         
         config = create_ngu_config_for_game(self.game, episodes=self.episodes, use_agent57=False)
-        config.memory_size = 20000
-        config.episodic_memory_size = 10000
+        config.memory_size = 10000  # Reduced for memory
+        config.episodic_memory_size = 5000  # Reduced for memory
         
         agent = NGUAgent(config)
         episode_rewards = []
@@ -364,6 +485,10 @@ class Comprehensive20EpExperiment:
         self.log(f"    Avg reward: {np.mean(episode_rewards):.2f}")
         self.log(f"    Avg intrinsic: {np.mean(intrinsic_rewards):.1f}")
         
+        # Clean up memory
+        self.cleanup_agent(agent)
+        self.cleanup_memory()
+        
         return {
             'algorithm': 'NGU',
             'episode_rewards': episode_rewards,
@@ -381,8 +506,8 @@ class Comprehensive20EpExperiment:
         config = Agent57Config()
         config.env_name = self.game
         config.num_policies = 8
-        config.memory_size = 20000
-        config.episodic_memory_size = 10000
+        config.memory_size = 10000  # Reduced for memory
+        config.episodic_memory_size = 5000  # Reduced for memory
         config.sequence_length = 80
         config.burn_in_length = 40
         config.max_episode_steps = 3000
@@ -410,6 +535,10 @@ class Comprehensive20EpExperiment:
         self.log(f"    Avg reward: {np.mean(episode_rewards):.2f}")
         self.log(f"    Policies used: {list(policy_usage.keys())}")
         
+        # Clean up memory
+        self.cleanup_agent(agent)
+        self.cleanup_memory()
+        
         return {
             'algorithm': 'R2D2+Agent57',
             'episode_rewards': episode_rewards,
@@ -420,30 +549,65 @@ class Comprehensive20EpExperiment:
             'policy_usage': policy_usage
         }
     
+    def run_with_error_handling(self, algorithm_name: str, run_func, *args, **kwargs):
+        """Run algorithm with error handling and logging"""
+        try:
+            self.log(f"\nStarting {algorithm_name}...")
+            result = run_func(*args, **kwargs)
+            self.log(f"✓ {algorithm_name} completed successfully")
+            return result
+        except Exception as e:
+            self.log(f"✗ {algorithm_name} failed: {str(e)}")
+            self.log(f"Traceback: {traceback.format_exc()}")
+            return {
+                'algorithm': algorithm_name,
+                'error': str(e),
+                'episode_rewards': [],
+                'elapsed_time': 0,
+                'avg_reward': 0
+            }
+    
     def run_experiment(self):
         """Run the complete experiment"""
         self.log("\n" + "="*60)
         self.log("STARTING COMPREHENSIVE 20-EPISODE EXPERIMENT")
         self.log("="*60)
         
-        # Run all algorithms
-        self.results['baseline_dqn'] = self.run_baseline_dqn()
-        self.results['dqn_prioritized'] = self.run_dqn_prioritized()
-        self.results['r2d2'] = self.run_r2d2()
-        self.results['distributed_dqn'] = self.run_distributed_dqn(num_workers=4)
-        self.results['ngu'] = self.run_ngu()
-        self.results['r2d2_agent57'] = self.run_r2d2_agent57()
+        total_start_time = time.time()
+        
+        # Run all algorithms with error handling
+        self.results['baseline_dqn'] = self.run_with_error_handling(
+            "Baseline DQN", self.run_baseline_dqn)
+        
+        self.results['dqn_prioritized'] = self.run_with_error_handling(
+            "DQN + Prioritized", self.run_dqn_prioritized)
+        
+        self.results['r2d2'] = self.run_with_error_handling(
+            "R2D2", self.run_r2d2)
+        
+        self.results['distributed_dqn'] = self.run_with_error_handling(
+            "Distributed DQN", self.run_distributed_dqn, num_workers=4)
+        
+        self.results['ngu'] = self.run_with_error_handling(
+            "NGU", self.run_ngu)
+        
+        self.results['r2d2_agent57'] = self.run_with_error_handling(
+            "R2D2+Agent57", self.run_r2d2_agent57)
         
         # Run time-matched distributed experiment
-        prioritized_time = self.results['dqn_prioritized']['elapsed_time']
-        self.results['distributed_time_matched'] = self.run_distributed_time_matched(prioritized_time)
+        if 'elapsed_time' in self.results.get('dqn_prioritized', {}):
+            prioritized_time = self.results['dqn_prioritized']['elapsed_time']
+            self.results['distributed_time_matched'] = self.run_with_error_handling(
+                "Distributed Time-matched", self.run_distributed_time_matched, prioritized_time)
         
-        # Save results
+        # Save results after each algorithm in case of crash
         self.save_results()
         self.create_summary()
         
+        total_elapsed = time.time() - total_start_time
         self.log("\n" + "="*60)
         self.log("EXPERIMENT COMPLETED!")
+        self.log(f"Total runtime: {total_elapsed/60:.1f} minutes")
         self.log(f"Results saved to: {self.output_dir}")
         self.log("="*60)
     
