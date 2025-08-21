@@ -210,7 +210,8 @@ def evaluate_model(checkpoint_path, num_episodes=10):
         done = False
         
         while not done:
-            action_probs = muzero.run_mcts(obs)
+            # For evaluation, don't add exploration noise
+            action_probs, _ = muzero.run_mcts(obs, add_exploration_noise=False)
             action = np.argmax(action_probs)  # Greedy action
             
             obs, reward, terminated, truncated, _ = env.step(action)

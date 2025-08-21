@@ -41,6 +41,13 @@ class AtariWrapper:
         """Reset environment and return stacked frames"""
         obs, info = self.env.reset()
         
+        # Take FIRE action to start the game (action 1 in Breakout)
+        # This launches the ball at the beginning of each life
+        obs, _, _, _, info = self.env.step(1)  # FIRE action
+        
+        # Store info for tracking lives
+        self._last_info = info
+        
         # Preprocess frame
         processed = self._preprocess_frame(obs)
         
@@ -55,6 +62,7 @@ class AtariWrapper:
         # Repeat action for frame skipping (typically 4 frames)
         total_reward = 0
         done = False
+        lives_before = self._last_info.get('lives', 0) if hasattr(self, '_last_info') else 0
         
         for _ in range(4):  # Frame skip
             obs, reward, terminated, truncated, info = self.env.step(action)
@@ -62,6 +70,14 @@ class AtariWrapper:
             done = terminated or truncated
             if done:
                 break
+        
+        # Check if we lost a life (ball went out)
+        lives_after = info.get('lives', 0)
+        if lives_before > 0 and lives_after < lives_before and lives_after > 0:
+            # Lost a life but game continues - fire to launch ball again
+            obs, _, _, _, _ = self.env.step(1)  # FIRE action
+        
+        self._last_info = info
         
         # Preprocess and add to frame stack
         processed = self._preprocess_frame(obs)
@@ -318,7 +334,8 @@ def evaluate_model(checkpoint_path, num_episodes=5, render=False):
         steps = 0
         
         while not done and steps < 10000:
-            action_probs = muzero.run_mcts(obs)
+            # For evaluation, don't add exploration noise
+            action_probs, _ = muzero.run_mcts(obs, add_exploration_noise=False)
             action = np.argmax(action_probs)  # Greedy action
             
             obs, reward, terminated, truncated, _ = env.step(action)
@@ -342,7 +359,7 @@ def evaluate_model(checkpoint_path, num_episodes=5, render=False):
 
 def create_breakout_video(checkpoint_path='muzero_breakout_best.pt', 
                          video_path='muzero_breakout_gameplay.mp4',
-                         max_frames=1800):  # 60 seconds at 30fps
+                         max_frames=300):  # 60 seconds at 30fps
     """Create a video of MuZero playing Breakout"""
     
     import imageio
@@ -369,8 +386,8 @@ def create_breakout_video(checkpoint_path='muzero_breakout_best.pt',
     total_reward = 0
     
     while not done and len(frames) < max_frames:
-        # Get action from MCTS
-        action_probs = muzero.run_mcts(obs)
+        # Get action from MCTS (no exploration noise for video)
+        action_probs, _ = muzero.run_mcts(obs, add_exploration_noise=False)
         action = np.argmax(action_probs)
         
         # Step environment
@@ -415,10 +432,10 @@ if __name__ == "__main__":
     else:
         print("🎮 Full training mode - training for 1000 episodes")
         muzero, rewards = train_muzero_breakout(
-            num_episodes=750,      # Full training
-            num_simulations=24,     # Good balance
-            batch_size=128,
-            learning_rate=1e-3,
+            num_episodes=3000,      # Full training
+            num_simulations=30,     # Good balance
+            batch_size=64,
+            learning_rate=1e-4,
             save_every=100,
             print_every=5,
             max_moves_per_episode=10000
