@@ -1,7 +1,7 @@
-numpy==1.19.5
-gymnasium[atari,accept-rom-license]==0.29.1
-ale-py==0.8.1
-cython==0.29.23
+numpy
+gymnasium[atari,accept-rom-license]
+cython
+ale-py
 tensorboard
-opencv-python==4.5.1.48
+opencv-python
 kornia==0.6.6
