@@ -5,7 +5,7 @@ import torch
 import random
 import shutil
 import logging
-
+import ale_py
 import numpy as np
 
 from scipy.stats import entropy
@@ -295,8 +295,8 @@ def make_atari(env_id, skip=4, max_episode_steps=None):
     max_episode_steps: int
         max moves for an episode
     """
-    env = gym.make(env_id)
-    assert 'NoFrameskip' in env.spec.id
+    env = gym.make(env_id, frameskip=1)
+    #assert 'NoFrameskip' in env.spec.id
     env = NoopResetEnv(env, noop_max=30)
     env = MaxAndSkipEnv(env, skip=skip)
     if max_episode_steps is not None:

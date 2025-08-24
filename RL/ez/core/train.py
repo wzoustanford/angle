@@ -358,12 +358,25 @@ def _train(model, target_model, replay_buffer, shared_storage, batch_storage, co
         config.set_transforms()
 
     # wait until collecting enough data to start
+    # [debug: batch_storage is empty] Waiting for replay buffer to fill
+    print(f'[debug: batch_storage is empty] Waiting for replay buffer to fill (need {config.start_transitions} transitions)')
     while not (ray.get(replay_buffer.get_total_len.remote()) >= config.start_transitions):
+        buffer_len = ray.get(replay_buffer.get_total_len.remote())
+        print(f'[debug: batch_storage is empty] Current replay buffer length: {buffer_len}/{config.start_transitions}')
         time.sleep(1)
         pass
     print('Begin training...')
     # set signals for other workers
-    shared_storage.set_start_signal.remote()
+    # [debug: batch_storage is empty] Setting start signal for workers
+    print('[debug: batch_storage is empty] Setting start signal for workers')
+    ray.get(shared_storage.set_start_signal.remote())  # [debug: batch_storage is empty] Use ray.get to ensure it's set
+    # [debug: batch_storage is empty] Verify signal is set
+    signal_status = ray.get(shared_storage.get_start_signal.remote())
+    print(f'[debug: batch_storage is empty] Start signal set: {signal_status}')
+    
+    # [debug: batch_storage is empty] Give workers time to start processing
+    print('[debug: batch_storage is empty] Waiting for workers to start processing...')
+    time.sleep(2)
 
     step_count = 0
     # Note: the interval of the current model and the target model is between x and 2x. (x = target_model_interval)
@@ -372,13 +385,22 @@ def _train(model, target_model, replay_buffer, shared_storage, batch_storage, co
 
     # while loop
     while step_count < config.training_steps + config.last_steps:
+        print('step_count: '+str(step_count))
         # remove data if the replay buffer is full. (more data settings)
         if step_count % 1000 == 0:
             replay_buffer.remove_to_fit.remote()
 
+        # [debug: batch_storage is empty] Check queue size
+        queue_size = batch_storage.get_len()
+        print(f'[debug: batch_storage is empty] Batch queue size: {queue_size}')
+        
         # obtain a batch
         batch = batch_storage.pop()
         if batch is None:
+            # [debug: batch_storage is empty] Check replay buffer and workers
+            print('[debug: batch_storage is empty] batch is None - checking replay buffer and workers...')
+            buffer_len = ray.get(replay_buffer.get_total_len.remote())
+            print(f'[debug: batch_storage is empty] Replay buffer length: {buffer_len}')
             time.sleep(0.3)
             continue
         shared_storage.incr_counter.remote()
@@ -399,13 +421,17 @@ def _train(model, target_model, replay_buffer, shared_storage, batch_storage, co
             vis_result = False
 
         if config.amp_type == 'torch_amp':
+            print("before update weights")
             log_data = update_weights(model, batch, optimizer, replay_buffer, config, scaler, vis_result)
+            print("after update weights")
             scaler = log_data[3]
         else:
             log_data = update_weights(model, batch, optimizer, replay_buffer, config, scaler, vis_result)
 
         if step_count % config.log_interval == 0:
+            print("start log")
             _log(config, step_count, log_data[0:3], model, replay_buffer, lr, shared_storage, summary_writer, vis_result)
+            print("end log")
 
         # The queue is empty.
         if step_count >= 100 and step_count % 50 == 0 and batch_storage.get_len() == 0:

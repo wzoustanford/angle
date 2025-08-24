@@ -69,7 +69,8 @@ class BatchWorker_CPU(object):
             # off-policy correction: shorter horizon of td steps
             delta_td = (total_transitions - idx) // config.auto_td_steps
             td_steps = config.td_steps - delta_td
-            td_steps = np.clip(td_steps, 1, 5).astype(np.int)
+            # [debug: batch_storage is empty] Fixed np.int deprecation
+            td_steps = np.clip(td_steps, 1, 5).astype(int)
 
             # prepare the corresponding observations for bootstrapped values o_{t+k}
             game_obs = game.obs(state_index + td_steps, config.num_unroll_steps)
@@ -230,19 +231,38 @@ class BatchWorker_CPU(object):
     def run(self):
         # start making mcts contexts to feed the GPU batch maker
         start = False
+        # [debug: batch_storage is empty] Log worker start
+        print(f'[debug: batch_storage is empty] CPU Worker {self.worker_id}: Started')
         while True:
             # wait for starting
             if not start:
-                start = ray.get(self.storage.get_start_signal.remote())
+                try:
+                    start = ray.get(self.storage.get_start_signal.remote())
+                    if not start:
+                        # [debug: batch_storage is empty] Waiting for start signal
+                        print(f'[debug: batch_storage is empty] CPU Worker {self.worker_id}: Waiting for start signal')
+                except Exception as e:
+                    print(f'[debug: batch_storage is empty] CPU Worker {self.worker_id}: Error getting start signal: {e}')
                 time.sleep(1)
                 continue
 
+            # [debug: batch_storage is empty] Got start signal
+            print(f'[debug: batch_storage is empty] CPU Worker {self.worker_id}: Got start signal, requesting counter')
             ray_data_lst = [self.storage.get_counter.remote(), self.storage.get_target_weights.remote()]
             trained_steps, target_weights = ray.get(ray_data_lst)
+            print(f'[debug: batch_storage is empty] CPU Worker {self.worker_id}: trained_steps={trained_steps}')
 
             beta = self.beta_schedule.value(trained_steps)
             # obtain the batch context from replay buffer
+            print(f'[debug: batch_storage is empty] CPU Worker {self.worker_id}: Requesting batch context with beta={beta}, batch_size={self.config.batch_size}')
             batch_context = ray.get(self.replay_buffer.prepare_batch_context.remote(self.config.batch_size, beta))
+            
+            # [debug: batch_storage is empty] Check if batch_context is None (replay buffer doesn't have enough data)
+            if batch_context is None:
+                print(f'[debug: batch_storage is empty] CPU Worker {self.worker_id}: Waiting for replay buffer to fill...')
+                time.sleep(1)
+                continue
+                
             # break
             if trained_steps >= self.config.training_steps + self.config.last_steps:
                 time.sleep(30)
@@ -258,12 +278,13 @@ class BatchWorker_CPU(object):
                 # Observation will be deleted if replay buffer is full. (They are stored in the ray object store)
                 try:
                     self.make_batch(batch_context, self.config.revisit_policy_search_rate, weights=target_weights)
-                except:
-                    print('Data is deleted...')
+                except Exception as e:
+                    # [debug: batch_storage is empty] Better error logging
+                    print(f'[debug: batch_storage is empty] CPU Worker {self.worker_id}: Error making batch: {e}')
                     time.sleep(0.1)
 
 
-@ray.remote(num_gpus=0.125)
+@ray.remote(num_gpus=0.25) # adjusted for 10G of HBM GPU memory (actual 16G)
 class BatchWorker_GPU(object):
     def __init__(self, worker_id, replay_buffer, storage, batch_storage, mcts_storage, config):
         """GPU Batch Worker for reanalyzing targets, see Appendix.
@@ -308,7 +329,8 @@ class BatchWorker_GPU(object):
             value_obs_lst = prepare_observation_lst(value_obs_lst)
             # split a full batch into slices of mini_infer_size: to save the GPU memory for more GPU actors
             m_batch = self.config.mini_infer_size
-            slices = np.ceil(batch_size / m_batch).astype(np.int_)
+            # [debug: batch_storage is empty] Fixed np.int_ deprecation
+            slices = np.ceil(batch_size / m_batch).astype(np.int32)
             network_output = []
             for i in range(slices):
                 beg_index = m_batch * i
@@ -399,7 +421,8 @@ class BatchWorker_GPU(object):
             policy_obs_lst = prepare_observation_lst(policy_obs_lst)
             # split a full batch into slices of mini_infer_size: to save the GPU memory for more GPU actors
             m_batch = self.config.mini_infer_size
-            slices = np.ceil(batch_size / m_batch).astype(np.int_)
+            # [debug: batch_storage is empty] Fixed np.int_ deprecation
+            slices = np.ceil(batch_size / m_batch).astype(np.int32)
             network_output = []
             for i in range(slices):
                 beg_index = m_batch * i
@@ -477,8 +500,12 @@ class BatchWorker_GPU(object):
     def _prepare_target_gpu(self):
         input_countext = self.mcts_storage.pop()
         if input_countext is None:
+            # [debug: batch_storage is empty] No context from CPU worker
+            print(f'[debug: batch_storage is empty] GPU Worker {self.worker_id}: No context in mcts_storage')
             time.sleep(1)
         else:
+            # [debug: batch_storage is empty] Got context from CPU worker
+            print(f'[debug: batch_storage is empty] GPU Worker {self.worker_id}: Processing context from mcts_storage')
             reward_value_context, policy_re_context, policy_non_re_context, inputs_batch, target_weights = input_countext
             if target_weights is not None:
                 self.model.load_state_dict(target_weights)
@@ -495,17 +522,27 @@ class BatchWorker_GPU(object):
             targets_batch = [batch_value_prefixs, batch_values, batch_policies]
             # a batch contains the inputs and the targets; inputs is prepared in CPU workers
             self.batch_storage.push([inputs_batch, targets_batch])
+            # [debug: batch_storage is empty] Successfully pushed batch to batch_storage
+            print(f'[debug: batch_storage is empty] GPU Worker {self.worker_id}: Pushed batch to batch_storage')
 
     def run(self):
         start = False
+        # [debug: batch_storage is empty] Log GPU worker start
+        print(f'[debug: batch_storage is empty] GPU Worker {self.worker_id}: Started')
         while True:
             # waiting for start signal
             if not start:
                 start = ray.get(self.storage.get_start_signal.remote())
+                if not start:
+                    # [debug: batch_storage is empty] Waiting for start signal
+                    print(f'[debug: batch_storage is empty] GPU Worker {self.worker_id}: Waiting for start signal')
                 time.sleep(0.1)
                 continue
 
+            # [debug: batch_storage is empty] Got start signal
+            print(f'[debug: batch_storage is empty] GPU Worker {self.worker_id}: Got start signal')
             trained_steps = ray.get(self.storage.get_counter.remote())
+            print(f'[debug: batch_storage is empty] GPU Worker {self.worker_id}: trained_steps={trained_steps}')
             if trained_steps >= self.config.training_steps + self.config.last_steps:
                 time.sleep(30)
                 break

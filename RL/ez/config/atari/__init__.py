@@ -13,7 +13,7 @@ class AtariConfig(BaseConfig):
             training_steps=100000,
             last_steps=20000,
             test_interval=10000,
-            log_interval=1000,
+            log_interval=50,
             vis_interval=1000,
             test_episodes=32,
             checkpoint_interval=100,

@@ -93,10 +93,22 @@ class ReplayBuffer(object):
         assert beta > 0
 
         total = self.get_total_len()
+        
+        # [debug: batch_storage is empty] Check if we have enough data
+        if total == 0 or len(self.priorities) == 0:
+            return None
+            
+        if total < batch_size:
+            return None
 
         probs = self.priorities ** self._alpha
-
-        probs /= probs.sum()
+        
+        # [debug: batch_storage is empty] Avoid division by zero
+        probs_sum = probs.sum()
+        if probs_sum == 0:
+            return None
+            
+        probs /= probs_sum
         # sample data
         indices_lst = np.random.choice(total, batch_size, p=probs, replace=False)
 
