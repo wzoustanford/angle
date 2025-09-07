@@ -162,7 +162,8 @@ def train_muzero_alien(
     max_moves_per_episode=10000,
     frame_stack=4,
     frame_skip=3,
-    reward_transform='muzero'
+    reward_transform='muzero',
+    replay_buffer_size=500
 ):
     """
     Train MuZero on Alien with configurable parameters
@@ -178,6 +179,7 @@ def train_muzero_alien(
         frame_stack: Number of frames to stack
         frame_skip: Number of frames to repeat each action
         reward_transform: Reward transformation method ('none', 'clip', 'sqrt', 'muzero')
+        replay_buffer_size: Size of replay buffer (default 500 for recent experience focus)
     """
     
     print("="*60)
@@ -201,7 +203,8 @@ def train_muzero_alien(
         discount=0.997,
         c_puct=1.25,
         dirichlet_alpha=0.15,  # Lower alpha for 18 actions (Alien-specific)
-        exploration_fraction=0.25  # Standard exploration fraction
+        exploration_fraction=0.25,  # Standard exploration fraction
+        replay_buffer_size=replay_buffer_size  # Limited buffer with recency focus
     )
     
     print(f"Configuration:")
@@ -215,6 +218,7 @@ def train_muzero_alien(
     print(f"  MCTS simulations: {num_simulations}")
     print(f"  Batch size: {batch_size}")
     print(f"  Learning rate: {learning_rate}")
+    print(f"  Replay buffer size: {replay_buffer_size}")
     print(f"  Device: {muzero.device}")
     print("="*60)
     print()
@@ -423,8 +427,8 @@ if __name__ == "__main__":
     else:
         print("👾 Full training mode - training for 1500 episodes")
         muzero, rewards = train_muzero_alien(
-            num_episodes=1500,      # Full training
-            num_simulations=50,     # More simulations for Alien
+            num_episodes=200000,      # Full training
+            num_simulations=25,     # More simulations for Alien
             batch_size=128,
             learning_rate=3e-4,
             save_every=100,
