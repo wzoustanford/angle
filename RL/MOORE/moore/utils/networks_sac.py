@@ -1,4 +1,5 @@
 import torch
+import pdb
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -79,8 +80,21 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
             self._h = nn.Sequential(mixture_layers.InputLayer(n_models=n_experts),
                                     mixture_layers.ParallelLayer(self._h),
                                     )
-    
 
+        self.get_activation_list = [
+            f'1.model_layers.{str(i)}.act_0' for i in range(n_experts)
+        ]
+
+        self._h_activations = dict()
+        print('n_layers: ' + str(n_layers))
+        self._hooks = []
+        for name, modu in self._h.named_modules():
+            print(name)
+            if name in self.get_activation_list:
+                hook_handle = modu.register_forward_hook(self.get_activation(name))
+                self._hooks.append(hook_handle)
+                #modu.register_forward_hook(self.get_activation(name))
+    
         self._output_heads = nn.ModuleList()
         for c in range(n_contexts):
             head = nn.Sequential()
@@ -104,6 +118,28 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
             head.add_module(f"head_{c}_out",layer)
             
             self._output_heads.append(head)
+        self.pretex_inhibition_network = nn.Sequential(
+            nn.Linear(n_features[0] * n_experts, n_features[0]),
+            nn.Tanh(),
+            nn.Linear(n_features[0], n_experts),
+            nn.Sigmoid(),
+        )
+        self.use_pretex_inhibition = True
+
+    def get_activation(self, name):
+        def hook(module, input, output):
+            self._h_activations[name] = output 
+        return hook
+
+    def __getstate__(self):
+        """Prepare object for pickling by removing hooks"""
+        state = self.__dict__.copy()
+        # Remove the unpickleable hooks
+        if hasattr(self, '_hooks'):
+            for hook in self._hooks:
+                hook.remove()
+            state['_hooks'] = []
+        return state
 
     def get_shared_weights_t(self):
         weights = []
@@ -118,6 +154,9 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
         return [w.detach().cpu().numpy() for w in self.get_shared_weights_t()]
 
     def forward(self, state, action=None, c = None):
+        # Clear activations at the start of each forward pass
+        self._h_activations = dict()
+
         if isinstance(c, int):
             c = torch.tensor([c])
 
@@ -135,11 +174,23 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
         
         # shared features
         features = self._h(state_action)
+        
+        if self.use_pretex_inhibition: 
+            pretex_features = torch.Tensor().to(state.device)
+            for name in self.get_activation_list:
+                pretex_features = torch.cat((pretex_features, self._h_activations[name]), axis = 1)
+
         features  = torch.permute(features, (1,0,2))
 
         # activation before
         if not self._agg_activation[0].lower() == "linear":
             features = getattr(torch, self._agg_activation[0].lower())(features)
+
+        if self.use_pretex_inhibition: 
+            inhibition_logits = self.pretex_inhibition_network(pretex_features)
+            inhibition_logits = inhibition_logits.unsqueeze(1)
+
+            w = w * inhibition_logits 
 
         # task-features
         features = w@features
@@ -237,6 +288,20 @@ class MetaworldSACMixtureMHActorNetwork(nn.Module):
                                     mixture_layers.ParallelLayer(self._h),
                                     )
         
+        self.get_activation_list = [
+            f'1.model_layers.{str(i)}.act_0' for i in range(n_experts)
+        ]
+
+        self._h_activations = dict()
+        print('n_layers: ' + str(n_layers))
+        self._hooks = []
+        for name, modu in self._h.named_modules():
+            print(name)
+            if name in self.get_activation_list:
+                hook_handle = modu.register_forward_hook(self.get_activation(name))
+                self._hooks.append(hook_handle)                
+                #modu.register_forward_hook(self.get_activation(name))
+
         self._output_heads = nn.ModuleList()
         for c in range(n_contexts):
             head = nn.Sequential()
@@ -260,6 +325,28 @@ class MetaworldSACMixtureMHActorNetwork(nn.Module):
             head.add_module(f"head_{c}_out",layer)
             
             self._output_heads.append(head)
+        self.pretex_inhibition_network = nn.Sequential(
+            nn.Linear(n_features[0] * n_experts, n_features[0]),
+            nn.Tanh(),
+            nn.Linear(n_features[0], n_experts),
+            nn.Sigmoid(),
+        )
+        self.use_pretex_inhibition = True
+
+    def get_activation(self, name):
+        def hook(module, input, output):
+            self._h_activations[name] = output 
+        return hook
+
+    def __getstate__(self):
+        """Prepare object for pickling by removing hooks"""
+        state = self.__dict__.copy()
+        # Remove the unpickleable hooks
+        if hasattr(self, '_hooks'):
+            for hook in self._hooks:
+                hook.remove()
+            state['_hooks'] = []
+        return state
 
     def get_shared_weights_t(self):
         weights = []
@@ -274,6 +361,9 @@ class MetaworldSACMixtureMHActorNetwork(nn.Module):
         return [w.detach().cpu().numpy() for w in self.get_shared_weights_t()]
     
     def forward(self, state, c = None):
+        # Clear activations at the start of each forward pass
+        self._h_activations = dict()
+        
         if isinstance(c, int):
             c = torch.tensor([c])
 
@@ -289,11 +379,23 @@ class MetaworldSACMixtureMHActorNetwork(nn.Module):
 
         # shared features
         features = self._h(state.float())
+
+        if self.use_pretex_inhibition: 
+            pretex_features = torch.Tensor().to(state.device)
+            for name in self.get_activation_list:
+                pretex_features = torch.cat((pretex_features, self._h_activations[name]), axis = 1)
+
         features  = torch.permute(features, (1,0,2))
 
         # activation before
         if not self._agg_activation[0].lower() == "linear":
             features = getattr(torch, self._agg_activation[0].lower())(features)
+        
+        if self.use_pretex_inhibition: 
+            inhibition_logits = self.pretex_inhibition_network(pretex_features)
+            inhibition_logits = inhibition_logits.unsqueeze(1)
+
+            w = w * inhibition_logits 
 
         # task-features
         features = w@features

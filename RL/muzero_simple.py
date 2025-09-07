@@ -197,6 +197,7 @@ class SimpleMuZero:
                  c_puct: float = 1.25,
                  dirichlet_alpha: float = 0.3,
                  exploration_fraction: float = 0.25,
+                 replay_buffer_size: int = 500,
                  device: str = 'cuda' if torch.cuda.is_available() else 'cpu'):
         
         # Environment parameters
@@ -223,8 +224,8 @@ class SimpleMuZero:
         
         self.optimizer = optim.Adam(self.network.parameters(), lr=lr)
         
-        # Replay buffer
-        self.replay_buffer = deque(maxlen=10000)
+        # Replay buffer - Limited size for memory efficiency and recency focus
+        self.replay_buffer = deque(maxlen=replay_buffer_size)
         
         # Training statistics
         self.training_step = 0
@@ -443,12 +444,13 @@ class SimpleMuZero:
     def train_step(self):
         """
         Perform one training step on a batch from replay buffer.
+        Uses recency-weighted sampling to prioritize recent experiences.
         """
         if len(self.replay_buffer) < self.batch_size:
             return {}
         
-        # Sample batch of trajectories
-        batch_trajectories = random.sample(self.replay_buffer, self.batch_size)
+        # Sample batch with recency weighting
+        batch_trajectories = self._sample_with_recency_bias(self.batch_size)
         
         # Prepare batch tensors
         total_loss = 0
@@ -602,9 +604,36 @@ class SimpleMuZero:
         
         return value
     
+    def _sample_with_recency_bias(self, batch_size: int) -> List[Trajectory]:
+        """
+        Sample trajectories with bias towards more recent experiences.
+        Uses exponential decay weighting based on position in buffer.
+        """
+        buffer_size = len(self.replay_buffer)
+        
+        # Create weights that favor recent experiences
+        # Weight = e^(alpha * position), where position 0 is oldest
+        alpha = 2.0 / buffer_size  # Decay factor
+        weights = np.array([np.exp(alpha * i) for i in range(buffer_size)])
+        
+        # Normalize weights to create probability distribution
+        probabilities = weights / weights.sum()
+        
+        # Sample indices based on weighted probabilities
+        indices = np.random.choice(
+            buffer_size, 
+            size=min(batch_size, buffer_size),
+            replace=False,  # No replacement to ensure diversity
+            p=probabilities
+        )
+        
+        # Return selected trajectories
+        return [self.replay_buffer[i] for i in indices]
+    
     def update_replay_buffer(self, trajectory: Trajectory):
         """
         Add trajectory to replay buffer.
+        When buffer is full, oldest trajectories are automatically removed.
         """
         self.replay_buffer.append(trajectory)
     

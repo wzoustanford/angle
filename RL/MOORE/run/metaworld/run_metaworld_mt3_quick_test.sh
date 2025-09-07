@@ -16,8 +16,8 @@ python run_metaworld_sac_mt.py \
     --exp_type MT3 \
     --exp_name mt3_moore_quick_test_${N_EXPERTS}e \
     --results_dir logs/metaworld_mt3 \
-    --batch_size 64 \
-    --n_epochs 5 \
+    --batch_size 128 \
+    --n_epochs 10 \
     --n_steps 10000 \
     --horizon 150 \
     --gamma 0.99 \
@@ -35,13 +35,13 @@ python run_metaworld_sac_mt.py \
     --actor_n_features 256 256 \
     --critic_n_features 256 256 \
     --shared_mu_sigma \
-    --initial_replay_size 500 \
-    --max_replay_size 100000 \
-    --warmup_transitions 1000 \
+    --initial_replay_size 1500 \
+    --max_replay_size 150000 \
+    --warmup_transitions 3000 \
     --n_episodes_test 2 \
     --train_frequency 1 \
     --sample_task_per_episode \
-    --rl_checkpoint_interval 2 \
+    --rl_checkpoint_interval 3 \
     --use_cuda
 
 # Original MT10 parameters for reference:
