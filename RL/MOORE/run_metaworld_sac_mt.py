@@ -113,6 +113,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                             orthogonal = args.orthogonal,
                             n_experts = args.n_experts,
                             agg_activation = args.agg_activation,
+                            use_pretex_inhibition = args.use_pretex_inhibition.lower() == 'true',
                             )#
     else:
         mu_actor_input_shape = mdp.observation_space.shape
@@ -166,6 +167,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                             orthogonal = args.orthogonal,
                             n_experts = args.n_experts,
                             agg_activation = args.agg_activation,
+                            use_pretex_inhibition = args.use_pretex_inhibition.lower() == 'true',
                             )
 
     if args.debug:

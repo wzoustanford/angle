@@ -6,6 +6,7 @@
 
 N_EXPERTS=${1:-3}  # Default to 3 experts for 3 tasks
 SEED=${2:-0}       # Default seed 0
+USE_PRETEX=${3:-False}  # Default to False for pretext inhibition
 
 cd ../../
 
@@ -14,7 +15,7 @@ python run_metaworld_sac_mt.py \
     --seed ${SEED} \
     --n_exp 1 \
     --exp_type MT3 \
-    --exp_name mt3_moore_quick_test_${N_EXPERTS}e \
+    --exp_name mt3_moore_quick_test_${N_EXPERTS}e_pretex${USE_PRETEX} \
     --results_dir logs/metaworld_mt3 \
     --batch_size 128 \
     --n_epochs 10 \
@@ -42,6 +43,7 @@ python run_metaworld_sac_mt.py \
     --train_frequency 1 \
     --sample_task_per_episode \
     --rl_checkpoint_interval 3 \
+    --use_pretex_inhibition ${USE_PRETEX} \
     --use_cuda
 
 # Original MT10 parameters for reference:
