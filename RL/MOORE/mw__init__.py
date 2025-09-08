@@ -237,5 +237,33 @@ class MT3(Benchmark):
         self._test_classes = OrderedDict()
         self._test_tasks = []
 
-__all__ = ["ML1", "MT1", "ML10", "MT10", "ML45", "MT50", "MT3"]
+
+class MT5(Benchmark):
+    """Custom MT5 benchmark with only 5 tasks for faster experiments."""
+    def __init__(self, seed=None):
+        super().__init__()
+        # Select first 5 tasks from MT10 for quick experiments
+        num_tasks = 5 
+        
+        mt10_classes = _env_dict.MT10_V2
+        task_names = list(mt10_classes.keys())[:num_tasks]
+        
+        self._train_classes = OrderedDict()
+        for task_name in task_names:
+            self._train_classes[task_name] = mt10_classes[task_name]
+        
+        # Get the corresponding task arguments for the selected tasks
+        mt10_kwargs = _env_dict.MT10_V2_ARGS_KWARGS
+        train_kwargs = OrderedDict()
+        for task_name in task_names:
+            train_kwargs[task_name] = mt10_kwargs[task_name]
+        
+        self._train_tasks = _make_tasks(self._train_classes, train_kwargs,
+                                        _MT_OVERRIDE,
+                                        seed=seed)
+        self._test_classes = OrderedDict()
+        self._test_tasks = []
+
+
+__all__ = ["ML1", "MT1", "ML10", "MT10", "ML45", "MT50", "MT3", "MT5"]
 
