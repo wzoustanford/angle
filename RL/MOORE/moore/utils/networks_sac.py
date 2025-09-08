@@ -12,6 +12,15 @@ import moore.utils.mixture_layers as mixture_layers
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
+class ActivationHook:
+    """Pickleable hook class for storing activations"""
+    def __init__(self, parent, name):
+        self.parent = parent
+        self.name = name
+    
+    def __call__(self, module, input, output):
+        self.parent._h_activations[self.name] = output
+
 class MetaworldSACMixtureMHCriticNetwork(nn.Module):
     def __init__(self, input_shape, 
                        output_shape, 
@@ -23,6 +32,7 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
                        orthogonal = False, 
                        n_experts = 4, 
                        agg_activation = ['ReLU', 'ReLU'], 
+                       use_pretex_inhibition = True,
                        use_cuda = True, 
                        **kwargs):
         
@@ -124,15 +134,15 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
             nn.Linear(n_features[0], n_experts),
             nn.Sigmoid(),
         )
-        self.use_pretex_inhibition = True
+        self.use_pretex_inhibition = use_pretex_inhibition
 
     def get_activation(self, name):
-        def hook(module, input, output):
-            self._h_activations[name] = output 
-        return hook
-
+        #def hook(module, input, output):
+        #    self._h_activations[name] = output 
+        return ActivationHook(self, name)
+    """
     def __getstate__(self):
-        """Prepare object for pickling by removing hooks"""
+        #Prepare object for pickling by removing hooks
         state = self.__dict__.copy()
         # Remove the unpickleable hooks
         if hasattr(self, '_hooks'):
@@ -141,6 +151,16 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
             state['_hooks'] = []
         return state
 
+    def __setstate__(self, state):
+        #Restore object after unpickling and re-register hooks
+        self.__dict__.update(state)
+        # Re-register the hooks
+        self._hooks = []
+        for name, modu in self._h.named_modules():
+            if name in self.get_activation_list:
+                hook_handle = modu.register_forward_hook(self.get_activation(name))
+                self._hooks.append(hook_handle)
+    """
     def get_shared_weights_t(self):
         weights = []
 
@@ -227,6 +247,7 @@ class MetaworldSACMixtureMHActorNetwork(nn.Module):
                        orthogonal = False, 
                        n_experts = 4, 
                        agg_activation = ['ReLU', 'ReLU'], 
+                       use_pretex_inhibition = True,
                        use_cuda = True, **kwargs):
         
         super().__init__()
@@ -331,15 +352,15 @@ class MetaworldSACMixtureMHActorNetwork(nn.Module):
             nn.Linear(n_features[0], n_experts),
             nn.Sigmoid(),
         )
-        self.use_pretex_inhibition = True
+        self.use_pretex_inhibition = use_pretex_inhibition
 
     def get_activation(self, name):
-        def hook(module, input, output):
-            self._h_activations[name] = output 
-        return hook
-
+        #def hook(module, input, output):
+        #    self._h_activations[name] = output 
+        return ActivationHook(self, name)
+    """
     def __getstate__(self):
-        """Prepare object for pickling by removing hooks"""
+        #Prepare object for pickling by removing hooks
         state = self.__dict__.copy()
         # Remove the unpickleable hooks
         if hasattr(self, '_hooks'):
@@ -348,6 +369,16 @@ class MetaworldSACMixtureMHActorNetwork(nn.Module):
             state['_hooks'] = []
         return state
 
+    def __setstate__(self, state):
+        #Restore object after unpickling and re-register hooks
+        self.__dict__.update(state)
+        # Re-register the hooks
+        self._hooks = []
+        for name, modu in self._h.named_modules():
+            if name in self.get_activation_list:
+                hook_handle = modu.register_forward_hook(self.get_activation(name))
+                self._hooks.append(hook_handle)
+    """
     def get_shared_weights_t(self):
         weights = []
 
@@ -363,7 +394,7 @@ class MetaworldSACMixtureMHActorNetwork(nn.Module):
     def forward(self, state, c = None):
         # Clear activations at the start of each forward pass
         self._h_activations = dict()
-        
+
         if isinstance(c, int):
             c = torch.tensor([c])
 
