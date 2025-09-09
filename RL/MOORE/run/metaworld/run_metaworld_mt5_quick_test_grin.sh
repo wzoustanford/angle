@@ -27,7 +27,7 @@ python run_metaworld_sac_mt.py \
     --lr_alpha 1e-4 \
     --log_std_min -10 \
     --log_std_max 2 \
-    --actor_network MetaworldSACMixtureMHActorNetwork \
+    --actor_network MetaworldSACMixtureMHActorNetworkGRIN \
     --critic_network MetaworldSACMixtureMHCriticNetworkGRIN \
     --orthogonal \
     --n_experts ${N_EXPERTS} \

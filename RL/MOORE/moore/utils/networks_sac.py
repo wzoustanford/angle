@@ -543,7 +543,7 @@ class MetaworldSACMixtureMHActorNetworkGRIN(nn.Module):
             self._output_heads.append(head)
         
         self.grin_inhibition_network = nn.Sequential(
-            nn.Linear(n_experts + n_features[0] * n_experts + n_features[0] + 1, 2*n_features[0]),
+            nn.Linear(n_experts + n_features[0] * n_experts + n_features[0] + self._n_output, 2*n_features[0]),
             nn.Tanh(),
             nn.Linear(n_features[0] * 2, n_experts + n_features[0]),
             nn.Sigmoid(),

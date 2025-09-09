@@ -32,7 +32,7 @@ print(f"Tasks: {env_names}")
 print(f"Creating environment for {env_names[0]}...")
 env = benchmark.train_classes[env_names[0]]()
 env.seed(42)
-task = benchmark.train_tasks[env_names[0]][0]
+task = list(benchmark.train_tasks)[0]  # Get first task
 env.set_task(task)
 
 # Load agent

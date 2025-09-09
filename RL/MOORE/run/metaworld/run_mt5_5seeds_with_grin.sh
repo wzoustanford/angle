@@ -10,7 +10,7 @@ echo "Expected total runtime: ~10 hours"
 echo "Start time: $(date)"
 
 N_EXPERTS=4  # 4 experts for MT5
-NUM_RECURRENCE = 1
+NUM_RECURRENCE=1
 
 # Run 5 different seeds
 for SEED in 42 123 456 789 1011
