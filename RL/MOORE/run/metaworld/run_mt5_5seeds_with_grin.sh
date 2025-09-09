@@ -10,6 +10,7 @@ echo "Expected total runtime: ~10 hours"
 echo "Start time: $(date)"
 
 N_EXPERTS=4  # 4 experts for MT5
+NUM_RECURRENCE = 1
 
 # Run 5 different seeds
 for SEED in 42 123 456 789 1011
@@ -18,8 +19,7 @@ do
     echo "Starting seed ${SEED} at $(date)"
     echo "================================================"
     
-    sh run_metaworld_mt5_quick_test_grin.sh ${N_EXPERTS} ${SEED} True
-    
+    sh run_metaworld_mt5_quick_test_grin.sh ${N_EXPERTS} ${SEED} ${NUM_RECURRENCE}
     echo "Completed seed ${SEED} at $(date)"
     echo ""
 done
