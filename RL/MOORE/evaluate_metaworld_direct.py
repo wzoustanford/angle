@@ -83,12 +83,45 @@ def evaluate_model(checkpoint_dir, n_episodes=10, render=False, verbose=True):
     # Load the saved agent directly
     agent = MTSAC.load(agent_path)
     
-    # IMPORTANT: Set the missing attribute that the saved model needs
+    # IMPORTANT: Set the missing attributes that the saved model needs
     if hasattr(agent.policy._approximator.model.network, '_h'):
         # The network needs get_activation_list which isn't saved
         agent.policy._approximator.model.network.get_activation_list = [
             f'1.model_layers.{str(i)}.act_0' for i in range(args.n_experts)
         ]
+        # Set use_pretex_inhibition if not present
+        if not hasattr(agent.policy._approximator.model.network, 'use_pretex_inhibition'):
+            # Check if the model was trained with pretex inhibition by looking for the network
+            has_pretex = hasattr(agent.policy._approximator.model.network, 'pretex_inhibition_network')
+            agent.policy._approximator.model.network.use_pretex_inhibition = has_pretex
+    
+    # Also set for critic networks (handle Ensemble structure)
+    try:
+        # The critic might be an ensemble
+        if hasattr(agent._critic_approximator.model, '_model'):
+            # It's an ensemble, iterate through models
+            for model in agent._critic_approximator.model._model:
+                if hasattr(model, '_h'):
+                    model.get_activation_list = [
+                        f'1.model_layers.{str(i)}.act_0' for i in range(args.n_experts)
+                    ]
+                    if not hasattr(model, 'use_pretex_inhibition'):
+                        has_pretex = hasattr(model, 'pretex_inhibition_network')
+                        model.use_pretex_inhibition = has_pretex
+        
+        if hasattr(agent._target_critic_approximator.model, '_model'):
+            # It's an ensemble, iterate through models
+            for model in agent._target_critic_approximator.model._model:
+                if hasattr(model, '_h'):
+                    model.get_activation_list = [
+                        f'1.model_layers.{str(i)}.act_0' for i in range(args.n_experts)
+                    ]
+                    if not hasattr(model, 'use_pretex_inhibition'):
+                        has_pretex = hasattr(model, 'pretex_inhibition_network')
+                        model.use_pretex_inhibition = has_pretex
+    except Exception as e:
+        if verbose:
+            print(f"Note: Could not set critic attributes: {e}")
     
     # Create the core
     core = VecCore(agent, mdp)
