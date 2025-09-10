@@ -15,7 +15,7 @@ python run_metaworld_sac_mt.py \
     --seed ${SEED} \
     --n_exp 1 \
     --exp_type MT5 \
-    --exp_name mt5_moore_quick_test_${N_EXPERTS}e_grin${NUM_GRIN_RECURRENCE} \
+    --exp_name mt5_moore_quick_test_w_inh_reverted_${N_EXPERTS}e_grin${NUM_GRIN_RECURRENCE} \
     --results_dir logs/metaworld_mt5 \
     --batch_size 128 \
     --n_epochs 10 \
