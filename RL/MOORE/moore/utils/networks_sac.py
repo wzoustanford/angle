@@ -130,7 +130,7 @@ class MetaworldSACMixtureMHCriticNetworkGRIN(nn.Module):
         self.grin_inhibition_network = nn.Sequential(
             nn.Linear(n_experts + n_features[0] * n_experts + n_features[0] + 1, 2*n_features[0]),
             nn.Tanh(),
-            nn.Linear(n_features[0] * 2, n_experts + n_features[0]),
+            nn.Linear(n_features[0] * 2, n_experts),
             nn.Sigmoid(),
         )
         self.n_experts = n_experts 
@@ -202,18 +202,13 @@ class MetaworldSACMixtureMHCriticNetworkGRIN(nn.Module):
             pretex_features = torch.cat((pretex_features, self._h_activations['q']), axis = 1)
 
             inhibition_logits = self.grin_inhibition_network(pretex_features)
-            w_inhibition_logits = inhibition_logits[:, :self.n_experts]
-            features_inhibition_logits = inhibition_logits[:, self.n_experts:]
-            w_inhibition_logits = w_inhibition_logits.unsqueeze(1)
+            inhibition_logits = inhibition_logits.unsqueeze(1)
             
-            w = w * w_inhibition_logits 
+            w = w * inhibition_logits 
 
         # task-features
         features = w@features
         features = features.squeeze(1)
-
-        if recurrent_pass is True:
-            features = features * features_inhibition_logits
 
         # activation after
         if not self._agg_activation[1].lower() == "linear":
@@ -345,7 +340,7 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
         self.pretex_inhibition_network = nn.Sequential(
             nn.Linear(n_features[0] * n_experts, n_features[0]),
             nn.Tanh(),
-            nn.Linear(n_features[0], n_experts + n_features[0]),
+            nn.Linear(n_features[0], n_experts),
             nn.Sigmoid(),
         )
         self.use_pretex_inhibition = use_pretex_inhibition
@@ -402,18 +397,13 @@ class MetaworldSACMixtureMHCriticNetwork(nn.Module):
 
         if self.use_pretex_inhibition: 
             inhibition_logits = self.pretex_inhibition_network(pretex_features)
-            w_inhibition_logits = inhibition_logits[:, :self.n_experts]
-            features_inhibition_logits = inhibition_logits[:, self.n_experts:]
-            w_inhibition_logits = w_inhibition_logits.unsqueeze(1)
+            inhibition_logits = inhibition_logits.unsqueeze(1)
 
-            w = w * w_inhibition_logits 
+            w = w * inhibition_logits 
 
         # task-features
         features = w@features
         features = features.squeeze(1)
-
-        if self.use_pretex_inhibition:
-            features = features * features_inhibition_logits
 
         # activation after
         if not self._agg_activation[1].lower() == "linear":
@@ -545,7 +535,7 @@ class MetaworldSACMixtureMHActorNetworkGRIN(nn.Module):
         self.grin_inhibition_network = nn.Sequential(
             nn.Linear(n_experts + n_features[0] * n_experts + n_features[0] + self._n_output, 2*n_features[0]),
             nn.Tanh(),
-            nn.Linear(n_features[0] * 2, n_experts + n_features[0]),
+            nn.Linear(n_features[0] * 2, n_experts),
             nn.Sigmoid(),
         )
         self.n_experts = n_experts 
@@ -615,19 +605,14 @@ class MetaworldSACMixtureMHActorNetworkGRIN(nn.Module):
             pretex_features = torch.cat((pretex_features, self._h_activations['a']), axis = 1)
 
             inhibition_logits = self.grin_inhibition_network(pretex_features)
-            w_inhibition_logits = inhibition_logits[:, :self.n_experts]
-            features_inhibition_logits = inhibition_logits[:, self.n_experts:]
-            w_inhibition_logits = w_inhibition_logits.unsqueeze(1)
+            inhibition_logits = inhibition_logits.unsqueeze(1)
             
-            w = w * w_inhibition_logits 
+            w = w * inhibition_logits 
 
-        # task-features
+        # task-features 
         features = w@features
         features = features.squeeze(1)
-
-        if recurrent_pass is True:
-            features = features * features_inhibition_logits
-
+        
         # activation after
         if not self._agg_activation[1].lower() == "linear":
             features = getattr(torch, self._agg_activation[1].lower())(features)
