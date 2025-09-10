@@ -114,6 +114,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                             n_experts = args.n_experts,
                             agg_activation = args.agg_activation,
                             use_pretex_inhibition = args.use_pretex_inhibition.lower() == 'true',
+                            num_grin_recurrence = args.num_grin_recurrence,
                             )#
     else:
         mu_actor_input_shape = mdp.observation_space.shape
@@ -168,6 +169,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                             n_experts = args.n_experts,
                             agg_activation = args.agg_activation,
                             use_pretex_inhibition = args.use_pretex_inhibition.lower() == 'true',
+                            num_grin_recurrence = args.num_grin_recurrence,
                             )
 
     if args.debug:

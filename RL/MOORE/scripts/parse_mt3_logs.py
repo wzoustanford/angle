@@ -43,7 +43,8 @@ def parse_log_file(log_path):
 
 def main():
     # Base directory
-    base_dir = Path("/home/ubuntu/code/angle/RL/MOORE/logs/metaworld_mt3/MT3/mixture_orthogonal_experts/mt3_moore_quick_test_4e_pretexFalse/")#/home/ubuntu/code/angle/RL/MOORE/logs/metaworld_mt3/MT3/mixture_orthogonal_experts/mt3_moore_quick_test_4e_pretexFalse")
+    
+    base_dir = Path("/home/ubuntu/code/angle/RL/MOORE/logs/metaworld_mt3/MT3/mixture_orthogonal_experts/mt3_moore_quick_test_4e_pretexTrue")
     
     # Seeds to process
     seeds = [42, 123, 456, 789, 1011]

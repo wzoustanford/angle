@@ -73,6 +73,8 @@ def argparser():
      arg_me.add_argument("--agg_activation", type=str, nargs='+', default=['ReLU', 'ReLU'])
      arg_me.add_argument('--use_pretex_inhibition', type=str, default='False',
                          help='Whether to use pretext inhibition in networks (True/False)')
+     arg_me.add_argument('--num_grin_recurrence', type=int, default=2,
+                         help='Number of GRIN recurrences in the network')
 
      arg_utils = parser.add_argument_group('Utils')
      arg_utils.add_argument('--use_cuda', action='store_true',
