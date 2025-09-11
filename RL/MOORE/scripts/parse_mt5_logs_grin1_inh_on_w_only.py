@@ -46,7 +46,7 @@ def main():
     base_dir = Path("/home/ubuntu/code/angle/RL/MOORE/logs/metaworld_mt5/MT5/mixture_orthogonal_experts/mt5_moore_quick_test_w_inh_reverted_4e_grin1/")#/home/ubuntu/code/angle/RL/MOORE/logs/metaworld_mt3/MT3/mixture_orthogonal_experts/mt3_moore_quick_test_4e_pretexFalse")
     
     # Seeds to process
-    seeds = [42, 123, 456, 789] #, 1011]
+    seeds = [42, 123, 456, 789, 1011]
     
     # Tasks we expect to find
     tasks = ['reach-v2', 'push-v2', 'pick-place-v2','door-open-v2','drawer-open-v2']
