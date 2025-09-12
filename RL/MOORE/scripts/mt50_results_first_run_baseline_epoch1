@@ -1,0 +1,2322 @@
+Parsing logs from MT3 experiment...
+============================================================
+
+Processing seed 3...
+  assembly-v2:
+    Success Rate: 0.0000
+    Mean J: 127.9890
+    Discounted Mean J: 66.9785
+  basketball-v2:
+    Success Rate: 0.0000
+    Mean J: 3.5656
+    Discounted Mean J: 1.7959
+  bin-picking-v2:
+    Success Rate: 0.0000
+    Mean J: 3.3860
+    Discounted Mean J: 1.7677
+  box-close-v2:
+    Success Rate: 0.0000
+    Mean J: 194.1820
+    Discounted Mean J: 105.5958
+  button-press-topdown-v2:
+    Success Rate: 0.0000
+    Mean J: 376.2814
+    Discounted Mean J: 169.2158
+  button-press-topdown-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 493.4115
+    Discounted Mean J: 215.1308
+  button-press-v2:
+    Success Rate: 0.0000
+    Mean J: 262.6323
+    Discounted Mean J: 124.2037
+  button-press-wall-v2:
+    Success Rate: 0.7000
+    Mean J: 701.2977
+    Discounted Mean J: 307.3275
+  coffee-button-v2:
+    Success Rate: 1.0000
+    Mean J: 897.7584
+    Discounted Mean J: 418.3427
+  coffee-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 9.3589
+    Discounted Mean J: 4.2734
+  coffee-push-v2:
+    Success Rate: 0.0000
+    Mean J: 6.4949
+    Discounted Mean J: 3.3466
+  dial-turn-v2:
+    Success Rate: 0.3000
+    Mean J: 472.6910
+    Discounted Mean J: 225.7235
+  disassemble-v2:
+    Success Rate: 0.0000
+    Mean J: 60.5083
+    Discounted Mean J: 31.9454
+  door-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1021.0380
+    Discounted Mean J: 398.2338
+  door-lock-v2:
+    Success Rate: 1.0000
+    Mean J: 975.6359
+    Discounted Mean J: 434.5689
+  door-open-v2:
+    Success Rate: 0.0000
+    Mean J: 439.6582
+    Discounted Mean J: 205.8616
+  door-unlock-v2:
+    Success Rate: 1.0000
+    Mean J: 1054.0495
+    Discounted Mean J: 478.8296
+  drawer-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1285.9593
+    Discounted Mean J: 622.4923
+  drawer-open-v2:
+    Success Rate: 0.8000
+    Mean J: 1035.3630
+    Discounted Mean J: 478.4425
+  faucet-open-v2:
+    Success Rate: 0.0000
+    Mean J: 588.3332
+    Discounted Mean J: 297.4859
+  faucet-close-v2:
+    Success Rate: 0.0000
+    Mean J: 605.0552
+    Discounted Mean J: 305.1480
+  hammer-v2:
+    Success Rate: 0.0000
+    Mean J: 144.6182
+    Discounted Mean J: 74.6360
+  hand-insert-v2:
+    Success Rate: 0.0000
+    Mean J: 4.0098
+    Discounted Mean J: 2.1224
+  handle-press-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1340.4557
+    Discounted Mean J: 631.6134
+  handle-press-v2:
+    Success Rate: 1.0000
+    Mean J: 1345.4689
+    Discounted Mean J: 640.9669
+  handle-pull-side-v2:
+    Success Rate: 0.0000
+    Mean J: 3.1262
+    Discounted Mean J: 1.5925
+  handle-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 493.4936
+    Discounted Mean J: 242.9950
+  lever-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 160.3134
+    Discounted Mean J: 81.4148
+  peg-insert-side-v2:
+    Success Rate: 0.0000
+    Mean J: 2.4773
+    Discounted Mean J: 1.3004
+  peg-unplug-side-v2:
+    Success Rate: 0.0000
+    Mean J: 38.4005
+    Discounted Mean J: 18.6314
+  pick-place-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  pick-out-of-hole-v2:
+    Success Rate: 0.0000
+    Mean J: 2.7392
+    Discounted Mean J: 1.3711
+  pick-place-v2:
+    Success Rate: 0.0000
+    Mean J: 1.5393
+    Discounted Mean J: 0.8443
+  plate-slide-v2:
+    Success Rate: 1.0000
+    Mean J: 998.2574
+    Discounted Mean J: 424.2905
+  plate-slide-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1122.7997
+    Discounted Mean J: 507.5565
+  plate-slide-back-v2:
+    Success Rate: 0.7000
+    Mean J: 912.5738
+    Discounted Mean J: 420.6168
+  plate-slide-back-side-v2:
+    Success Rate: 0.0000
+    Mean J: 409.1316
+    Discounted Mean J: 202.8895
+  push-back-v2:
+    Success Rate: 0.0000
+    Mean J: 2.5020
+    Discounted Mean J: 1.3489
+  push-v2:
+    Success Rate: 0.0000
+    Mean J: 49.7707
+    Discounted Mean J: 26.2377
+  push-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 23.0499
+    Discounted Mean J: 14.7732
+  reach-v2:
+    Success Rate: 1.0000
+    Mean J: 1342.5006
+    Discounted Mean J: 636.3997
+  reach-wall-v2:
+    Success Rate: 1.0000
+    Mean J: 1338.0961
+    Discounted Mean J: 632.1779
+  shelf-place-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  soccer-v2:
+    Success Rate: 0.0000
+    Mean J: 31.1283
+    Discounted Mean J: 17.7763
+  stick-push-v2:
+    Success Rate: 0.0000
+    Mean J: 4.7569
+    Discounted Mean J: 2.5555
+  stick-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 4.6382
+    Discounted Mean J: 2.3197
+  sweep-into-v2:
+    Success Rate: 0.0000
+    Mean J: 165.2769
+    Discounted Mean J: 80.9384
+  sweep-v2:
+    Success Rate: 0.0000
+    Mean J: 138.8761
+    Discounted Mean J: 68.4091
+  window-open-v2:
+    Success Rate: 1.0000
+    Mean J: 927.7406
+    Discounted Mean J: 356.5554
+  window-close-v2:
+    Success Rate: 0.0000
+    Mean J: 283.5898
+    Discounted Mean J: 127.1416
+
+Processing seed 4...
+  assembly-v2:
+    Success Rate: 0.0000
+    Mean J: 227.1804
+    Discounted Mean J: 110.0166
+  basketball-v2:
+    Success Rate: 0.0000
+    Mean J: 4.8849
+    Discounted Mean J: 2.5474
+  bin-picking-v2:
+    Success Rate: 0.0000
+    Mean J: 2.6033
+    Discounted Mean J: 1.3520
+  box-close-v2:
+    Success Rate: 0.0000
+    Mean J: 172.3172
+    Discounted Mean J: 94.4670
+  button-press-topdown-v2:
+    Success Rate: 0.1000
+    Mean J: 446.4057
+    Discounted Mean J: 195.8093
+  button-press-topdown-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 401.1206
+    Discounted Mean J: 179.8862
+  button-press-v2:
+    Success Rate: 0.0000
+    Mean J: 223.6246
+    Discounted Mean J: 107.4947
+  button-press-wall-v2:
+    Success Rate: 1.0000
+    Mean J: 849.2245
+    Discounted Mean J: 370.1785
+  coffee-button-v2:
+    Success Rate: 1.0000
+    Mean J: 1016.8253
+    Discounted Mean J: 464.2094
+  coffee-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 10.7123
+    Discounted Mean J: 5.2805
+  coffee-push-v2:
+    Success Rate: 0.0000
+    Mean J: 7.2772
+    Discounted Mean J: 3.7164
+  dial-turn-v2:
+    Success Rate: 0.0000
+    Mean J: 372.0499
+    Discounted Mean J: 188.1078
+  disassemble-v2:
+    Success Rate: 0.0000
+    Mean J: 61.3730
+    Discounted Mean J: 32.3647
+  door-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1024.4323
+    Discounted Mean J: 400.5019
+  door-lock-v2:
+    Success Rate: 0.9000
+    Mean J: 982.0238
+    Discounted Mean J: 463.7460
+  door-open-v2:
+    Success Rate: 0.0000
+    Mean J: 485.6541
+    Discounted Mean J: 226.0221
+  door-unlock-v2:
+    Success Rate: 0.8000
+    Mean J: 909.6298
+    Discounted Mean J: 410.6630
+  drawer-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1341.9076
+    Discounted Mean J: 632.0633
+  drawer-open-v2:
+    Success Rate: 0.0000
+    Mean J: 742.3696
+    Discounted Mean J: 363.2505
+  faucet-open-v2:
+    Success Rate: 0.0000
+    Mean J: 606.0870
+    Discounted Mean J: 304.7279
+  faucet-close-v2:
+    Success Rate: 0.0000
+    Mean J: 607.9511
+    Discounted Mean J: 307.3957
+  hammer-v2:
+    Success Rate: 0.0000
+    Mean J: 142.6259
+    Discounted Mean J: 73.3056
+  hand-insert-v2:
+    Success Rate: 0.0000
+    Mean J: 4.1443
+    Discounted Mean J: 2.1389
+  handle-press-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1313.3350
+    Discounted Mean J: 609.1598
+  handle-press-v2:
+    Success Rate: 0.9000
+    Mean J: 1037.4814
+    Discounted Mean J: 479.9333
+  handle-pull-side-v2:
+    Success Rate: 0.0000
+    Mean J: 3.3143
+    Discounted Mean J: 1.7113
+  handle-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 518.6779
+    Discounted Mean J: 251.4301
+  lever-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 169.5664
+    Discounted Mean J: 85.5342
+  peg-insert-side-v2:
+    Success Rate: 0.0000
+    Mean J: 3.9166
+    Discounted Mean J: 1.9358
+  peg-unplug-side-v2:
+    Success Rate: 0.0000
+    Mean J: 3.1577
+    Discounted Mean J: 1.8031
+  pick-place-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  pick-out-of-hole-v2:
+    Success Rate: 0.0000
+    Mean J: 2.6315
+    Discounted Mean J: 1.3600
+  pick-place-v2:
+    Success Rate: 0.0000
+    Mean J: 1.8428
+    Discounted Mean J: 0.9120
+  plate-slide-v2:
+    Success Rate: 0.3000
+    Mean J: 791.5993
+    Discounted Mean J: 347.5729
+  plate-slide-side-v2:
+    Success Rate: 0.0000
+    Mean J: 454.6747
+    Discounted Mean J: 217.5862
+  plate-slide-back-v2:
+    Success Rate: 0.0000
+    Mean J: 806.1092
+    Discounted Mean J: 374.7279
+  plate-slide-back-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1144.2633
+    Discounted Mean J: 504.1273
+  push-back-v2:
+    Success Rate: 0.0000
+    Mean J: 9.5943
+    Discounted Mean J: 4.6152
+  push-v2:
+    Success Rate: 0.0000
+    Mean J: 17.7904
+    Discounted Mean J: 8.8183
+  push-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 18.1874
+    Discounted Mean J: 9.3003
+  reach-v2:
+    Success Rate: 1.0000
+    Mean J: 1336.6741
+    Discounted Mean J: 631.3999
+  reach-wall-v2:
+    Success Rate: 1.0000
+    Mean J: 1330.1780
+    Discounted Mean J: 627.2279
+  shelf-place-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  soccer-v2:
+    Success Rate: 0.2000
+    Mean J: 174.1247
+    Discounted Mean J: 78.5833
+  stick-push-v2:
+    Success Rate: 0.0000
+    Mean J: 4.3290
+    Discounted Mean J: 2.6667
+  stick-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 4.7548
+    Discounted Mean J: 2.4579
+  sweep-into-v2:
+    Success Rate: 0.0000
+    Mean J: 260.8427
+    Discounted Mean J: 126.4519
+  sweep-v2:
+    Success Rate: 0.0000
+    Mean J: 161.8130
+    Discounted Mean J: 77.8488
+  window-open-v2:
+    Success Rate: 0.9000
+    Mean J: 611.9531
+    Discounted Mean J: 243.8543
+  window-close-v2:
+    Success Rate: 0.0000
+    Mean J: 134.7508
+    Discounted Mean J: 68.2053
+
+Processing seed 5...
+  assembly-v2:
+    Success Rate: 0.0000
+    Mean J: 247.9003
+    Discounted Mean J: 120.1869
+  basketball-v2:
+    Success Rate: 0.0000
+    Mean J: 1.6353
+    Discounted Mean J: 0.9593
+  bin-picking-v2:
+    Success Rate: 0.0000
+    Mean J: 3.3604
+    Discounted Mean J: 1.8544
+  box-close-v2:
+    Success Rate: 0.0000
+    Mean J: 196.7225
+    Discounted Mean J: 110.1257
+  button-press-topdown-v2:
+    Success Rate: 1.0000
+    Mean J: 855.0480
+    Discounted Mean J: 342.0025
+  button-press-topdown-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 372.7606
+    Discounted Mean J: 166.8034
+  button-press-v2:
+    Success Rate: 0.0000
+    Mean J: 297.3994
+    Discounted Mean J: 139.0222
+  button-press-wall-v2:
+    Success Rate: 0.9000
+    Mean J: 740.9197
+    Discounted Mean J: 310.7597
+  coffee-button-v2:
+    Success Rate: 1.0000
+    Mean J: 994.3165
+    Discounted Mean J: 451.8305
+  coffee-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 6.3797
+    Discounted Mean J: 3.2868
+  coffee-push-v2:
+    Success Rate: 0.0000
+    Mean J: 6.4698
+    Discounted Mean J: 3.4792
+  dial-turn-v2:
+    Success Rate: 0.5000
+    Mean J: 513.1694
+    Discounted Mean J: 236.3032
+  disassemble-v2:
+    Success Rate: 0.0000
+    Mean J: 57.4004
+    Discounted Mean J: 30.2996
+  door-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1040.6613
+    Discounted Mean J: 410.2519
+  door-lock-v2:
+    Success Rate: 1.0000
+    Mean J: 975.6048
+    Discounted Mean J: 430.0010
+  door-open-v2:
+    Success Rate: 0.2000
+    Mean J: 516.0862
+    Discounted Mean J: 235.6763
+  door-unlock-v2:
+    Success Rate: 1.0000
+    Mean J: 1149.6240
+    Discounted Mean J: 523.0474
+  drawer-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1347.1448
+    Discounted Mean J: 636.5841
+  drawer-open-v2:
+    Success Rate: 0.0000
+    Mean J: 739.6523
+    Discounted Mean J: 360.0331
+  faucet-open-v2:
+    Success Rate: 0.0000
+    Mean J: 610.6382
+    Discounted Mean J: 306.4346
+  faucet-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1240.5543
+    Discounted Mean J: 562.6222
+  hammer-v2:
+    Success Rate: 0.0000
+    Mean J: 365.1748
+    Discounted Mean J: 172.1796
+  hand-insert-v2:
+    Success Rate: 0.0000
+    Mean J: 3.9607
+    Discounted Mean J: 2.1653
+  handle-press-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1350.8810
+    Discounted Mean J: 640.6090
+  handle-press-v2:
+    Success Rate: 1.0000
+    Mean J: 1352.1965
+    Discounted Mean J: 641.7058
+  handle-pull-side-v2:
+    Success Rate: 0.0000
+    Mean J: 4.9926
+    Discounted Mean J: 2.5441
+  handle-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 516.6707
+    Discounted Mean J: 250.2838
+  lever-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 180.1225
+    Discounted Mean J: 91.6989
+  peg-insert-side-v2:
+    Success Rate: 0.0000
+    Mean J: 2.0786
+    Discounted Mean J: 1.1126
+  peg-unplug-side-v2:
+    Success Rate: 0.0000
+    Mean J: 8.7039
+    Discounted Mean J: 4.6171
+  pick-place-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  pick-out-of-hole-v2:
+    Success Rate: 0.0000
+    Mean J: 2.6871
+    Discounted Mean J: 1.3840
+  pick-place-v2:
+    Success Rate: 0.0000
+    Mean J: 2.5167
+    Discounted Mean J: 1.3265
+  plate-slide-v2:
+    Success Rate: 0.8000
+    Mean J: 982.1613
+    Discounted Mean J: 421.0945
+  plate-slide-side-v2:
+    Success Rate: 0.1000
+    Mean J: 647.0053
+    Discounted Mean J: 299.9229
+  plate-slide-back-v2:
+    Success Rate: 0.3000
+    Mean J: 973.5433
+    Discounted Mean J: 449.7613
+  plate-slide-back-side-v2:
+    Success Rate: 0.5000
+    Mean J: 1012.3252
+    Discounted Mean J: 469.2911
+  push-back-v2:
+    Success Rate: 0.0000
+    Mean J: 2.3174
+    Discounted Mean J: 1.1892
+  push-v2:
+    Success Rate: 0.0000
+    Mean J: 15.9196
+    Discounted Mean J: 8.1958
+  push-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 32.3285
+    Discounted Mean J: 15.4750
+  reach-v2:
+    Success Rate: 1.0000
+    Mean J: 1350.9425
+    Discounted Mean J: 644.0377
+  reach-wall-v2:
+    Success Rate: 1.0000
+    Mean J: 1328.6915
+    Discounted Mean J: 626.8666
+  shelf-place-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  soccer-v2:
+    Success Rate: 0.1000
+    Mean J: 94.8087
+    Discounted Mean J: 41.4104
+  stick-push-v2:
+    Success Rate: 0.0000
+    Mean J: 3.6780
+    Discounted Mean J: 2.0155
+  stick-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 5.8767
+    Discounted Mean J: 2.9988
+  sweep-into-v2:
+    Success Rate: 0.9000
+    Mean J: 931.3202
+    Discounted Mean J: 394.2657
+  sweep-v2:
+    Success Rate: 0.0000
+    Mean J: 90.9246
+    Discounted Mean J: 45.3209
+  window-open-v2:
+    Success Rate: 0.0000
+    Mean J: 88.2222
+    Discounted Mean J: 43.3052
+  window-close-v2:
+    Success Rate: 0.0000
+    Mean J: 141.6391
+    Discounted Mean J: 71.5977
+
+Processing seed 6...
+  assembly-v2:
+    Success Rate: 0.0000
+    Mean J: 173.8144
+    Discounted Mean J: 85.6347
+  basketball-v2:
+    Success Rate: 0.0000
+    Mean J: 4.2102
+    Discounted Mean J: 2.2043
+  bin-picking-v2:
+    Success Rate: 0.0000
+    Mean J: 5.8710
+    Discounted Mean J: 3.0638
+  box-close-v2:
+    Success Rate: 0.0000
+    Mean J: 183.9570
+    Discounted Mean J: 99.9988
+  button-press-topdown-v2:
+    Success Rate: 0.4000
+    Mean J: 570.2131
+    Discounted Mean J: 240.8848
+  button-press-topdown-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 420.6708
+    Discounted Mean J: 189.4389
+  button-press-v2:
+    Success Rate: 0.1000
+    Mean J: 282.3878
+    Discounted Mean J: 133.8393
+  button-press-wall-v2:
+    Success Rate: 0.6000
+    Mean J: 630.4445
+    Discounted Mean J: 274.0509
+  coffee-button-v2:
+    Success Rate: 1.0000
+    Mean J: 944.1938
+    Discounted Mean J: 427.1425
+  coffee-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 9.6229
+    Discounted Mean J: 4.5806
+  coffee-push-v2:
+    Success Rate: 0.0000
+    Mean J: 9.0507
+    Discounted Mean J: 4.5967
+  dial-turn-v2:
+    Success Rate: 0.0000
+    Mean J: 365.0897
+    Discounted Mean J: 182.3863
+  disassemble-v2:
+    Success Rate: 0.0000
+    Mean J: 60.5624
+    Discounted Mean J: 31.9609
+  door-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1016.5394
+    Discounted Mean J: 395.6684
+  door-lock-v2:
+    Success Rate: 1.0000
+    Mean J: 1015.0625
+    Discounted Mean J: 470.1538
+  door-open-v2:
+    Success Rate: 0.0000
+    Mean J: 328.4870
+    Discounted Mean J: 160.3431
+  door-unlock-v2:
+    Success Rate: 1.0000
+    Mean J: 1029.0365
+    Discounted Mean J: 467.9166
+  drawer-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1349.0899
+    Discounted Mean J: 638.3383
+  drawer-open-v2:
+    Success Rate: 0.0000
+    Mean J: 732.9599
+    Discounted Mean J: 355.7691
+  faucet-open-v2:
+    Success Rate: 0.0000
+    Mean J: 605.0804
+    Discounted Mean J: 305.1359
+  faucet-close-v2:
+    Success Rate: 0.0000
+    Mean J: 607.0338
+    Discounted Mean J: 306.2970
+  hammer-v2:
+    Success Rate: 0.0000
+    Mean J: 202.7393
+    Discounted Mean J: 99.9958
+  hand-insert-v2:
+    Success Rate: 0.0000
+    Mean J: 2.4403
+    Discounted Mean J: 1.3655
+  handle-press-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1316.0125
+    Discounted Mean J: 612.2594
+  handle-press-v2:
+    Success Rate: 0.9000
+    Mean J: 1113.1732
+    Discounted Mean J: 500.2702
+  handle-pull-side-v2:
+    Success Rate: 0.0000
+    Mean J: 0.8414
+    Discounted Mean J: 0.5618
+  handle-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 423.0900
+    Discounted Mean J: 207.5679
+  lever-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 179.7334
+    Discounted Mean J: 90.8643
+  peg-insert-side-v2:
+    Success Rate: 0.0000
+    Mean J: 2.0018
+    Discounted Mean J: 1.0764
+  peg-unplug-side-v2:
+    Success Rate: 0.0000
+    Mean J: 5.9199
+    Discounted Mean J: 3.1662
+  pick-place-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  pick-out-of-hole-v2:
+    Success Rate: 0.0000
+    Mean J: 3.2830
+    Discounted Mean J: 1.6617
+  pick-place-v2:
+    Success Rate: 0.0000
+    Mean J: 1.0698
+    Discounted Mean J: 0.5861
+  plate-slide-v2:
+    Success Rate: 0.8000
+    Mean J: 971.7063
+    Discounted Mean J: 415.3024
+  plate-slide-side-v2:
+    Success Rate: 1.0000
+    Mean J: 715.7485
+    Discounted Mean J: 375.1573
+  plate-slide-back-v2:
+    Success Rate: 1.0000
+    Mean J: 1196.1208
+    Discounted Mean J: 541.6269
+  plate-slide-back-side-v2:
+    Success Rate: 0.0000
+    Mean J: 466.9328
+    Discounted Mean J: 230.4150
+  push-back-v2:
+    Success Rate: 0.0000
+    Mean J: 2.0765
+    Discounted Mean J: 1.0891
+  push-v2:
+    Success Rate: 0.0000
+    Mean J: 18.5778
+    Discounted Mean J: 9.0164
+  push-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 15.9091
+    Discounted Mean J: 8.2543
+  reach-v2:
+    Success Rate: 0.9000
+    Mean J: 1353.3302
+    Discounted Mean J: 652.8580
+  reach-wall-v2:
+    Success Rate: 1.0000
+    Mean J: 1325.2848
+    Discounted Mean J: 622.7908
+  shelf-place-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  soccer-v2:
+    Success Rate: 0.0000
+    Mean J: 56.3744
+    Discounted Mean J: 31.7844
+  stick-push-v2:
+    Success Rate: 0.0000
+    Mean J: 7.7661
+    Discounted Mean J: 4.0259
+  stick-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 4.1692
+    Discounted Mean J: 2.2174
+  sweep-into-v2:
+    Success Rate: 0.0000
+    Mean J: 228.2180
+    Discounted Mean J: 111.9569
+  sweep-v2:
+    Success Rate: 0.0000
+    Mean J: 171.3613
+    Discounted Mean J: 81.3172
+  window-open-v2:
+    Success Rate: 0.0000
+    Mean J: 61.5699
+    Discounted Mean J: 32.1023
+  window-close-v2:
+    Success Rate: 0.0000
+    Mean J: 132.5623
+    Discounted Mean J: 66.8795
+
+Processing seed 7...
+  assembly-v2:
+    Success Rate: 0.0000
+    Mean J: 262.5640
+    Discounted Mean J: 124.9193
+  basketball-v2:
+    Success Rate: 0.0000
+    Mean J: 3.1296
+    Discounted Mean J: 1.5447
+  bin-picking-v2:
+    Success Rate: 0.0000
+    Mean J: 3.5762
+    Discounted Mean J: 1.8412
+  box-close-v2:
+    Success Rate: 0.0000
+    Mean J: 190.7595
+    Discounted Mean J: 103.9516
+  button-press-topdown-v2:
+    Success Rate: 1.0000
+    Mean J: 890.2042
+    Discounted Mean J: 360.4917
+  button-press-topdown-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 458.9739
+    Discounted Mean J: 204.0689
+  button-press-v2:
+    Success Rate: 0.1000
+    Mean J: 306.7911
+    Discounted Mean J: 146.0126
+  button-press-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 68.3759
+    Discounted Mean J: 32.3268
+  coffee-button-v2:
+    Success Rate: 0.9000
+    Mean J: 960.0533
+    Discounted Mean J: 435.0026
+  coffee-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 6.1466
+    Discounted Mean J: 3.1871
+  coffee-push-v2:
+    Success Rate: 0.0000
+    Mean J: 7.6977
+    Discounted Mean J: 3.9546
+  dial-turn-v2:
+    Success Rate: 0.0000
+    Mean J: 381.0138
+    Discounted Mean J: 192.6848
+  disassemble-v2:
+    Success Rate: 0.0000
+    Mean J: 63.5003
+    Discounted Mean J: 33.4993
+  door-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1031.8429
+    Discounted Mean J: 404.7670
+  door-lock-v2:
+    Success Rate: 0.8000
+    Mean J: 887.2901
+    Discounted Mean J: 412.5714
+  door-open-v2:
+    Success Rate: 0.0000
+    Mean J: 504.8455
+    Discounted Mean J: 237.0264
+  door-unlock-v2:
+    Success Rate: 0.0000
+    Mean J: 458.4537
+    Discounted Mean J: 215.7995
+  drawer-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1343.7705
+    Discounted Mean J: 633.2719
+  drawer-open-v2:
+    Success Rate: 0.0000
+    Mean J: 750.5338
+    Discounted Mean J: 364.3522
+  faucet-open-v2:
+    Success Rate: 0.0000
+    Mean J: 607.5508
+    Discounted Mean J: 305.8536
+  faucet-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1241.4737
+    Discounted Mean J: 562.9568
+  hammer-v2:
+    Success Rate: 0.0000
+    Mean J: 166.4895
+    Discounted Mean J: 84.4483
+  hand-insert-v2:
+    Success Rate: 0.0000
+    Mean J: 16.4293
+    Discounted Mean J: 8.3889
+  handle-press-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1329.2171
+    Discounted Mean J: 623.1871
+  handle-press-v2:
+    Success Rate: 1.0000
+    Mean J: 1267.4706
+    Discounted Mean J: 595.3311
+  handle-pull-side-v2:
+    Success Rate: 0.0000
+    Mean J: 4.0099
+    Discounted Mean J: 2.1044
+  handle-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 482.8120
+    Discounted Mean J: 234.7644
+  lever-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 152.8662
+    Discounted Mean J: 79.2126
+  peg-insert-side-v2:
+    Success Rate: 0.0000
+    Mean J: 3.3915
+    Discounted Mean J: 1.7693
+  peg-unplug-side-v2:
+    Success Rate: 0.0000
+    Mean J: 5.9784
+    Discounted Mean J: 3.0907
+  pick-place-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  pick-out-of-hole-v2:
+    Success Rate: 0.0000
+    Mean J: 3.1110
+    Discounted Mean J: 1.6053
+  pick-place-v2:
+    Success Rate: 0.0000
+    Mean J: 1.4647
+    Discounted Mean J: 0.9086
+  plate-slide-v2:
+    Success Rate: 0.6000
+    Mean J: 879.7946
+    Discounted Mean J: 386.1757
+  plate-slide-side-v2:
+    Success Rate: 0.8000
+    Mean J: 856.6712
+    Discounted Mean J: 404.8022
+  plate-slide-back-v2:
+    Success Rate: 0.5000
+    Mean J: 833.7630
+    Discounted Mean J: 388.8618
+  plate-slide-back-side-v2:
+    Success Rate: 0.0000
+    Mean J: 767.2766
+    Discounted Mean J: 361.3620
+  push-back-v2:
+    Success Rate: 0.0000
+    Mean J: 3.3274
+    Discounted Mean J: 1.6772
+  push-v2:
+    Success Rate: 0.0000
+    Mean J: 14.2440
+    Discounted Mean J: 7.3750
+  push-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 44.3181
+    Discounted Mean J: 22.6128
+  reach-v2:
+    Success Rate: 1.0000
+    Mean J: 1345.2304
+    Discounted Mean J: 640.7042
+  reach-wall-v2:
+    Success Rate: 0.9000
+    Mean J: 1321.5415
+    Discounted Mean J: 622.8556
+  shelf-place-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  soccer-v2:
+    Success Rate: 0.0000
+    Mean J: 102.0263
+    Discounted Mean J: 45.6316
+  stick-push-v2:
+    Success Rate: 0.0000
+    Mean J: 7.5548
+    Discounted Mean J: 3.7552
+  stick-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 3.8042
+    Discounted Mean J: 2.1011
+  sweep-into-v2:
+    Success Rate: 0.0000
+    Mean J: 263.1244
+    Discounted Mean J: 127.0553
+  sweep-v2:
+    Success Rate: 0.0000
+    Mean J: 191.4475
+    Discounted Mean J: 89.0184
+  window-open-v2:
+    Success Rate: 0.0000
+    Mean J: 71.4106
+    Discounted Mean J: 36.9799
+  window-close-v2:
+    Success Rate: 0.0000
+    Mean J: 141.5878
+    Discounted Mean J: 71.0551
+
+Processing seed 8...
+  assembly-v2:
+    Success Rate: 0.0000
+    Mean J: 144.2805
+    Discounted Mean J: 71.9561
+  basketball-v2:
+    Success Rate: 0.0000
+    Mean J: 3.9081
+    Discounted Mean J: 2.0249
+  bin-picking-v2:
+    Success Rate: 0.0000
+    Mean J: 4.0665
+    Discounted Mean J: 2.0605
+  box-close-v2:
+    Success Rate: 0.0000
+    Mean J: 206.2922
+    Discounted Mean J: 113.3249
+  button-press-topdown-v2:
+    Success Rate: 1.0000
+    Mean J: 834.1558
+    Discounted Mean J: 336.9663
+  button-press-topdown-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 430.5906
+    Discounted Mean J: 192.6551
+  button-press-v2:
+    Success Rate: 0.0000
+    Mean J: 263.2470
+    Discounted Mean J: 124.8880
+  button-press-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 493.5854
+    Discounted Mean J: 214.5022
+  coffee-button-v2:
+    Success Rate: 1.0000
+    Mean J: 970.0013
+    Discounted Mean J: 441.3865
+  coffee-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 6.1632
+    Discounted Mean J: 3.1746
+  coffee-push-v2:
+    Success Rate: 0.0000
+    Mean J: 8.6131
+    Discounted Mean J: 4.4009
+  dial-turn-v2:
+    Success Rate: 0.3000
+    Mean J: 697.4519
+    Discounted Mean J: 322.6934
+  disassemble-v2:
+    Success Rate: 0.0000
+    Mean J: 58.0058
+    Discounted Mean J: 30.6379
+  door-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1034.8995
+    Discounted Mean J: 406.7914
+  door-lock-v2:
+    Success Rate: 1.0000
+    Mean J: 1036.7462
+    Discounted Mean J: 464.5851
+  door-open-v2:
+    Success Rate: 0.0000
+    Mean J: 484.9529
+    Discounted Mean J: 228.9144
+  door-unlock-v2:
+    Success Rate: 0.5000
+    Mean J: 702.6784
+    Discounted Mean J: 317.2915
+  drawer-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1346.0414
+    Discounted Mean J: 635.7689
+  drawer-open-v2:
+    Success Rate: 0.0000
+    Mean J: 774.5642
+    Discounted Mean J: 377.7503
+  faucet-open-v2:
+    Success Rate: 0.0000
+    Mean J: 609.4807
+    Discounted Mean J: 306.3979
+  faucet-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1193.0238
+    Discounted Mean J: 532.3549
+  hammer-v2:
+    Success Rate: 0.0000
+    Mean J: 146.3552
+    Discounted Mean J: 75.0109
+  hand-insert-v2:
+    Success Rate: 0.0000
+    Mean J: 14.9400
+    Discounted Mean J: 8.4770
+  handle-press-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1318.7735
+    Discounted Mean J: 614.4076
+  handle-press-v2:
+    Success Rate: 0.9000
+    Mean J: 1216.6867
+    Discounted Mean J: 569.8127
+  handle-pull-side-v2:
+    Success Rate: 0.0000
+    Mean J: 3.4089
+    Discounted Mean J: 1.7333
+  handle-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 528.8919
+    Discounted Mean J: 257.2608
+  lever-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 177.9546
+    Discounted Mean J: 90.4009
+  peg-insert-side-v2:
+    Success Rate: 0.0000
+    Mean J: 3.5198
+    Discounted Mean J: 1.7976
+  peg-unplug-side-v2:
+    Success Rate: 0.0000
+    Mean J: 4.4691
+    Discounted Mean J: 2.3218
+  pick-place-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  pick-out-of-hole-v2:
+    Success Rate: 0.0000
+    Mean J: 3.1795
+    Discounted Mean J: 1.6274
+  pick-place-v2:
+    Success Rate: 0.0000
+    Mean J: 1.8651
+    Discounted Mean J: 0.9517
+  plate-slide-v2:
+    Success Rate: 0.3000
+    Mean J: 722.5279
+    Discounted Mean J: 318.0015
+  plate-slide-side-v2:
+    Success Rate: 0.0000
+    Mean J: 513.1562
+    Discounted Mean J: 241.3931
+  plate-slide-back-v2:
+    Success Rate: 0.3000
+    Mean J: 805.7952
+    Discounted Mean J: 372.5380
+  plate-slide-back-side-v2:
+    Success Rate: 0.9000
+    Mean J: 1039.2702
+    Discounted Mean J: 477.8732
+  push-back-v2:
+    Success Rate: 0.0000
+    Mean J: 2.5552
+    Discounted Mean J: 1.3311
+  push-v2:
+    Success Rate: 0.0000
+    Mean J: 18.7994
+    Discounted Mean J: 9.7924
+  push-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 14.7116
+    Discounted Mean J: 7.6402
+  reach-v2:
+    Success Rate: 1.0000
+    Mean J: 1344.6915
+    Discounted Mean J: 641.7056
+  reach-wall-v2:
+    Success Rate: 0.9000
+    Mean J: 1301.3403
+    Discounted Mean J: 616.2228
+  shelf-place-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  soccer-v2:
+    Success Rate: 0.0000
+    Mean J: 42.2265
+    Discounted Mean J: 21.1487
+  stick-push-v2:
+    Success Rate: 0.0000
+    Mean J: 5.2196
+    Discounted Mean J: 2.7327
+  stick-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 7.0521
+    Discounted Mean J: 3.5836
+  sweep-into-v2:
+    Success Rate: 0.7000
+    Mean J: 660.9655
+    Discounted Mean J: 319.7373
+  sweep-v2:
+    Success Rate: 0.0000
+    Mean J: 129.3827
+    Discounted Mean J: 59.2653
+  window-open-v2:
+    Success Rate: 0.0000
+    Mean J: 74.7828
+    Discounted Mean J: 38.5097
+  window-close-v2:
+    Success Rate: 0.6000
+    Mean J: 696.7764
+    Discounted Mean J: 287.3428
+
+Processing seed 9...
+  assembly-v2:
+    Success Rate: 0.0000
+    Mean J: 221.2445
+    Discounted Mean J: 108.6871
+  basketball-v2:
+    Success Rate: 0.0000
+    Mean J: 5.2219
+    Discounted Mean J: 2.5284
+  bin-picking-v2:
+    Success Rate: 0.0000
+    Mean J: 2.4656
+    Discounted Mean J: 1.3117
+  box-close-v2:
+    Success Rate: 0.0000
+    Mean J: 177.5198
+    Discounted Mean J: 97.4330
+  button-press-topdown-v2:
+    Success Rate: 0.0000
+    Mean J: 453.6319
+    Discounted Mean J: 204.0971
+  button-press-topdown-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 345.8038
+    Discounted Mean J: 158.5322
+  button-press-v2:
+    Success Rate: 0.0000
+    Mean J: 253.2013
+    Discounted Mean J: 120.8153
+  button-press-wall-v2:
+    Success Rate: 0.4000
+    Mean J: 544.5787
+    Discounted Mean J: 237.1370
+  coffee-button-v2:
+    Success Rate: 1.0000
+    Mean J: 1019.4508
+    Discounted Mean J: 465.8654
+  coffee-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 8.8625
+    Discounted Mean J: 4.5142
+  coffee-push-v2:
+    Success Rate: 0.0000
+    Mean J: 5.6823
+    Discounted Mean J: 2.9505
+  dial-turn-v2:
+    Success Rate: 0.0000
+    Mean J: 467.4108
+    Discounted Mean J: 224.1153
+  disassemble-v2:
+    Success Rate: 0.0000
+    Mean J: 46.7843
+    Discounted Mean J: 24.7056
+  door-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1021.0967
+    Discounted Mean J: 398.2935
+  door-lock-v2:
+    Success Rate: 0.9000
+    Mean J: 1004.2918
+    Discounted Mean J: 464.9765
+  door-open-v2:
+    Success Rate: 0.0000
+    Mean J: 529.1473
+    Discounted Mean J: 245.7088
+  door-unlock-v2:
+    Success Rate: 0.9000
+    Mean J: 1002.2172
+    Discounted Mean J: 449.6420
+  drawer-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1355.0000
+    Discounted Mean J: 642.9503
+  drawer-open-v2:
+    Success Rate: 0.0000
+    Mean J: 773.6821
+    Discounted Mean J: 376.9360
+  faucet-open-v2:
+    Success Rate: 0.0000
+    Mean J: 607.7041
+    Discounted Mean J: 305.8259
+  faucet-close-v2:
+    Success Rate: 0.3000
+    Mean J: 792.1436
+    Discounted Mean J: 375.8037
+  hammer-v2:
+    Success Rate: 0.0000
+    Mean J: 167.9757
+    Discounted Mean J: 84.1469
+  hand-insert-v2:
+    Success Rate: 0.4000
+    Mean J: 178.6465
+    Discounted Mean J: 80.0788
+  handle-press-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1342.0760
+    Discounted Mean J: 633.1101
+  handle-press-v2:
+    Success Rate: 1.0000
+    Mean J: 1343.2682
+    Discounted Mean J: 635.0091
+  handle-pull-side-v2:
+    Success Rate: 0.0000
+    Mean J: 2.8415
+    Discounted Mean J: 1.5269
+  handle-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 484.3603
+    Discounted Mean J: 234.7061
+  lever-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 172.5276
+    Discounted Mean J: 87.4024
+  peg-insert-side-v2:
+    Success Rate: 0.0000
+    Mean J: 2.6045
+    Discounted Mean J: 1.3283
+  peg-unplug-side-v2:
+    Success Rate: 0.0000
+    Mean J: 7.8024
+    Discounted Mean J: 4.1861
+  pick-place-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  pick-out-of-hole-v2:
+    Success Rate: 0.0000
+    Mean J: 2.8370
+    Discounted Mean J: 1.4639
+  pick-place-v2:
+    Success Rate: 0.0000
+    Mean J: 2.6657
+    Discounted Mean J: 1.5810
+  plate-slide-v2:
+    Success Rate: 0.6000
+    Mean J: 831.4409
+    Discounted Mean J: 360.4181
+  plate-slide-side-v2:
+    Success Rate: 0.0000
+    Mean J: 717.1539
+    Discounted Mean J: 328.9890
+  plate-slide-back-v2:
+    Success Rate: 0.8000
+    Mean J: 1017.7771
+    Discounted Mean J: 465.8964
+  plate-slide-back-side-v2:
+    Success Rate: 0.6000
+    Mean J: 1051.5058
+    Discounted Mean J: 479.0003
+  push-back-v2:
+    Success Rate: 0.0000
+    Mean J: 2.6179
+    Discounted Mean J: 1.2643
+  push-v2:
+    Success Rate: 0.0000
+    Mean J: 32.7396
+    Discounted Mean J: 17.9941
+  push-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 32.1100
+    Discounted Mean J: 16.0579
+  reach-v2:
+    Success Rate: 1.0000
+    Mean J: 1357.9926
+    Discounted Mean J: 648.6736
+  reach-wall-v2:
+    Success Rate: 1.0000
+    Mean J: 1328.7017
+    Discounted Mean J: 624.8841
+  shelf-place-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  soccer-v2:
+    Success Rate: 0.0000
+    Mean J: 99.4973
+    Discounted Mean J: 47.0788
+  stick-push-v2:
+    Success Rate: 0.0000
+    Mean J: 3.5617
+    Discounted Mean J: 1.9284
+  stick-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 3.1724
+    Discounted Mean J: 1.6687
+  sweep-into-v2:
+    Success Rate: 0.6000
+    Mean J: 386.0905
+    Discounted Mean J: 177.8188
+  sweep-v2:
+    Success Rate: 0.0000
+    Mean J: 134.7847
+    Discounted Mean J: 64.9243
+  window-open-v2:
+    Success Rate: 1.0000
+    Mean J: 784.8750
+    Discounted Mean J: 308.0688
+  window-close-v2:
+    Success Rate: 0.0000
+    Mean J: 136.3781
+    Discounted Mean J: 68.7342
+
+Processing seed 10...
+  assembly-v2:
+    Success Rate: 0.0000
+    Mean J: 276.5091
+    Discounted Mean J: 131.7837
+  basketball-v2:
+    Success Rate: 0.0000
+    Mean J: 2.8980
+    Discounted Mean J: 1.5384
+  bin-picking-v2:
+    Success Rate: 0.0000
+    Mean J: 3.4058
+    Discounted Mean J: 1.6932
+  box-close-v2:
+    Success Rate: 0.0000
+    Mean J: 193.4384
+    Discounted Mean J: 106.3792
+  button-press-topdown-v2:
+    Success Rate: 0.0000
+    Mean J: 380.0212
+    Discounted Mean J: 170.8791
+  button-press-topdown-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 425.8172
+    Discounted Mean J: 188.0329
+  button-press-v2:
+    Success Rate: 0.0000
+    Mean J: 240.7878
+    Discounted Mean J: 114.6811
+  button-press-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 569.1588
+    Discounted Mean J: 250.2363
+  coffee-button-v2:
+    Success Rate: 0.9000
+    Mean J: 991.5220
+    Discounted Mean J: 443.7865
+  coffee-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 6.5925
+    Discounted Mean J: 3.4724
+  coffee-push-v2:
+    Success Rate: 0.1000
+    Mean J: 8.5720
+    Discounted Mean J: 4.6196
+  dial-turn-v2:
+    Success Rate: 0.0000
+    Mean J: 382.6976
+    Discounted Mean J: 192.6685
+  disassemble-v2:
+    Success Rate: 0.0000
+    Mean J: 63.8747
+    Discounted Mean J: 33.7214
+  door-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1023.9503
+    Discounted Mean J: 399.9413
+  door-lock-v2:
+    Success Rate: 1.0000
+    Mean J: 971.4707
+    Discounted Mean J: 444.8260
+  door-open-v2:
+    Success Rate: 0.0000
+    Mean J: 502.9909
+    Discounted Mean J: 236.8530
+  door-unlock-v2:
+    Success Rate: 1.0000
+    Mean J: 1115.5937
+    Discounted Mean J: 504.4334
+  drawer-close-v2:
+    Success Rate: 1.0000
+    Mean J: 1352.3653
+    Discounted Mean J: 640.6729
+  drawer-open-v2:
+    Success Rate: 0.0000
+    Mean J: 747.2214
+    Discounted Mean J: 364.8637
+  faucet-open-v2:
+    Success Rate: 0.0000
+    Mean J: 607.0857
+    Discounted Mean J: 304.0533
+  faucet-close-v2:
+    Success Rate: 0.0000
+    Mean J: 612.8309
+    Discounted Mean J: 308.8315
+  hammer-v2:
+    Success Rate: 0.0000
+    Mean J: 150.5248
+    Discounted Mean J: 78.0945
+  hand-insert-v2:
+    Success Rate: 0.0000
+    Mean J: 261.8692
+    Discounted Mean J: 130.5422
+  handle-press-side-v2:
+    Success Rate: 1.0000
+    Mean J: 1354.4015
+    Discounted Mean J: 643.5531
+  handle-press-v2:
+    Success Rate: 1.0000
+    Mean J: 1321.9139
+    Discounted Mean J: 629.8920
+  handle-pull-side-v2:
+    Success Rate: 0.0000
+    Mean J: 2.3851
+    Discounted Mean J: 1.2431
+  handle-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 514.6155
+    Discounted Mean J: 248.6359
+  lever-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 177.9824
+    Discounted Mean J: 89.9305
+  peg-insert-side-v2:
+    Success Rate: 0.0000
+    Mean J: 2.4847
+    Discounted Mean J: 1.3107
+  peg-unplug-side-v2:
+    Success Rate: 0.2000
+    Mean J: 15.5855
+    Discounted Mean J: 7.4453
+  pick-place-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  pick-out-of-hole-v2:
+    Success Rate: 0.0000
+    Mean J: 2.7954
+    Discounted Mean J: 1.4470
+  pick-place-v2:
+    Success Rate: 0.0000
+    Mean J: 2.1897
+    Discounted Mean J: 1.0830
+  plate-slide-v2:
+    Success Rate: 0.5000
+    Mean J: 889.7757
+    Discounted Mean J: 384.5106
+  plate-slide-side-v2:
+    Success Rate: 0.0000
+    Mean J: 588.1744
+    Discounted Mean J: 270.9800
+  plate-slide-back-v2:
+    Success Rate: 0.0000
+    Mean J: 420.0614
+    Discounted Mean J: 210.7134
+  plate-slide-back-side-v2:
+    Success Rate: 0.8000
+    Mean J: 1143.8214
+    Discounted Mean J: 520.8396
+  push-back-v2:
+    Success Rate: 0.0000
+    Mean J: 3.1600
+    Discounted Mean J: 1.5699
+  push-v2:
+    Success Rate: 0.0000
+    Mean J: 38.0106
+    Discounted Mean J: 22.8950
+  push-wall-v2:
+    Success Rate: 0.0000
+    Mean J: 93.7675
+    Discounted Mean J: 46.0056
+  reach-v2:
+    Success Rate: 1.0000
+    Mean J: 1343.6235
+    Discounted Mean J: 638.3816
+  reach-wall-v2:
+    Success Rate: 1.0000
+    Mean J: 1321.0942
+    Discounted Mean J: 618.4796
+  shelf-place-v2:
+    Success Rate: 0.0000
+    Mean J: 0.0000
+    Discounted Mean J: 0.0000
+  soccer-v2:
+    Success Rate: 0.2000
+    Mean J: 264.2563
+    Discounted Mean J: 119.6628
+  stick-push-v2:
+    Success Rate: 0.0000
+    Mean J: 3.2845
+    Discounted Mean J: 1.8187
+  stick-pull-v2:
+    Success Rate: 0.0000
+    Mean J: 6.4089
+    Discounted Mean J: 3.2145
+  sweep-into-v2:
+    Success Rate: 0.0000
+    Mean J: 195.7738
+    Discounted Mean J: 94.4395
+  sweep-v2:
+    Success Rate: 0.0000
+    Mean J: 165.2688
+    Discounted Mean J: 78.3793
+  window-open-v2:
+    Success Rate: 0.0000
+    Mean J: 82.8243
+    Discounted Mean J: 42.2181
+  window-close-v2:
+    Success Rate: 1.0000
+    Mean J: 745.4740
+    Discounted Mean J: 314.1145
+
+============================================================
+FINAL STATISTICS (Epoch 10, per task across 5 seeds):
+============================================================
+
+ASSEMBLY-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 210.1853 ± 51.7185
+   Values: ['127.9890', '227.1804', '247.9003', '173.8144', '262.5640', '144.2805', '221.2445', '276.5091']
+
+3. Discounted Mean J:
+   Mean ± Std: 102.5204 ± 23.0405
+   Values: ['66.9785', '110.0166', '120.1869', '85.6347', '124.9193', '71.9561', '108.6871', '131.7837']
+
+BASKETBALL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 3.6817 ± 1.0765
+   Values: ['3.5656', '4.8849', '1.6353', '4.2102', '3.1296', '3.9081', '5.2219', '2.8980']
+
+3. Discounted Mean J:
+   Mean ± Std: 1.8929 ± 0.5092
+   Values: ['1.7959', '2.5474', '0.9593', '2.2043', '1.5447', '2.0249', '2.5284', '1.5384']
+
+BIN-PICKING-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 3.5918 ± 0.9872
+   Values: ['3.3860', '2.6033', '3.3604', '5.8710', '3.5762', '4.0665', '2.4656', '3.4058']
+
+3. Discounted Mean J:
+   Mean ± Std: 1.8681 ± 0.5104
+   Values: ['1.7677', '1.3520', '1.8544', '3.0638', '1.8412', '2.0605', '1.3117', '1.6932']
+
+BOX-CLOSE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 189.3986 ± 10.2626
+   Values: ['194.1820', '172.3172', '196.7225', '183.9570', '190.7595', '206.2922', '177.5198', '193.4384']
+
+3. Discounted Mean J:
+   Mean ± Std: 103.9095 ± 5.9439
+   Values: ['105.5958', '94.4670', '110.1257', '99.9988', '103.9516', '113.3249', '97.4330', '106.3792']
+
+BUTTON-PRESS-TOPDOWN-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.4375 ± 0.4526
+   Values: ['0.0000', '0.1000', '1.0000', '0.4000', '1.0000', '1.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 600.7452 ± 208.6969
+   Values: ['376.2814', '446.4057', '855.0480', '570.2131', '890.2042', '834.1558', '453.6319', '380.0212']
+
+3. Discounted Mean J:
+   Mean ± Std: 252.5433 ± 75.9089
+   Values: ['169.2158', '195.8093', '342.0025', '240.8848', '360.4917', '336.9663', '204.0971', '170.8791']
+
+BUTTON-PRESS-TOPDOWN-WALL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 418.6436 ± 43.4928
+   Values: ['493.4115', '401.1206', '372.7606', '420.6708', '458.9739', '430.5906', '345.8038', '425.8172']
+
+3. Discounted Mean J:
+   Mean ± Std: 186.8185 ± 17.2857
+   Values: ['215.1308', '179.8862', '166.8034', '189.4389', '204.0689', '192.6551', '158.5322', '188.0329']
+
+BUTTON-PRESS-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0250 ± 0.0433
+   Values: ['0.0000', '0.0000', '0.0000', '0.1000', '0.1000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 266.2589 ± 26.2962
+   Values: ['262.6323', '223.6246', '297.3994', '282.3878', '306.7911', '263.2470', '253.2013', '240.7878']
+
+3. Discounted Mean J:
+   Mean ± Std: 126.3696 ± 11.8972
+   Values: ['124.2037', '107.4947', '139.0222', '133.8393', '146.0126', '124.8880', '120.8153', '114.6811']
+
+BUTTON-PRESS-WALL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.4500 ± 0.3873
+   Values: ['0.7000', '1.0000', '0.9000', '0.6000', '0.0000', '0.0000', '0.4000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 574.6982 ± 219.6613
+   Values: ['701.2977', '849.2245', '740.9197', '630.4445', '68.3759', '493.5854', '544.5787', '569.1588']
+
+3. Discounted Mean J:
+   Mean ± Std: 249.5649 ± 94.0779
+   Values: ['307.3275', '370.1785', '310.7597', '274.0509', '32.3268', '214.5022', '237.1370', '250.2363']
+
+COFFEE-BUTTON-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.9750 ± 0.0433
+   Values: ['1.0000', '1.0000', '1.0000', '1.0000', '0.9000', '1.0000', '1.0000', '0.9000']
+
+2. Mean J:
+   Mean ± Std: 974.2652 ± 37.9649
+   Values: ['897.7584', '1016.8253', '994.3165', '944.1938', '960.0533', '970.0013', '1019.4508', '991.5220']
+
+3. Discounted Mean J:
+   Mean ± Std: 443.4458 ± 15.7149
+   Values: ['418.3427', '464.2094', '451.8305', '427.1425', '435.0026', '441.3865', '465.8654', '443.7865']
+
+COFFEE-PULL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 7.9798 ± 1.7318
+   Values: ['9.3589', '10.7123', '6.3797', '9.6229', '6.1466', '6.1632', '8.8625', '6.5925']
+
+3. Discounted Mean J:
+   Mean ± Std: 3.9712 ± 0.7448
+   Values: ['4.2734', '5.2805', '3.2868', '4.5806', '3.1871', '3.1746', '4.5142', '3.4724']
+
+COFFEE-PUSH-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0125 ± 0.0331
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.1000']
+
+2. Mean J:
+   Mean ± Std: 7.4822 ± 1.1322
+   Values: ['6.4949', '7.2772', '6.4698', '9.0507', '7.6977', '8.6131', '5.6823', '8.5720']
+
+3. Discounted Mean J:
+   Mean ± Std: 3.8831 ± 0.5781
+   Values: ['3.3466', '3.7164', '3.4792', '4.5967', '3.9546', '4.4009', '2.9505', '4.6196']
+
+DIAL-TURN-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.1375 ± 0.1867
+   Values: ['0.3000', '0.0000', '0.5000', '0.0000', '0.0000', '0.3000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 456.4468 ± 105.0494
+   Values: ['472.6910', '372.0499', '513.1694', '365.0897', '381.0138', '697.4519', '467.4108', '382.6976']
+
+3. Discounted Mean J:
+   Mean ± Std: 220.5854 ± 42.9880
+   Values: ['225.7235', '188.1078', '236.3032', '182.3863', '192.6848', '322.6934', '224.1153', '192.6685']
+
+DISASSEMBLE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 59.0011 ± 5.0884
+   Values: ['60.5083', '61.3730', '57.4004', '60.5624', '63.5003', '58.0058', '46.7843', '63.8747']
+
+3. Discounted Mean J:
+   Mean ± Std: 31.1419 ± 2.6789
+   Values: ['31.9454', '32.3647', '30.2996', '31.9609', '33.4993', '30.6379', '24.7056', '33.7214']
+
+DOOR-CLOSE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 1.0000 ± 0.0000
+   Values: ['1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 1026.8076 ± 7.6477
+   Values: ['1021.0380', '1024.4323', '1040.6613', '1016.5394', '1031.8429', '1034.8995', '1021.0967', '1023.9503']
+
+3. Discounted Mean J:
+   Mean ± Std: 401.8061 ± 4.6489
+   Values: ['398.2338', '400.5019', '410.2519', '395.6684', '404.7670', '406.7914', '398.2935', '399.9413']
+
+DOOR-LOCK-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.9500 ± 0.0707
+   Values: ['1.0000', '0.9000', '1.0000', '1.0000', '0.8000', '1.0000', '0.9000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 981.0157 ± 41.4452
+   Values: ['975.6359', '982.0238', '975.6048', '1015.0625', '887.2901', '1036.7462', '1004.2918', '971.4707']
+
+3. Discounted Mean J:
+   Mean ± Std: 448.1786 ± 19.5939
+   Values: ['434.5689', '463.7460', '430.0010', '470.1538', '412.5714', '464.5851', '464.9765', '444.8260']
+
+DOOR-OPEN-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0250 ± 0.0661
+   Values: ['0.0000', '0.0000', '0.2000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 473.9778 ± 60.4293
+   Values: ['439.6582', '485.6541', '516.0862', '328.4870', '504.8455', '484.9529', '529.1473', '502.9909']
+
+3. Discounted Mean J:
+   Mean ± Std: 222.0507 ± 25.7913
+   Values: ['205.8616', '226.0221', '235.6763', '160.3431', '237.0264', '228.9144', '245.7088', '236.8530']
+
+DOOR-UNLOCK-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.7750 ± 0.3345
+   Values: ['1.0000', '0.8000', '1.0000', '1.0000', '0.0000', '0.5000', '0.9000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 927.6604 ± 220.0834
+   Values: ['1054.0495', '909.6298', '1149.6240', '1029.0365', '458.4537', '702.6784', '1002.2172', '1115.5937']
+
+3. Discounted Mean J:
+   Mean ± Std: 420.9529 ± 97.9222
+   Values: ['478.8296', '410.6630', '523.0474', '467.9166', '215.7995', '317.2915', '449.6420', '504.4334']
+
+DRAWER-CLOSE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 1.0000 ± 0.0000
+   Values: ['1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 1340.1598 ± 20.8750
+   Values: ['1285.9593', '1341.9076', '1347.1448', '1349.0899', '1343.7705', '1346.0414', '1355.0000', '1352.3653']
+
+3. Discounted Mean J:
+   Mean ± Std: 635.2677 ± 5.8855
+   Values: ['622.4923', '632.0633', '636.5841', '638.3383', '633.2719', '635.7689', '642.9503', '640.6729']
+
+DRAWER-OPEN-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.1000 ± 0.2646
+   Values: ['0.8000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 787.0433 ± 94.9225
+   Values: ['1035.3630', '742.3696', '739.6523', '732.9599', '750.5338', '774.5642', '773.6821', '747.2214']
+
+3. Discounted Mean J:
+   Mean ± Std: 380.1747 ± 37.8243
+   Values: ['478.4425', '363.2505', '360.0331', '355.7691', '364.3522', '377.7503', '376.9360', '364.8637']
+
+FAUCET-OPEN-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 605.2450 ± 6.6004
+   Values: ['588.3332', '606.0870', '610.6382', '605.0804', '607.5508', '609.4807', '607.7041', '607.0857']
+
+3. Discounted Mean J:
+   Mean ± Std: 304.4894 ± 2.7565
+   Values: ['297.4859', '304.7279', '306.4346', '305.1359', '305.8536', '306.3979', '305.8259', '304.0533']
+
+FAUCET-CLOSE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.4125 ± 0.4649
+   Values: ['0.0000', '0.0000', '1.0000', '0.0000', '1.0000', '1.0000', '0.3000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 862.5083 ± 287.1003
+   Values: ['605.0552', '607.9511', '1240.5543', '607.0338', '1241.4737', '1193.0238', '792.1436', '612.8309']
+
+3. Discounted Mean J:
+   Mean ± Std: 407.6762 ± 114.7264
+   Values: ['305.1480', '307.3957', '562.6222', '306.2970', '562.9568', '532.3549', '375.8037', '308.8315']
+
+HAMMER-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 185.8129 ± 70.2789
+   Values: ['144.6182', '142.6259', '365.1748', '202.7393', '166.4895', '146.3552', '167.9757', '150.5248']
+
+3. Discounted Mean J:
+   Mean ± Std: 92.7272 ± 31.1050
+   Values: ['74.6360', '73.3056', '172.1796', '99.9958', '84.4483', '75.0109', '84.1469', '78.0945']
+
+HAND-INSERT-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0500 ± 0.1323
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.4000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 60.8050 ± 94.5119
+   Values: ['4.0098', '4.1443', '3.9607', '2.4403', '16.4293', '14.9400', '178.6465', '261.8692']
+
+3. Discounted Mean J:
+   Mean ± Std: 29.4099 ± 45.6785
+   Values: ['2.1224', '2.1389', '2.1653', '1.3655', '8.3889', '8.4770', '80.0788', '130.5422']
+
+HANDLE-PRESS-SIDE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 1.0000 ± 0.0000
+   Values: ['1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 1333.1440 ± 15.0314
+   Values: ['1340.4557', '1313.3350', '1350.8810', '1316.0125', '1329.2171', '1318.7735', '1342.0760', '1354.4015']
+
+3. Discounted Mean J:
+   Mean ± Std: 625.9874 ± 12.3404
+   Values: ['631.6134', '609.1598', '640.6090', '612.2594', '623.1871', '614.4076', '633.1101', '643.5531']
+
+HANDLE-PRESS-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.9625 ± 0.0484
+   Values: ['1.0000', '0.9000', '1.0000', '0.9000', '1.0000', '0.9000', '1.0000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 1249.7074 ± 111.0906
+   Values: ['1345.4689', '1037.4814', '1352.1965', '1113.1732', '1267.4706', '1216.6867', '1343.2682', '1321.9139']
+
+3. Discounted Mean J:
+   Mean ± Std: 586.6151 ± 60.6204
+   Values: ['640.9669', '479.9333', '641.7058', '500.2702', '595.3311', '569.8127', '635.0091', '629.8920']
+
+HANDLE-PULL-SIDE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 3.1150 ± 1.1308
+   Values: ['3.1262', '3.3143', '4.9926', '0.8414', '4.0099', '3.4089', '2.8415', '2.3851']
+
+3. Discounted Mean J:
+   Mean ± Std: 1.6272 ± 0.5455
+   Values: ['1.5925', '1.7113', '2.5441', '0.5618', '2.1044', '1.7333', '1.5269', '1.2431']
+
+HANDLE-PULL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 495.3265 ± 31.6186
+   Values: ['493.4936', '518.6779', '516.6707', '423.0900', '482.8120', '528.8919', '484.3603', '514.6155']
+
+3. Discounted Mean J:
+   Mean ± Std: 240.9555 ± 14.6538
+   Values: ['242.9950', '251.4301', '250.2838', '207.5679', '234.7644', '257.2608', '234.7061', '248.6359']
+
+LEVER-PULL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 171.3833 ± 9.3733
+   Values: ['160.3134', '169.5664', '180.1225', '179.7334', '152.8662', '177.9546', '172.5276', '177.9824']
+
+3. Discounted Mean J:
+   Mean ± Std: 87.0573 ± 4.3487
+   Values: ['81.4148', '85.5342', '91.6989', '90.8643', '79.2126', '90.4009', '87.4024', '89.9305']
+
+PEG-INSERT-SIDE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 2.8093 ± 0.6627
+   Values: ['2.4773', '3.9166', '2.0786', '2.0018', '3.3915', '3.5198', '2.6045', '2.4847']
+
+3. Discounted Mean J:
+   Mean ± Std: 1.4539 ± 0.3100
+   Values: ['1.3004', '1.9358', '1.1126', '1.0764', '1.7693', '1.7976', '1.3283', '1.3107']
+
+PEG-UNPLUG-SIDE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0250 ± 0.0661
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.2000']
+
+2. Mean J:
+   Mean ± Std: 11.2522 ± 10.8512
+   Values: ['38.4005', '3.1577', '8.7039', '5.9199', '5.9784', '4.4691', '7.8024', '15.5855']
+
+3. Discounted Mean J:
+   Mean ± Std: 5.6577 ± 5.1665
+   Values: ['18.6314', '1.8031', '4.6171', '3.1662', '3.0907', '2.3218', '4.1861', '7.4453']
+
+PICK-PLACE-WALL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+3. Discounted Mean J:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+PICK-OUT-OF-HOLE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 2.9080 ± 0.2310
+   Values: ['2.7392', '2.6315', '2.6871', '3.2830', '3.1110', '3.1795', '2.8370', '2.7954']
+
+3. Discounted Mean J:
+   Mean ± Std: 1.4900 ± 0.1154
+   Values: ['1.3711', '1.3600', '1.3840', '1.6617', '1.6053', '1.6274', '1.4639', '1.4470']
+
+PICK-PLACE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 1.8942 ± 0.5079
+   Values: ['1.5393', '1.8428', '2.5167', '1.0698', '1.4647', '1.8651', '2.6657', '2.1897']
+
+3. Discounted Mean J:
+   Mean ± Std: 1.0242 ± 0.2873
+   Values: ['0.8443', '0.9120', '1.3265', '0.5861', '0.9086', '0.9517', '1.5810', '1.0830']
+
+PLATE-SLIDE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.6125 ± 0.2315
+   Values: ['1.0000', '0.3000', '0.8000', '0.8000', '0.6000', '0.3000', '0.6000', '0.5000']
+
+2. Mean J:
+   Mean ± Std: 883.4079 ± 92.0629
+   Values: ['998.2574', '791.5993', '982.1613', '971.7063', '879.7946', '722.5279', '831.4409', '889.7757']
+
+3. Discounted Mean J:
+   Mean ± Std: 382.1708 ± 35.7006
+   Values: ['424.2905', '347.5729', '421.0945', '415.3024', '386.1757', '318.0015', '360.4181', '384.5106']
+
+PLATE-SLIDE-SIDE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.3625 ± 0.4470
+   Values: ['1.0000', '0.0000', '0.1000', '1.0000', '0.8000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 701.9230 ± 198.1876
+   Values: ['1122.7997', '454.6747', '647.0053', '715.7485', '856.6712', '513.1562', '717.1539', '588.1744']
+
+3. Discounted Mean J:
+   Mean ± Std: 330.7984 ± 89.4656
+   Values: ['507.5565', '217.5862', '299.9229', '375.1573', '404.8022', '241.3931', '328.9890', '270.9800']
+
+PLATE-SLIDE-BACK-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.4500 ± 0.3428
+   Values: ['0.7000', '0.0000', '0.3000', '1.0000', '0.5000', '0.3000', '0.8000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 870.7180 ± 209.9656
+   Values: ['912.5738', '806.1092', '973.5433', '1196.1208', '833.7630', '805.7952', '1017.7771', '420.0614']
+
+3. Discounted Mean J:
+   Mean ± Std: 403.0928 ± 89.8412
+   Values: ['420.6168', '374.7279', '449.7613', '541.6269', '388.8618', '372.5380', '465.8964', '210.7134']
+
+PLATE-SLIDE-BACK-SIDE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.4750 ± 0.3961
+   Values: ['0.0000', '1.0000', '0.5000', '0.0000', '0.0000', '0.9000', '0.6000', '0.8000']
+
+2. Mean J:
+   Mean ± Std: 879.3159 ± 277.6627
+   Values: ['409.1316', '1144.2633', '1012.3252', '466.9328', '767.2766', '1039.2702', '1051.5058', '1143.8214']
+
+3. Discounted Mean J:
+   Mean ± Std: 405.7248 ± 118.0008
+   Values: ['202.8895', '504.1273', '469.2911', '230.4150', '361.3620', '477.8732', '479.0003', '520.8396']
+
+PUSH-BACK-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 3.5188 ± 2.3285
+   Values: ['2.5020', '9.5943', '2.3174', '2.0765', '3.3274', '2.5552', '2.6179', '3.1600']
+
+3. Discounted Mean J:
+   Mean ± Std: 1.7606 ± 1.0937
+   Values: ['1.3489', '4.6152', '1.1892', '1.0891', '1.6772', '1.3311', '1.2643', '1.5699']
+
+PUSH-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 25.7315 ± 12.0846
+   Values: ['49.7707', '17.7904', '15.9196', '18.5778', '14.2440', '18.7994', '32.7396', '38.0106']
+
+3. Discounted Mean J:
+   Mean ± Std: 13.7906 ± 6.9951
+   Values: ['26.2377', '8.8183', '8.1958', '9.0164', '7.3750', '9.7924', '17.9941', '22.8950']
+
+PUSH-WALL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 34.2978 ± 24.3761
+   Values: ['23.0499', '18.1874', '32.3285', '15.9091', '44.3181', '14.7116', '32.1100', '93.7675']
+
+3. Discounted Mean J:
+   Mean ± Std: 17.5149 ± 11.7381
+   Values: ['14.7732', '9.3003', '15.4750', '8.2543', '22.6128', '7.6402', '16.0579', '46.0056']
+
+REACH-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.9875 ± 0.0331
+   Values: ['1.0000', '1.0000', '1.0000', '0.9000', '1.0000', '1.0000', '1.0000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 1346.8732 ± 6.3547
+   Values: ['1342.5006', '1336.6741', '1350.9425', '1353.3302', '1345.2304', '1344.6915', '1357.9926', '1343.6235']
+
+3. Discounted Mean J:
+   Mean ± Std: 641.7700 ± 6.3713
+   Values: ['636.3997', '631.3999', '644.0377', '652.8580', '640.7042', '641.7056', '648.6736', '638.3816']
+
+REACH-WALL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.9750 ± 0.0433
+   Values: ['1.0000', '1.0000', '1.0000', '1.0000', '0.9000', '0.9000', '1.0000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 1324.3660 ± 10.0593
+   Values: ['1338.0961', '1330.1780', '1328.6915', '1325.2848', '1321.5415', '1301.3403', '1328.7017', '1321.0942']
+
+3. Discounted Mean J:
+   Mean ± Std: 623.9382 ± 4.7434
+   Values: ['632.1779', '627.2279', '626.8666', '622.7908', '622.8556', '616.2228', '624.8841', '618.4796']
+
+SHELF-PLACE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+3. Discounted Mean J:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+SOCCER-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0625 ± 0.0857
+   Values: ['0.0000', '0.2000', '0.1000', '0.0000', '0.0000', '0.0000', '0.0000', '0.2000']
+
+2. Mean J:
+   Mean ± Std: 108.0553 ± 72.4319
+   Values: ['31.1283', '174.1247', '94.8087', '56.3744', '102.0263', '42.2265', '99.4973', '264.2563']
+
+3. Discounted Mean J:
+   Mean ± Std: 50.3845 ± 31.5688
+   Values: ['17.7763', '78.5833', '41.4104', '31.7844', '45.6316', '21.1487', '47.0788', '119.6628']
+
+STICK-PUSH-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 5.0188 ± 1.6391
+   Values: ['4.7569', '4.3290', '3.6780', '7.7661', '7.5548', '5.2196', '3.5617', '3.2845']
+
+3. Discounted Mean J:
+   Mean ± Std: 2.6873 ± 0.7692
+   Values: ['2.5555', '2.6667', '2.0155', '4.0259', '3.7552', '2.7327', '1.9284', '1.8187']
+
+STICK-PULL-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 4.9846 ± 1.2557
+   Values: ['4.6382', '4.7548', '5.8767', '4.1692', '3.8042', '7.0521', '3.1724', '6.4089']
+
+3. Discounted Mean J:
+   Mean ± Std: 2.5702 ± 0.5977
+   Values: ['2.3197', '2.4579', '2.9988', '2.2174', '2.1011', '3.5836', '1.6687', '3.2145']
+
+SWEEP-INTO-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.2750 ± 0.3631
+   Values: ['0.0000', '0.0000', '0.9000', '0.0000', '0.0000', '0.7000', '0.6000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 386.4515 ± 253.3627
+   Values: ['165.2769', '260.8427', '931.3202', '228.2180', '263.1244', '660.9655', '386.0905', '195.7738']
+
+3. Discounted Mean J:
+   Mean ± Std: 179.0830 ± 107.7431
+   Values: ['80.9384', '126.4519', '394.2657', '111.9569', '127.0553', '319.7373', '177.8188', '94.4395']
+
+SWEEP-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.0000 ± 0.0000
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 147.9824 ± 29.1216
+   Values: ['138.8761', '161.8130', '90.9246', '171.3613', '191.4475', '129.3827', '134.7847', '165.2688']
+
+3. Discounted Mean J:
+   Mean ± Std: 70.5604 ± 13.0942
+   Values: ['68.4091', '77.8488', '45.3209', '81.3172', '89.0184', '59.2653', '64.9243', '78.3793']
+
+WINDOW-OPEN-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.3625 ± 0.4689
+   Values: ['1.0000', '0.9000', '0.0000', '0.0000', '0.0000', '0.0000', '1.0000', '0.0000']
+
+2. Mean J:
+   Mean ± Std: 337.9223 ± 347.6370
+   Values: ['927.7406', '611.9531', '88.2222', '61.5699', '71.4106', '74.7828', '784.8750', '82.8243']
+
+3. Discounted Mean J:
+   Mean ± Std: 137.6992 ± 131.0311
+   Values: ['356.5554', '243.8543', '43.3052', '32.1023', '36.9799', '38.5097', '308.0688', '42.2181']
+
+WINDOW-CLOSE-V2:
+----------------------------------------
+1. Success Rate:
+   Mean ± Std: 0.2000 ± 0.3606
+   Values: ['0.0000', '0.0000', '0.0000', '0.0000', '0.0000', '0.6000', '0.0000', '1.0000']
+
+2. Mean J:
+   Mean ± Std: 301.5948 ± 247.0868
+   Values: ['283.5898', '134.7508', '141.6391', '132.5623', '141.5878', '696.7764', '136.3781', '745.4740']
+
+3. Discounted Mean J:
+   Mean ± Std: 134.3839 ± 98.0758
+   Values: ['127.1416', '68.2053', '71.5977', '66.8795', '71.0551', '287.3428', '68.7342', '314.1145']
