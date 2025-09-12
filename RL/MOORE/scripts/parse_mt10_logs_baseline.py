@@ -34,7 +34,7 @@ def parse_log_file(log_path):
             success_rate = float(match.group(5))
             
             # Only keep epoch 10 data
-            if epoch == 1:
+            if epoch == 4:
                 metrics['success_rate'][task] = success_rate
                 metrics['mean_J'][task] = mean_j
                 metrics['mean_discounted_J'][task] = discounted_mean_j
@@ -43,12 +43,12 @@ def parse_log_file(log_path):
 
 def main():
     # Base directory
-    base_dir = Path("/home/ubuntu/iclrresearch/angle/RL/MOORE/logs/metaworld/MT10/mixture_orthogonal_experts/mhsac_moore_400x3lx6e")
+    base_dir = Path("/home/ubuntu/iclrwzou/angle/RL/MOORE/logs/metaworld/MT10/mixture_orthogonal_experts/mhsac_moore_400x3lx4e")
     #metaworld_mt5/MT5/mixture_orthogonal_experts/mt5_moore_quick_test_4e_pretexFalse")
     #mixture_orthogonal_experts/mt5_moore_quick_test_w_inh_reverted_4e_pretexTrue/")#/home/ubuntu/code/angle/RL/MOORE/logs/metaworld_mt3/MT3/mixture_orthogonal_experts/mt3_moore_quick_test_4e_pretexFalse")
     
     # Seeds to process
-    seeds = [3, 4, 5, 6, 7, 8, 9, 10]
+    seeds = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     
     # Tasks we expect to find - MT10 task list
     tasks = [

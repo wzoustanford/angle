@@ -43,30 +43,29 @@ def parse_log_file(log_path):
 
 def main():
     # Base directory
-    base_dir = Path("/home/ubuntu/iclrwzou/angle/RL/MOORE/logs/metaworld/MT10/mixture_orthogonal_experts/mhsac_moore_400x3lx6e")
-    #metaworld_mt5/MT5/mixture_orthogonal_experts/mt5_moore_quick_test_4e_pretexFalse")
+    base_dir = Path("/home/ubuntu/iclrwzou/angle/RL/MOORE/logs/metaworld/MT50/mixture_orthogonal_experts/mhsac_moore_GRIN_400x3lx6e")
     #mixture_orthogonal_experts/mt5_moore_quick_test_w_inh_reverted_4e_pretexTrue/")#/home/ubuntu/code/angle/RL/MOORE/logs/metaworld_mt3/MT3/mixture_orthogonal_experts/mt3_moore_quick_test_4e_pretexFalse")
     
     # Seeds to process
-    seeds = [3, 4, 5, 6, 7, 8, 9, 10]
+    seeds = [1, 2]
     
-    # Tasks we expect to find - MT50 task list
+    # Tasks we expect to find
     tasks = [
         'assembly-v2', 'basketball-v2', 'bin-picking-v2', 'box-close-v2',
-        'button-press-topdown-v2', 'button-press-topdown-wall-v2', 
+        'button-press-topdown-v2', 'button-press-topdown-wall-v2',
         'button-press-v2', 'button-press-wall-v2',
         'coffee-button-v2', 'coffee-pull-v2', 'coffee-push-v2',
-        'dial-turn-v2', 'disassemble-v2', 
+        'dial-turn-v2', 'disassemble-v2',
         'door-close-v2', 'door-lock-v2', 'door-open-v2', 'door-unlock-v2',
         'drawer-close-v2', 'drawer-open-v2',
         'faucet-open-v2', 'faucet-close-v2',
         'hammer-v2', 'hand-insert-v2',
-        'handle-press-side-v2', 'handle-press-v2', 
+        'handle-press-side-v2', 'handle-press-v2',
         'handle-pull-side-v2', 'handle-pull-v2',
         'lever-pull-v2',
         'peg-insert-side-v2', 'peg-unplug-side-v2',
         'pick-place-wall-v2', 'pick-out-of-hole-v2', 'pick-place-v2',
-        'plate-slide-v2', 'plate-slide-side-v2', 
+        'plate-slide-v2', 'plate-slide-side-v2',
         'plate-slide-back-v2', 'plate-slide-back-side-v2',
         'push-back-v2', 'push-v2', 'push-wall-v2',
         'reach-v2', 'reach-wall-v2',
@@ -75,6 +74,8 @@ def main():
         'sweep-into-v2', 'sweep-v2',
         'window-open-v2', 'window-close-v2'
     ]
+        
+    #tasks = ['reach-v2', 'push-v2', 'pick-place-v2']
     
     # Store results for each task separately
     task_results = {task: {
