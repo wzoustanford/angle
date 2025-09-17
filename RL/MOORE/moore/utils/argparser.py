@@ -71,6 +71,8 @@ def argparser():
      arg_me.add_argument("--orthogonal", action="store_true")
      arg_me.add_argument("--n_experts", type=int, default=4)
      arg_me.add_argument("--agg_activation", type=str, nargs='+', default=['ReLU', 'ReLU'])
+     arg_me.add_argument("--num_grin_recurrence", type=int, default=1,
+                        help='Number of recurrent steps for GRIN networks')
 
      arg_utils = parser.add_argument_group('Utils')
      arg_utils.add_argument('--use_cuda', action='store_true',

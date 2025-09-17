@@ -113,6 +113,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                             orthogonal = args.orthogonal,
                             n_experts = args.n_experts,
                             agg_activation = args.agg_activation,
+                            num_grin_recurrence = args.num_grin_recurrence,
                             )#
     else:
         mu_actor_input_shape = mdp.observation_space.shape
@@ -128,7 +129,8 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                                 activation = args.activation,
                                 orthogonal = args.orthogonal,
                                 n_experts = args.n_experts,
-                                agg_activation = args.agg_activation,)#
+                                agg_activation = args.agg_activation,
+                                num_grin_recurrence = args.num_grin_recurrence,)#
 
         sigma_actor_input_shape = mdp.observation_space.shape
         if append_context_sigma_actor:
@@ -143,7 +145,8 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                                     activation = args.activation,
                                     orthogonal = args.orthogonal,
                                     n_experts = args.n_experts,
-                                    agg_activation = args.agg_activation,)#
+                                    agg_activation = args.agg_activation,
+                                    num_grin_recurrence = args.num_grin_recurrence,)#
 
     actor_optimizer = {'class': optim.Adam,
                         'params': {'lr': lr_actor, 'betas': (0.9, 0.999)}}#
@@ -166,6 +169,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                             orthogonal = args.orthogonal,
                             n_experts = args.n_experts,
                             agg_activation = args.agg_activation,
+                            num_grin_recurrence = args.num_grin_recurrence,
                             )
 
     if args.debug:
