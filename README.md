@@ -4,13 +4,12 @@
 
 Welcome to **Angle MatrixRL**, an open-source reinforcement learning framework built for research and real-time system performance. This repo offers a clean, extensible, and reproducible codebase to train agents on **Atari**, **Retro**, and other classic environments using modern deep RL algorithms. 
 
-note, we are working on moving code from priavte repo. So the structure isn't there yet. 
-the open source project just started, stay tuned. 
+note: the open source project is work in progress. thank you for your understanding 
 ---
 
 ## Features
 
-- **RL algorithms towards State-of-the-art**: MuZero, EfficientZero, PPO, Agent57, R2D2, Rainbow, NEC,A2C,DQN and more.
+- **RL algorithms towards state-of-the-art**: MuZero, EfficientZero, PPO, Agent57, R2D2, Rainbow, NEC,A2C,DQN and more.
 - **towards real-world RL**: Towards industry grade efficiency. Components trusted by real-time production services. 
 - **Multi-environment support**: Economic and financial data, Health data, Atari (ALE via Gymnasium), custom environments.
 - **Modular & extensible** design: Easily plug in new agents, models, and environments.
