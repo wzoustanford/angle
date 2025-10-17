@@ -204,6 +204,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
     # load agent
     if args.load_agent:
         agent = agent.load(args.load_agent)
+        print('------- loaded agent ------------')
     else:
         # load the critic
         if args.load_critic:
@@ -216,7 +217,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
     agent.set_logger(single_logger)
     # log models summary
     agent.models_summary()
-
+    
     # Algorithm
     core = VecCore(agent, mdp)
     
@@ -233,11 +234,38 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
         value.update({"LogAlpha": []})
     metrics.update({"all_metaworld": {"SuccessRate": []}})
 
+
+    """
+    D = pickle.load(open('collected_states_q.pkl'))
+    states_q_q_store = dict()
+    states_q_store = D['states_q_store']
+    for c, key in enumerate(env_names):
+        dataset = states_q_store[c][0]
+        baseline_q = states_q_store[c][1]
+        batch_size = len(dataset)
+        cur_states = []
+        for i in range(batch_size):
+            cur_states.append(dataset[i][0][1])
+
+        cur_states = np.vstack(cur_states)
+        cs = np.vstack([np.ones(batch_size, dtype=np.int64) * c]).reshape(-1)
+        
+        test_q = agent._next_q(cur_states,False,cs)
+        states_q_q_store[c] = (dataset, baseline_q, test_q)
+    
+    Dsave = dict()
+    Dsave['states_q_q_store'] = states_q_q_store
+    pickle.dump(Dsave, open('both_base_grin_collected_states_q_q.pkl', 'wb'))
+    pdb.set_trace()
+    """
+    
     if args.start_epoch == 0:
         # Intialize the replay memory
         core.eval = False
         core.learn(n_steps=initial_replay_size, n_steps_per_fit=initial_replay_size, render=args.render_train)
-
+        
+        #states_q_store = dict() 
+        
         # random policy evaluation
         current_success_rate_avg = 0.0
         for c, key in enumerate(env_names):
@@ -245,7 +273,23 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
             core.current_idx = c
             dataset, dataset_info = core.evaluate(n_episodes=n_episodes_test, render=args.render_eval if exp_id == 0 else False, get_env_info=True)
             min_J, max_J, mean_J, mean_discounted_J, success_rate = get_stats(dataset, gamma, gamma_eval, dataset_info=dataset_info)
+
+            # ---------- 
+            """
+            batch_size = len(dataset) 
+            cur_states = []
             
+            for i in range(batch_size):
+                cur_states.append(dataset[i][0][1])
+
+            cur_states = np.vstack(cur_states)
+            cs = np.vstack([np.ones(batch_size, dtype=np.int64) * c]).reshape(-1)
+
+            
+            test_q = agent._next_q(cur_states,False,cs)
+            states_q_store[c] = (dataset, test_q)
+            """
+            # ----------- 
             log_alpha = agent.get_log_alpha(c)
             
             metrics[key]["MinReturn"].append(min_J)
@@ -271,6 +315,9 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
                             f'{key}/AverageDiscountedReturn':mean_discounted_J,
                             f'{key}/SuccessRate':success_rate,
                             f'{key}/LogAlpha':log_alpha}, step = 0, commit=False)
+        
+        #Dsave = {'states_q_store': states_q_store}
+        #pickle.dump(Dsave, open('collected_states_q.pkl', 'wb'))
 
         metrics["all_metaworld"]["SuccessRate"].append(current_success_rate_avg / n_contexts)
 
@@ -290,7 +337,7 @@ def run_experiment(args, save_dir, exp_id = 0, seed = None):
             core.current_idx = c
             dataset, dataset_info = core.evaluate(n_episodes=n_episodes_test, render=(args.render_eval if n%args.render_interval == 0 and exp_id == 0 else False), get_env_info=True)
             min_J, max_J, mean_J, mean_discounted_J, success_rate = get_stats(dataset, gamma, gamma_eval, dataset_info=dataset_info)
-            
+
             log_alpha = agent.get_log_alpha(c)
 
             metrics[key]["MinReturn"].append(min_J)
@@ -363,7 +410,7 @@ if __name__ == '__main__':
     logger = Logger(args.exp_name, results_dir=results_dir, log_console=True, use_timestamp=args.use_timestamp)
     logger.strong_line()
     logger.info('Experiment Algorithm: ' + MTSAC.__name__)
-
+    
     save_dir = logger.path
 
     with open(os.path.join(save_dir, 'args.pkl'), 'wb') as f:

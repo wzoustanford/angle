@@ -287,7 +287,7 @@ class VecCore(object):
 
         if render:
             self.mdp.env_name("render")
-
+        
         last = not(
             self._episode_steps < self.mdp.info.horizon and not absorbing)
 

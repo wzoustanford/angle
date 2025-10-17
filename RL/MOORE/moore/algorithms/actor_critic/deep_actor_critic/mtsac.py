@@ -1,6 +1,6 @@
 import numpy as np
 # deeplearning frameworks
-import torch
+import torch, pdb
 import torch.optim as optim
 # framework
 from . import SAC, SACPolicy
@@ -98,14 +98,14 @@ class MTSAC(SAC):
                 reward.append(reward_i)
                 next_state.append(next_state_i)
                 absorbing.append(absorbing_i)
-
+            
             state_idx = np.vstack(state_idx).reshape(-1)
             state = np.vstack(state)
             action = np.vstack(action)
             reward = np.hstack(reward)
             next_state = np.vstack(next_state)
             absorbing = np.hstack(absorbing)
-
+            
             if self._replay_memory[0].size > self._warmup_transitions(): #first or any
                 action_new, log_prob = self.policy.compute_action_and_log_prob_t([state_idx, state])
                 loss = self._loss(state, action_new, state_idx, log_prob)
